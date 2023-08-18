@@ -1,43 +1,57 @@
-const User = require('../models/user');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const User = require("../models/user");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const SECRET = process.env.JWT_SECRET;
 const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+
 const register = async (req, res) => {
   try {
     const newUser = await User.create(req.body);
-    console.log('🚀 ~ file: users.js:9 ~ register ~ newUser:', newUser);
-    const user = { _id: newUser._id, username: newUser.username, email: newUser.email };
+    console.log("🚀 ~ file: users.js:9 ~ register ~ newUser:", newUser);
+    // JWT Creation
+    const user = {
+      _id: newUser._id,
+      username: newUser.username,
+      email: newUser.email,
+    };
     //user is the payload
     const accessToken = jwt.sign(user, SECRET);
     res
       .status(201)
-      .cookie('accessToken', accessToken, {
+      .cookie("accessToken", accessToken, {
         httpOnly: true,
         expires: new Date(Date.now() + oneDayInMilliseconds),
       })
-      .json({ message: 'user created!', user });
+      .json({ message: "user created!", user });
   } catch (error) {
     res.status(500).json({ message: error.message, errors: error.errors });
   }
 };
+
 const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    res.status(400).json({ message: 'Invalid login attempt' });
+    res.status(400).json({ message: "Invalid login attempt" });
   }
   try {
     // Do we have the user?
     const currentUser = await User.findOne({ email });
     if (!currentUser) {
-      res.status(400).json({ message: 'Invalid login attempt' });
+      res.status(400).json({ message: "Invalid login attempt" });
     } else {
       // WE HAVE A USER!!
-      console.log('🚀 ~ file: users.js:31 ~ login ~ currentUser:', currentUser.password, password);
+      console.log(
+        "🚀 ~ file: users.js:31 ~ login ~ currentUser:",
+        currentUser.password,
+        password
+      );
       // IS THE PASSWORD MATCHING???
-      const isPasswordValid = await bcrypt.compare(password, currentUser.password);
+      const isPasswordValid = await bcrypt.compare(
+        password,
+        currentUser.password
+      );
       if (!isPasswordValid) {
-        res.status(400).json({ message: 'Invalid login attempt' });
+        res.status(400).json({ message: "Invalid login attempt" });
       } else {
         // WE HAVE A USER and all is good
         const user = {
@@ -47,11 +61,11 @@ const login = async (req, res) => {
         };
         const accessToken = jwt.sign(user, SECRET);
         res
-          .cookie('accessToken', accessToken, {
+          .cookie("accessToken", accessToken, {
             httpOnly: true,
             expires: new Date(Date.now() + oneDayInMilliseconds),
           })
-          .json({ message: 'user logged in Successfully!', user });
+          .json({ message: "user logged in Successfully!", user });
       }
     }
   } catch (error) {
@@ -60,19 +74,21 @@ const login = async (req, res) => {
 };
 
 const logout = (req, res) => {
-  res.clearCookie('accessToken');
-  res.json({ message: 'user logged out Successfully' });
+  res.clearCookie("accessToken");
+  res.json({ message: "user logged out Successfully" });
 };
 
 const getLoggedinUser = async (req, res) => {
-  console.log('🚀 ~ file: users.js:67 ~ getLoggedinUser ~ req:', req.user);
+  console.log("🚀 ~ file: users.js:67 ~ getLoggedinUser ~ req:", req.user);
 
   try {
-    const user = await User.findOne({ _id: req.user._id }).select('_id email username');
-    console.log('🚀 ~ file: users.js:71 ~ getLoggedinUser ~ user:', user);
+    const user = await User.findOne({ _id: req.user._id }).select(
+      "_id email username"
+    );
+    console.log("🚀 ~ file: users.js:71 ~ getLoggedinUser ~ user:", user);
     res.json({ user });
   } catch (error) {
-    console.log('🚀 ~ file: users.js:74 ~ getLoggedinUser ~ error:', error);
+    console.log("🚀 ~ file: users.js:74 ~ getLoggedinUser ~ error:", error);
 
     res.json({ message: error.message });
   }
