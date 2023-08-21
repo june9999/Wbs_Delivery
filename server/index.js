@@ -4,14 +4,14 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const app = express();
 const connectDB = require('./config/db');
-const booksRouter = require('./routes/books');
+const ordersRouter = require('./routes/orders');
 const authRouter = require('./routes/auth');
 const PORT = process.env.PORT || 8000;
 const path = require('path');
 app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
-app.use('/api/books', booksRouter);
+app.use('/api/orders', ordersRouter);
 app.use('/auth', authRouter);
 // DEPLOYMENT
 // this need to be after all routes
