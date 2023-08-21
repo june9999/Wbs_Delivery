@@ -1,38 +1,38 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from '../axiosInstance';
-const BookDetails = () => {
+const OrderDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
-  const [book, setBook] = useState(null); // book object from backend
+  const [order, setOrder] = useState(null); // order object from backend
   useEffect(() => {
     axios
-      .get(`/api/books/${id}`)
-      .then(res => setBook(res.data))
+      .get(`/api/Orders/${id}`)
+      .then(res => setOrder(res.data))
       .catch(e => setError(e.response?.data?.message));
   }, []);
   const handleDelete = () => {
     axios
-      .delete(`/api/books/${id}`)
+      .delete(`/api/Orders/${id}`)
       .then(res => navigate('/'))
       .catch(e => console.log(e));
   };
   return (
     <div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      {book && (
+      {order && (
         <>
-          <h2>{book.title}</h2>
-          <p>Author: {book.author}</p>
-          <p>Year: {book.year}</p>
-          <p>Added By: {book.createdBy.username}</p>
-          <Link to={`/books/${id}/update`}>Update Book</Link>
-          <button onClick={handleDelete}>Delete Book</button>
+          <h2>{order.title}</h2>
+          <p>Author: {order.author}</p>
+          <p>Year: {order.year}</p>
+          <p>Added By: {order.createdBy.username}</p>
+          <Link to={`/Orders/${id}/update`}>Update Order</Link>
+          <button onClick={handleDelete}>Delete Order</button>
         </>
       )}
     </div>
   );
 };
 
-export default BookDetails;
+export default OrderDetails;

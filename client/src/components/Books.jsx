@@ -1,24 +1,24 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../axiosInstance';
-const Books = () => {
-  const [books, setBooks] = useState(null); // books array from backend
+const Orders = () => {
+  const [Orders, setOrders] = useState(null); // Orders array from backend
   useEffect(() => {
     axios
-      .get(`/api/books`)
-      .then(res => setBooks(res.data))
+      .get(`/api/Orders`)
+      .then(res => setOrders(res.data))
       .catch(e => console.log(e));
   }, []);
 
   return (
     <div>
-      <h2>Book List</h2>
+      <h2>Dashboard</h2>
       <ul>
-        {books &&
-          books.map(book => (
-            <li key={book._id}>
-              <Link to={`/books/${book._id}`}>
-                {book.title} by {book.author}
+        {Orders &&
+          Orders.map(order => (
+            <li key={order._id}>
+              <Link to={`/Orders/${order._id}`}>
+                {order.title} by {order.author}
               </Link>
             </li>
           ))}
@@ -27,4 +27,4 @@ const Books = () => {
   );
 };
 
-export default Books;
+export default Orders;

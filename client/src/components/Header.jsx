@@ -15,7 +15,7 @@ const Header = () => {
           {user ? (
             <>
               <li>
-                <NavLink to="/books/new">Add Book</NavLink>
+                <NavLink to="/Orders/new">Add Order</NavLink>
               </li>
               <p>Hello {user.username}</p>
               <button onClick={logout}>Logout</button>

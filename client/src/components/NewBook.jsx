@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../axiosInstance';
-const NewBook = () => {
+const NewOrder = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -12,7 +12,7 @@ const NewBook = () => {
     // {image: image || defaultImage}
 
     axios
-      .post(`/api/books`, { title, author, year })
+      .post(`/api/Orders`, { title, author, year })
       .then(res => {
         console.log(res.data);
         navigate('/');
@@ -21,7 +21,7 @@ const NewBook = () => {
   };
   return (
     <div>
-      <h2>Add Book</h2>
+      <h2>Add Order</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="">Title</label>
         <input
@@ -35,10 +35,10 @@ const NewBook = () => {
         <input type="text" name="author" value={author} onChange={e => setAuthor(e.target.value)} />
         <label htmlFor="">Year</label>
         <input type="text" name="year" value={year} onChange={e => setYear(e.target.value)} />
-        <button>Add Book</button>
+        <button>Add Order</button>
       </form>
     </div>
   );
 };
 
-export default NewBook;
+export default NewOrder;
