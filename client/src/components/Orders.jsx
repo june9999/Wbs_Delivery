@@ -18,7 +18,7 @@ const Orders = () => {
           Orders.map(order => (
             <li key={order._id}>
               <Link to={`/Orders/${order._id}`}>
-                {order.title} by {order.author}
+                {order.dropLocation} 
               </Link>
             </li>
           ))}

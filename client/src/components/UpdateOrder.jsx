@@ -33,26 +33,49 @@ const UpdateOrder = () => {
     <div>
       <h2>Update Order</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="">Title</label>
+        <label htmlFor="">pickupLocation</label>
         <input
           type="text"
-          name="title"
-          value={order?.title || ''}
+          name="pickupLocation"
+          value={order?.pickupLocation || ''}
           onChange={handleChange}
           required
         />
-        <label htmlFor="">Author</label>
+        <label htmlFor="">dropLocation</label>
         <input
           type="text"
-          name="author"
-          value={order?.author || ''}
+          name="dropLocation"
+          value={order?.dropLocation || ''}
+          onChange={handleChange}
+          required
+        />
+            <label htmlFor="">Weight</label>
+        <input
+          type="number"
+          name="weight"
+          value={order?.weight || ''}
           onChange={handleChange}
         />
-        <label htmlFor="">Year</label>
+        <label htmlFor="">Height</label>
         <input
-          type="text"
-          name="year"
-          value={order?.year || ''}
+          type="number"
+          name="height"
+          value={order?.height || ''}
+          onChange={handleChange}
+        />
+    
+        <label htmlFor="">Length</label>
+        <input
+          type="number"
+          name="length"
+          value={order?.length || ''}
+          onChange={handleChange}
+        />
+        <label htmlFor="">Width</label>
+        <input
+          type="number"
+          name="width"
+          value={order?.width || ''}
           onChange={handleChange}
         />
         <button>Update Order</button>

@@ -7,8 +7,10 @@ const {
   updateBook,
   deleteBook,
 } = require('../controllers/books');
+
 const authenticate = require('../middlewares/auth');
 router.use(authenticate);
+
 router.get('/', getAllBooks);
 router.get('/:id', getBookById);
 router.post('/', createBook);

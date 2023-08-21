@@ -9,24 +9,33 @@ const OrderDetails = () => {
   useEffect(() => {
     axios
       .get(`/api/Orders/${id}`)
-      .then(res => setOrder(res.data))
-      .catch(e => setError(e.response?.data?.message));
+      .then((res) => setOrder(res.data))
+      .catch((e) => setError(e.response?.data?.message));
   }, []);
   const handleDelete = () => {
     axios
       .delete(`/api/Orders/${id}`)
-      .then(res => navigate('/'))
-      .catch(e => console.log(e));
+      .then((res) => navigate('/'))
+      .catch((e) => console.log(e));
   };
   return (
     <div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {order && (
         <>
-          <h2>{order.title}</h2>
-          <p>Author: {order.author}</p>
-          <p>Year: {order.year}</p>
-          <p>Added By: {order.createdBy.username}</p>
+          <h2>{order._id}</h2>
+          <p> {order.pickupLocation}</p>
+          <p> {order.dropLocation}</p>
+          <p> {order.weight}</p>
+          <p> {order.height}</p>
+          <p> {order.length}</p>
+          <p> {order.width}</p>
+          <p>{order.customerId}</p>
+          <p>{order.employeeId}</p>
+          <p>{order.claimed}</p>
+          <p>{order.price}</p>
+          <p>{order.paid}</p>
+          <p>{order.timestamps}</p>
           <Link to={`/Orders/${id}/update`}>Update Order</Link>
           <button onClick={handleDelete}>Delete Order</button>
         </>
