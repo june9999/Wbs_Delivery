@@ -1,5 +1,3 @@
-// Based on wireframe, we need to add sidebar + conditionally display the content
-
 import React, { useState } from "react";
 import Orders from "../components/Orders";
 import Chat from "../components/Chat";
