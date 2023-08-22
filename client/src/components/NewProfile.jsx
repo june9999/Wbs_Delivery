@@ -1,39 +1,15 @@
 import React from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../context/Auth';
-import { Navigate } from 'react-router-dom';
 
-function NewProfile({ handleChange, handleSubmit, user }) {
+function NewProfile({ user, handleChange, handleProfileSubmit }) {
+  // pass the orginal user as prop to here (Register) -> add more attribute to it
   const context = useContext(AuthContext);
   const errors = context.errors;
-  // pass the orginal user as prop to here (Register) -> add more attribute to it
 
-  //   const [user, setUser] = useState({
-  //     // // username: '',
-  //     // // email: '',
-  //     // // password: '',
-  //     // // confirmPassword: '',
-  //     // firstname:'',
-  //     // lastname:'',
-  //     // address:'',
-  //   });
-
-  //   const handleChange = (e) => {
-  //     const { name, value } = e.target;
-  //     setUser({ ...user, [name]: value });
-  //   };
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     context.register(user);
-  //   };
-
-  //   if (!context.loading && context.user) {
-  //     return <Navigate to="/" />;
-  //   }
-
-  //   if (!context.loading && !context.user) {
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleProfileSubmit}>
+      {/*  <form className="form" onSubmit={handleSubmit}> */}
       {/* <label htmlFor="">userType</label>
           {errors?.userType && (
             <p className="text-danger">{errors?.userType.message}</p>
@@ -94,6 +70,42 @@ function NewProfile({ handleChange, handleSubmit, user }) {
         required
       />
 
+<label htmlFor="">zipcode</label>
+      {errors?.zipcode && (
+        <p className="text-danger">{errors?.zipcode.message}</p>
+      )}
+      <input
+        type="Number"
+        name="zipcode"
+        value={user.zipcode}
+        onChange={handleChange}
+        required
+      />
+
+<label htmlFor="">city</label>
+      {errors?.address && (
+        <p className="text-danger">{errors?.city.message}</p>
+      )}
+      <input
+        type="String"
+        name="city"
+        value={user.city}
+        onChange={handleChange}
+        required
+      />
+
+<label htmlFor="">phone</label>
+      {errors?.phone && (
+        <p className="text-danger">{errors?.phone.message}</p>
+      )}
+      <input
+        type="String"
+        name="phone"
+        value={user.phone}
+        onChange={handleChange}
+        required
+      />
+
       {/*           
                     userType: {
                 type: String,
@@ -119,7 +131,6 @@ function NewProfile({ handleChange, handleSubmit, user }) {
       <button>Create Profile</button>
     </form>
   );
-  //   }
 }
 
 export default NewProfile;
