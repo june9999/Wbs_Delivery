@@ -1,94 +1,81 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { AuthContext } from "../context/Auth";
 import { Navigate } from "react-router-dom";
+import NewProfile from "./NewProfile";
+import RegisterForm from "./RegisterForm";
+
 function Register() {
   const context = useContext(AuthContext);
   const errors = context.errors;
+
   const [user, setUser] = useState({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
+    // company: '',
+    firstName: "",
+    lastName: "",
+    address: "",
+    zipcode: "",
+    city: "",
+    phone: "",
+    // image:''
   });
 
+  const [formStage, setFormStage] = useState("register");
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-    console.log(user);
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
   };
-  const handleSubmit = (e) => {
+
+  const handleRegister = async (e) => {
     e.preventDefault();
-    context.register(user);
+    setLoading(true);
+    await context.register(user);
+    setFormStage("profile");
+    setLoading(false);
   };
 
-  if (!context.loading && context.user) {
-    return <Navigate to="/" />;
-  }
+  const handleProfileSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    await context.createProfile(user);
+    // setUser({});
+    setFormStage("registered");
+    setLoading(false);
+  };
 
-  if (!context.loading && !context.user) {
+  if (loading) return <p>Loading...</p>;
+
+  if (formStage === "register") {
     return (
-      <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="">Username:</label>
-        {errors?.username && (
-          <p className="text-danger">{errors?.username.message}</p>
-        )}
-        <input
-          type="text"
-          name="username"
-          value={user.username}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="">Email:</label>
-        {errors?.email && (
-          <p className="text-danger">{errors?.email.message}</p>
-        )}
-        <input
-          type="email"
-          name="email"
-          value={user.email}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="">Password:</label>
-        {errors?.password && (
-          <p className="text-danger">{errors?.password.message}</p>
-        )}
-        <input
-          type="password"
-          name="password"
-          value={user.password}
-          onChange={handleChange}
-          required
-        />
-
-        <label htmlFor="">Confirm Password:</label>
-        {errors?.confirmPassword && (
-          <p className="text-danger">{errors?.confirmPassword.message}</p>
-        )}
-        <input
-          type="password"
-          name="confirmPassword"
-          value={user.confirmPassword}
-          onChange={handleChange}
-          required
-        />
-
-        <label htmlFor="">weight:</label>
-        {errors?.weight && (
-          <p className="text-danger">{errors?.weight.message}</p>
-        )}
-        <input
-          type="weight"
-          name="weight"
-          value={user.weight}
-          onChange={handleChange}
-          required
-        />
-        <button>Register</button>
-      </form>
+      <RegisterForm
+        user={user}
+        handleChange={handleChange}
+        handleSubmit={handleRegister}
+      />
     );
   }
+
+  if (formStage === "profile") {
+    return (
+      <NewProfile
+        user={user}
+        errors={errors}
+        handleChange={handleChange}
+        handleSubmit={handleProfileSubmit}
+      />
+    );
+  }
+
+  if (formStage === "registered") return <Navigate to="/" />;
+
+  return null;
 }
 
 export default Register;

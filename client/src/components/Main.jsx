@@ -7,15 +7,22 @@ import UpdateOrder from './UpdateOrder';
 import Login from './Login';
 import Register from './Register';
 import ProtectedRoute from './ProtectedRoute';
+import Home from '../pages/Home';
+
 const Main = () => {
   return (
     <main>
       <Routes>
+        <Route path="/" element={<Home />} />
+
         <Route path="/" element={<ProtectedRoute />}>
-          <Route path="" element={<Orders />} />
-          <Route path="Orders/new" element={<NewOrder />} />
-          <Route path="Orders/:id" element={<OrderDetails />} />
-          <Route path="Orders/:id/update" element={<UpdateOrder />} />
+{/* // Pages: Contact(Chat) Checkout Rating  */}
+
+      {/* Dashboard */}
+          <Route path="dashboard/orders" element={<Orders />} />
+          <Route path="orders/new" element={<NewOrder />} />
+          <Route path="orders/:id" element={<OrderDetails />} />
+          <Route path="orders/:id/update" element={<UpdateOrder />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
