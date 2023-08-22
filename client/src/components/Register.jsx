@@ -1,21 +1,22 @@
-import { useState, useContext, useEffect } from 'react';
-import { AuthContext } from '../context/Auth';
-import { Navigate } from 'react-router-dom';
+import { useState, useContext, useEffect } from "react";
+import { AuthContext } from "../context/Auth";
+import { Navigate } from "react-router-dom";
 function Register() {
   const context = useContext(AuthContext);
   const errors = context.errors;
   const [user, setUser] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
+    console.log(user);
   };
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     context.register(user);
   };
@@ -28,13 +29,31 @@ function Register() {
     return (
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="">Username:</label>
-        {errors?.username && <p className="text-danger">{errors?.username.message}</p>}
-        <input type="text" name="username" value={user.username} onChange={handleChange} required />
+        {errors?.username && (
+          <p className="text-danger">{errors?.username.message}</p>
+        )}
+        <input
+          type="text"
+          name="username"
+          value={user.username}
+          onChange={handleChange}
+          required
+        />
         <label htmlFor="">Email:</label>
-        {errors?.email && <p className="text-danger">{errors?.email.message}</p>}
-        <input type="email" name="email" value={user.email} onChange={handleChange} required />
+        {errors?.email && (
+          <p className="text-danger">{errors?.email.message}</p>
+        )}
+        <input
+          type="email"
+          name="email"
+          value={user.email}
+          onChange={handleChange}
+          required
+        />
         <label htmlFor="">Password:</label>
-        {errors?.password && <p className="text-danger">{errors?.password.message}</p>}
+        {errors?.password && (
+          <p className="text-danger">{errors?.password.message}</p>
+        )}
         <input
           type="password"
           name="password"
@@ -51,6 +70,18 @@ function Register() {
           type="password"
           name="confirmPassword"
           value={user.confirmPassword}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="">weight:</label>
+        {errors?.weight && (
+          <p className="text-danger">{errors?.weight.message}</p>
+        )}
+        <input
+          type="weight"
+          name="weight"
+          value={user.weight}
           onChange={handleChange}
           required
         />
