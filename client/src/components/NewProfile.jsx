@@ -1,6 +1,6 @@
-import React from 'react';
-import { useState, useContext, useEffect } from 'react';
-import { AuthContext } from '../context/Auth';
+import React from "react";
+import { useState, useContext, useEffect } from "react";
+import { AuthContext } from "../context/Auth";
 
 function NewProfile({ user, handleChange, handleProfileSubmit }) {
   // pass the orginal user as prop to here (Register) -> add more attribute to it
@@ -70,7 +70,7 @@ function NewProfile({ user, handleChange, handleProfileSubmit }) {
         required
       />
 
-<label htmlFor="">zipcode</label>
+      <label htmlFor="">zipcode</label>
       {errors?.zipcode && (
         <p className="text-danger">{errors?.zipcode.message}</p>
       )}
@@ -82,10 +82,8 @@ function NewProfile({ user, handleChange, handleProfileSubmit }) {
         required
       />
 
-<label htmlFor="">city</label>
-      {errors?.address && (
-        <p className="text-danger">{errors?.city.message}</p>
-      )}
+      <label htmlFor="">city</label>
+      {errors?.city && <p className="text-danger">{errors?.city.message}</p>}
       <input
         type="String"
         name="city"
@@ -94,10 +92,8 @@ function NewProfile({ user, handleChange, handleProfileSubmit }) {
         required
       />
 
-<label htmlFor="">phone</label>
-      {errors?.phone && (
-        <p className="text-danger">{errors?.phone.message}</p>
-      )}
+      <label htmlFor="">phone</label>
+      {errors?.phone && <p className="text-danger">{errors?.phone.message}</p>}
       <input
         type="String"
         name="phone"

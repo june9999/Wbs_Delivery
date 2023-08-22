@@ -1,13 +1,15 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Orders from './Orders';
-import NewOrder from './NewOrder';
-import OrderDetails from './OrderDetails';
-import UpdateOrder from './UpdateOrder';
-import Login from './Login';
-import Register from './Register';
-import ProtectedRoute from './ProtectedRoute';
-import Home from '../pages/Home';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import NewOrder from "../pages/NewOrder";
+import OrderDetails from "../pages/OrderDetails";
+import UpdateOrder from "../pages/UpdateOrder";
+import Login from "./Login";
+import Register from "./Register";
+import ProtectedRoute from "./ProtectedRoute";
+import Home from "../pages/Home";
+import Dashboard from "../pages/Dashboard";
+import Payment from "../pages/Payment";
+import Checkout from "../pages/Checkout";
 
 const Main = () => {
   return (
@@ -16,13 +18,19 @@ const Main = () => {
         <Route path="/" element={<Home />} />
 
         <Route path="/" element={<ProtectedRoute />}>
-{/* // Pages: Contact(Chat) Checkout Rating  */}
+          {/* // Pages:  Checkout Rating  */}
 
-      {/* Dashboard */}
-          <Route path="dashboard/orders" element={<Orders />} />
-          <Route path="orders/new" element={<NewOrder />} />
-          <Route path="orders/:id" element={<OrderDetails />} />
-          <Route path="orders/:id/update" element={<UpdateOrder />} />
+          {/* Dashboard */}
+          <Route path="dashboard" element={<Dashboard />} />
+
+          {/* Order */}
+          <Route path="/orders/new" element={<NewOrder />} />
+          <Route path="/orders/:id" element={<OrderDetails />} />
+          <Route path="/orders/:id/update" element={<UpdateOrder />} />
+
+          {/* Payment */}
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment" element={<Payment />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
