@@ -10,6 +10,7 @@ import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import Payment from "../pages/Payment";
 import Checkout from "../pages/Checkout";
+import Map from './map'
 
 const Main = () => {
   return (
