@@ -7,6 +7,8 @@ import UpdateOrder from './UpdateOrder';
 import Login from './Login';
 import Register from './Register';
 import ProtectedRoute from './ProtectedRoute';
+import Map from './map'
+
 const Main = () => {
   return (
     <main>
@@ -19,6 +21,8 @@ const Main = () => {
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/map" element={<Map />} />
+
       </Routes>
     </main>
   );

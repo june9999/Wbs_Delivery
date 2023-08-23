@@ -30,6 +30,9 @@ const Header = () => {
               </li>
             </>
           )}
+          <li>
+            <NavLink to="/map">Map</NavLink>
+          </li>
         </ul>
       </nav>
     </header>
