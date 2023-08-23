@@ -1,23 +1,36 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Orders from './Orders';
-import NewOrder from './NewOrder';
-import OrderDetails from './OrderDetails';
-import UpdateOrder from './UpdateOrder';
-import Login from './Login';
-import Register from './Register';
-import ProtectedRoute from './ProtectedRoute';
-import Map from './map'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import NewOrder from "../pages/NewOrder";
+import OrderDetails from "../pages/OrderDetails";
+import UpdateOrder from "../pages/UpdateOrder";
+import Login from "./Login";
+import Register from "./Register";
+import ProtectedRoute from "./ProtectedRoute";
+import Home from "../pages/Home";
+import Dashboard from "../pages/Dashboard";
+import Payment from "../pages/Payment";
+import Checkout from "../pages/Checkout";
 
 const Main = () => {
   return (
     <main>
       <Routes>
+        <Route path="/" element={<Home />} />
+
         <Route path="/" element={<ProtectedRoute />}>
-          <Route path="" element={<Orders />} />
-          <Route path="Orders/new" element={<NewOrder />} />
-          <Route path="Orders/:id" element={<OrderDetails />} />
-          <Route path="Orders/:id/update" element={<UpdateOrder />} />
+          {/* // Pages:  Checkout Rating  */}
+
+          {/* Dashboard */}
+          <Route path="dashboard" element={<Dashboard />} />
+
+          {/* Order */}
+          <Route path="/orders/new" element={<NewOrder />} />
+          <Route path="/orders/:id" element={<OrderDetails />} />
+          <Route path="/orders/:id/update" element={<UpdateOrder />} />
+
+          {/* Payment */}
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment" element={<Payment />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import axios from '../axiosInstance';
 const Orders = () => {
@@ -6,24 +7,23 @@ const Orders = () => {
   useEffect(() => {
     axios
       .get(`/api/Orders`)
-      .then(res => setOrders(res.data))
-      .catch(e => console.log(e));
+      .then((res) => setOrders(res.data))
+      .catch((e) => console.log(e));
   }, []);
 
   return (
-    <div>
+    <>
+  
       <h2>Dashboard</h2>
       <ul>
         {Orders &&
-          Orders.map(order => (
+          Orders.map((order) => (
             <li key={order._id}>
-              <Link to={`/Orders/${order._id}`}>
-                {order.dropLocation} 
-              </Link>
+              <Link to={`/Orders/${order._id}`}>{order.dropLocation}</Link>
             </li>
           ))}
       </ul>
-    </div>
+    </>
   );
 };
 
