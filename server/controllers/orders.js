@@ -1,4 +1,4 @@
-const Order = require('../models/order');
+const Order = require("../models/order");
 
 const createOrder = async (req, res) => {
   try {
@@ -7,8 +7,7 @@ const createOrder = async (req, res) => {
       ...req.body,
       customerId: req.user._id,
     });
-    console.log('🚀 ~ file: orders.js:6 ~ createOrder ~ newOrder:', newOrder);
-
+    console.log("🚀 ~ file: orders.js:6 ~ createOrder ~ newOrder:", newOrder);
     res.status(201).json(newOrder);
   } catch (error) {
     res.status(500).json({ message: error.message, errors: error.errors });
@@ -16,17 +15,21 @@ const createOrder = async (req, res) => {
 };
 const getAllOrders = async (req, res) => {
   try {
-    const orders = await Order.find()
+    // find related order based on customer or employee Id
+
+    const orders = await Order.find({
+      $or: [{ customerId: req.user._id }, { employeeId: req.user._id }],
+    })
       .populate({
-        path: 'customerId',
-        select: 'username',
+        path: "customerId",
+        select: "username",
       })
       .populate({
-        path: 'employeeId',
-        select: 'username',
+        path: "employeeId",
+        select: "username",
       });
 
-    console.log('🚀 ~ file: orders.js:15 ~ getAllOrders ~ orders:', orders);
+    console.log("🚀 ~ file: orders.js:15 ~ getAllOrders ~ orders:", orders);
     res.json(orders);
   } catch (error) {
     res.status(500).json({ message: error.message, errors: error.errors });
@@ -40,12 +43,12 @@ const getOrderById = async (req, res) => {
     // await Order.findById(id)
     const orders = await Order.find({ _id: id })
       .populate({
-        path: 'customerId',
-        select: 'username',
+        path: "customerId",
+        select: "username",
       })
       .populate({
-        path: 'employeeId',
-        select: 'username',
+        path: "employeeId",
+        select: "username",
       });
     //   customerId: {
     //     type: mongoose.Schema.Types.ObjectId,
@@ -55,9 +58,9 @@ const getOrderById = async (req, res) => {
     //   employeeId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     //   },
 
-    console.log('🚀 ~ file: orders.js:28 ~ getOrderById ~ orders:', orders);
+    console.log("🚀 ~ file: orders.js:28 ~ getOrderById ~ orders:", orders);
     if (orders.length === 0) {
-      res.status(404).json({ message: 'Order Not Found' });
+      res.status(404).json({ message: "Order Not Found" });
     }
     res.json(orders[0]);
   } catch (error) {
@@ -76,11 +79,11 @@ const updateOrder = async (req, res) => {
       new: true,
     });
     console.log(
-      '🚀 ~ file: orders.js:46 ~ updateOrder ~ updatedOrder:',
+      "🚀 ~ file: orders.js:46 ~ updateOrder ~ updatedOrder:",
       updatedOrder
     );
     if (!updatedOrder) {
-      res.status(404).json({ message: 'Order Not Found' });
+      res.status(404).json({ message: "Order Not Found" });
     }
     res.json(updatedOrder);
   } catch (error) {
@@ -95,11 +98,11 @@ const deleteOrder = async (req, res) => {
     // const deletedOrder = await Order.findByIdAndDelete()
     const deletedOrder = await Order.findOneAndDelete({ _id: id });
     console.log(
-      '🚀 ~ file: orders.js:62 ~ deleteOrder ~ deletedOrder:',
+      "🚀 ~ file: orders.js:62 ~ deleteOrder ~ deletedOrder:",
       deletedOrder
     );
     if (!deletedOrder) {
-      res.status(404).json({ message: 'Order Not Found' });
+      res.status(404).json({ message: "Order Not Found" });
     }
     res.json(deletedOrder);
   } catch (error) {
