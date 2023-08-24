@@ -1,5 +1,5 @@
 import React from 'react';
-import runningCat from '/runningCat.jpg';
+import runningCat from '../assets/runningCat.jpg';
 
 const Hero = () => {
   return (
@@ -10,7 +10,7 @@ const Hero = () => {
             Your purrcel is our purriority
           </h1>
           <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            Rapid Cats is an on-demand local delivery service that promises
+            RapidCats is an on-demand local delivery service that promises
             lightning-fast pickup and dropoff of packages and documents within
             your city, meow!
           </p>

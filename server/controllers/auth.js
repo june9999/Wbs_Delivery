@@ -13,6 +13,7 @@ const register = async (req, res) => {
       _id: newUser._id,
       username: newUser.username,
       email: newUser.email,
+      userType: newUser.userType,
     };
     //user is the payload
     const accessToken = jwt.sign(user, SECRET);
