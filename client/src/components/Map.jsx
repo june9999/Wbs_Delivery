@@ -10,24 +10,28 @@ import {
 
 // import { Container, Title, Button } from 'flowbite';
 
-const center = { lat: 48.8584, lng: 2.2945 };
+const center = { lat: 52.5200,  lng: 13.4050 };
 
-const mapLibrary=['places'];
+ const mapLibrary=['places'];
 
 const Map = () => {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY,
     
-    libraries:mapLibrary ,
+    libraries: mapLibrary ,
   });
-  console.log(import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+  
 
   const [map, setMap] = useState(null);
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [distance, setDistance] = useState('');
   const [duration, setDuration] = useState('');
+  console.log(distance)
+  console.log(duration)
 
+ /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef();
+  /** @type React.MutableRefObject<HTMLInputElement> */
   const destinationRef = useRef();
 
   if (!isLoaded) {
@@ -38,21 +42,26 @@ const Map = () => {
     if (originRef.current.value === '' || destinationRef.current.value === '') {
       return;
     }
-    const directionsService = new google.maps.DirectionsService();
+
+    
+
+     const directionsService = new google.maps.DirectionsService()
     const results = await directionsService.route({
       origin: originRef.current.value,
       destination: destinationRef.current.value,
       travelMode: google.maps.TravelMode.DRIVING,
-    });
+    })
     setDirectionsResponse(results);
-    setDistance(results.routes[0].legs[0].distance.text);
-    setDuration(results.routes[0].legs[0].duration.text);
+    setDistance(results.routes[0].legs[0].distance.value);
+    setDuration(results.routes[0].legs[0].duration.value);
   }
 
   function clearRoute() {
     setDirectionsResponse(null);
     setDistance('');
+    
     setDuration('');
+    
     originRef.current.value = '';
     destinationRef.current.value = '';
   }
@@ -70,11 +79,11 @@ const Map = () => {
   </Container>
   </div> */}
     <div>
-      {isLoaded ? (
+      {/* {isLoaded ? ( */}
         <GoogleMap
           center={center}
           zoom={15}
-          mapContainerStyle={{ width: '800px', height: '800px' }}
+          mapContainerStyle={{ width: '1200px', height: '800px' }}
           // options={{
           //   zoomControl: false,
           //   streetViewControl: false,
@@ -84,13 +93,14 @@ const Map = () => {
           onLoad={map => setMap(map)}
         >
           <MarkerF position={center} />
+
           {directionsResponse && (
             <DirectionsRenderer directions={directionsResponse} />
           )}
         </GoogleMap>
-      ) : (
+      {/* ) : (
         <div>Loading Google Maps...</div>
-      )}
+      )} */}
 
 <form>
 <Autocomplete>
@@ -107,11 +117,13 @@ const Map = () => {
             <button  type='submit' onClick={calculateRoute}>
               Calculate Route
             </button>
-            <button onClick={clearRoute}></button>
+            <button onClick={clearRoute}>New Route</button>
 </form>
 
 <p>Distance: {distance} </p>
+
 <p>Duration: {duration}</p>
+
 
 
 <button onClick={() => {

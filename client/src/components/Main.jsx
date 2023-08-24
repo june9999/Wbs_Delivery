@@ -6,7 +6,7 @@ import UpdateOrder from "../pages/UpdateOrder";
 import Login from "./Login";
 import Register from "./Register";
 import ProtectedRoute from "./ProtectedRoute";
-import Home from "../pages/Home";
+import Home from './Home'
 import Dashboard from "../pages/Dashboard";
 import Payment from "../pages/Payment";
 import Checkout from "../pages/Checkout";
@@ -22,7 +22,7 @@ const Main = () => {
           {/* // Pages:  Checkout Rating  */}
 
           {/* Dashboard */}
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
           {/* Order */}
           <Route path="/orders/new" element={<NewOrder />} />
