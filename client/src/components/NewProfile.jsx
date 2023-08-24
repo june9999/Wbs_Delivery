@@ -2,13 +2,13 @@ import React from "react";
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../context/Auth";
 
-function NewProfile({ user, handleChange, handleProfileSubmit }) {
+function NewProfile({ user, errors, handleChange, handleSubmit }) {
   // pass the orginal user as prop to here (Register) -> add more attribute to it
-  const context = useContext(AuthContext);
-  const errors = context.errors;
+  // const context = useContext(AuthContext);
+  // const errors = context.errors;
 
   return (
-    <form className="form" onSubmit={handleProfileSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       {/*  <form className="form" onSubmit={handleSubmit}> */}
       {/* <label htmlFor="">userType</label>
           {errors?.userType && (
@@ -75,7 +75,7 @@ function NewProfile({ user, handleChange, handleProfileSubmit }) {
         <p className="text-danger">{errors?.zipcode.message}</p>
       )}
       <input
-        type="Number"
+        type="String"
         name="zipcode"
         value={user.zipcode}
         onChange={handleChange}
@@ -102,27 +102,15 @@ function NewProfile({ user, handleChange, handleProfileSubmit }) {
         required
       />
 
-      {/*           
-                    userType: {
-                type: String,
-                unique: true,
-                required: [true, "userType is required"],
-              },
-              company: { type: String, default: null, unique: true },
-              firstName: { type: String, required: [true, "firstname is required"] },
-              lastName: { type: String, required: [true, "lastname is required"] },
-              username: { type: String, required: [true, "username is Required!"] },
-              address: { type: String, required: [true, "address is required"] },
-              zipcode: { type: Number, required: [true, "zipcode is required"] },
-              city: { type: String, required: [true, "city is required"] },
-              phone: {
-                type: Number,
-                required: [true, "phone is required"],
-                unique: true,
-              },
-              image: { type: String },
-  
-            */}
+      <label htmlFor="">image</label>
+      {errors?.image && <p className="text-danger">{errors?.image.message}</p>}
+      <input
+        type="String"
+        name="image"
+        value={user.image}
+        onChange={handleChange}
+        required
+      />
 
       <button>Create Profile</button>
     </form>
