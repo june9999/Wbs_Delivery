@@ -10,6 +10,8 @@ import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import Payment from "../pages/Payment";
 import Checkout from "../pages/Checkout";
+import Notfound from "../components/blocks/Notfound";
+import Comments from "../pages/Comments";
 
 const Main = () => {
   return (
@@ -26,14 +28,17 @@ const Main = () => {
           {/* Order */}
           <Route path="/orders/new" element={<NewOrder />} />
           <Route path="/orders/:id" element={<OrderDetails />} />
+          <Route path="/orders/:id/comments" element={<Comments />} />
           <Route path="/orders/:id/update" element={<UpdateOrder />} />
 
           {/* Payment */}
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/payment" element={<Payment />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<Notfound />} />
       </Routes>
     </main>
   );
