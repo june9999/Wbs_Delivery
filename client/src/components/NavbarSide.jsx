@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const NavbarSide = ({ displayPage, setDisplayPage }) => {
   return (
@@ -31,7 +31,7 @@ const NavbarSide = ({ displayPage, setDisplayPage }) => {
         className="fixed top-0 left-0 z-40 w-64 h-100% transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidenav"
       > */}
-      <div className="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+      <div className="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700   flex-1">
         <ul className="space-y-2">
           <li>
             <a

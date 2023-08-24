@@ -15,6 +15,7 @@ import { AnimatePresence } from "framer-motion";
 import AnimatedPage from "./AnimatedPage";
 import Map from "./map";
 import NotFound from "./NotFound";
+import Contact from "./Contact";
 
 const Main = () => {
   const location = useLocation();
@@ -44,6 +45,7 @@ const Main = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/map" element={<Map />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>

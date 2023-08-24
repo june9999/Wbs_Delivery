@@ -67,6 +67,10 @@ module.exports = {
           'Noto Color Emoji',
         ],
       },
+      backgroundImage: {
+        'cat': "url('./src/assets/runningCat.jpg')",
+        // 'footer-texture': "url('/img/footer-texture.png')",
+      },
     },
   },
 
