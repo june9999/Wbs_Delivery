@@ -6,15 +6,15 @@ import UpdateOrder from "../pages/UpdateOrder";
 import Login from "./Login";
 import Register from "./Register";
 import ProtectedRoute from "./ProtectedRoute";
-import Home from './Home'
+import Home from "./Home";
 import Dashboard from "../pages/Dashboard";
 import Payment from "../pages/Payment";
 import Checkout from "../pages/Checkout";
-import Notfound from "../components/blocks/Notfound";
 import Comments from "../pages/Comments";
 import { AnimatePresence } from "framer-motion";
 import AnimatedPage from "./AnimatedPage";
 import Map from "./map";
+import NotFound from "./NotFound";
 
 const Main = () => {
   const location = useLocation();
@@ -40,13 +40,11 @@ const Main = () => {
               {/* Payment */}
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/payment" element={<Payment />} />
-              
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/map" element={<Map/>}/>
-            <Route path="*" element={<Notfound />} />
-          
+            <Route path="/map" element={<Map />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
       </AnimatedPage>
