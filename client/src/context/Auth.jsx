@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
       setState(null, false, error.response.data);
     }
   };
+  
   const register = async (user) => {
     setLoading(true);
     try {

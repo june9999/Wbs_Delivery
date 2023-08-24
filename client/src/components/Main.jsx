@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import NewOrder from "../pages/NewOrder";
 import OrderDetails from "../pages/OrderDetails";
 import UpdateOrder from "../pages/UpdateOrder";
@@ -12,34 +12,41 @@ import Payment from "../pages/Payment";
 import Checkout from "../pages/Checkout";
 import Notfound from "../components/blocks/Notfound";
 import Comments from "../pages/Comments";
+import { AnimatePresence } from "framer-motion";
+import AnimatedPage from "./AnimatedPage";
 
 const Main = () => {
+  const location = useLocation();
   return (
     <main>
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <AnimatedPage>
+        <AnimatePresence mode="wait">
+          <Routes key={location.pathname} location={location}>
+            <Route path="/" element={<Home />} />
 
-        <Route path="/" element={<ProtectedRoute />}>
-          {/* // Pages:  Checkout Rating  */}
+            <Route path="/" element={<ProtectedRoute />}>
+              {/* // Pages:  Checkout Rating  */}
 
-          {/* Dashboard */}
-          <Route path="dashboard" element={<Dashboard />} />
+              {/* Dashboard */}
+              <Route path="dashboard" element={<Dashboard />} />
 
-          {/* Order */}
-          <Route path="/orders/new" element={<NewOrder />} />
-          <Route path="/orders/:id" element={<OrderDetails />} />
-          <Route path="/orders/:id/comments" element={<Comments />} />
-          <Route path="/orders/:id/update" element={<UpdateOrder />} />
+              {/* Order */}
+              <Route path="/orders/new" element={<NewOrder />} />
+              <Route path="/orders/:id" element={<OrderDetails />} />
+              <Route path="/orders/:id/comments" element={<Comments />} />
+              <Route path="/orders/:id/update" element={<UpdateOrder />} />
 
-          {/* Payment */}
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/payment" element={<Payment />} />
-        </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<Notfound />} />
-      </Routes>
+              {/* Payment */}
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/payment" element={<Payment />} />
+            </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="*" element={<Notfound />} />
+          </Routes>
+        </AnimatePresence>
+      </AnimatedPage>
     </main>
   );
 };
