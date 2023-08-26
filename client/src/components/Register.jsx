@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../context/Auth';
 import { Navigate } from 'react-router-dom';
@@ -69,6 +70,7 @@ function Register() {
     return (
       <RegisterForm
         user={user}
+        errors={errors}
         handleChange={handleChange}
         handleSubmit={handleRegister}
       />
