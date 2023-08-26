@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../context/Auth';
 import Logo from '../assets/cute-cat-courier.png';
@@ -36,8 +36,8 @@ const Header = () => {
         </nav>
       </header> */}
 
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xxl">
+      <nav className="bg-white border-gray-200   dark:bg-gray-800">
+        <div className="px-4 lg:px-6 flex flex-wrap justify-between items-center mx-auto max-w-screen-xxl shadow-xl pb-2">
           <a href="/" className="flex items-center">
             <img src={Logo} className="mr-3 h-6 sm:h-9" alt="Cat Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
@@ -46,7 +46,7 @@ const Header = () => {
           </a>
           {user ? (
             <div className="flex items-center lg:order-2">
-              {/* <a className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Hi {user.username}</a> */}
+              <a className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Hello {user.username}</a>
               <button onClick={logout}>Logout</button>
             </div>
           ) : (
@@ -107,7 +107,7 @@ const Header = () => {
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-              <li>
+              <li key="1">
                 <a
                   href="/"
                   className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
@@ -125,7 +125,7 @@ const Header = () => {
                 </a>
               </li> */}
 
-              <li>
+              <li key="2">
                 <a
                   href="/orders/new"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
@@ -133,7 +133,7 @@ const Header = () => {
                   New Order
                 </a>
               </li>
-              <li>
+              <li key="3">
                 <a
                   href="/dashboard"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
@@ -141,7 +141,7 @@ const Header = () => {
                   My Profile
                 </a>
               </li>
-              <li>
+              <li key="4">
                 <a
                   href="/contact"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
@@ -150,7 +150,7 @@ const Header = () => {
                 </a>
               </li>
 
-              <li>
+              <li key="5">
                 <a
                   href="/map"
                   className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
