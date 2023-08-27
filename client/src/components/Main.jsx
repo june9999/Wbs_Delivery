@@ -15,7 +15,7 @@ import { AnimatePresence } from 'framer-motion';
 import AnimatedPage from './AnimatedPage';
 import Map from './Map';
 import NotFound from './NotFound';
-import Contact from './Contact';
+import Contact from '../pages/Contact';
 
 const Main = () => {
   const location = useLocation();
