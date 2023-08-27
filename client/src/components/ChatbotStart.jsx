@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import styled from 'node_modules/styled-components';
+import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
 import { script } from './chatbot';
