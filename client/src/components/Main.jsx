@@ -13,9 +13,9 @@ import Checkout from '../pages/Checkout';
 import Comments from '../pages/Comments';
 import { AnimatePresence } from 'framer-motion';
 import AnimatedPage from './AnimatedPage';
-import Map from './map';
+import Map from './Map';
 import NotFound from './NotFound';
-import Contact from '../pages/Contact';
+import Contact from './Contact';
 
 const Main = () => {
   const location = useLocation();
