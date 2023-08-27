@@ -1,7 +1,7 @@
 import React from 'react';
 import runningCat from '../assets/runningCat.jpg';
 import fastKitten from '../assets/fast-kitten.gif';
-import ChatbotStart from './ChatBotStart';
+import ChatbotStart from './ChatbotStart';
 import MapHome from './MapHome';
 // import catBox from '../assets/cat-box.jpg';
 
