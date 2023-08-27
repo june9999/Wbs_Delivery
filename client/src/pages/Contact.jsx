@@ -1,5 +1,5 @@
 import React from 'react';
-import ChatbotStart from '../components/ChatBotStart';
+import ChatbotStart from '../components/ChatbotStart';
 import FormContact from '../components/blocks/FormContact';
 
 const Contact = () => {
@@ -8,7 +8,7 @@ const Contact = () => {
       <FormContact />
       <div className="" style={{ position: 'absolute', top: 600, right: 0 }}>
         <ChatbotStart />
-      </div>{' '}
+      </div>
     </>
   );
 };
