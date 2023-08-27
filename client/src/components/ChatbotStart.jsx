@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import styled from 'styled-components';
-import { ThemeProvider } from 'styled-components';
+// import styled from 'node_modules/styled-components';
+// import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
 import { script } from './chatbot';
 import { chatbotStepifyScript } from './chatbotStepifyScript';
@@ -39,15 +39,16 @@ const steps = [
 
 const ChatbotStart = () => (
   <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-    <ThemeProvider theme={theme}>
+    {/* <ThemeProvider theme={theme}> */}
       <ChatBot
         headerTitle="Customer Support"
         // speechSynthesis={{ enable: true, lang: 'en' }}
         // bubbleOptionStyle={{ backgroundColor: 'white', color: 'black' }}
+        theme={theme}
         steps={chatbotStepifyScript(script)}
         botAvatar={botAvatar}
       />
-    </ThemeProvider>
+    {/* </ThemeProvider> */}
   </div>
 );
 
