@@ -68,7 +68,7 @@ module.exports = {
         ],
       },
       backgroundImage: {
-        'cat': "url('./src/assets/runningCat.jpg')",
+        // 'cat': "url('./src/assets/runningCat.jpg')",
         // 'footer-texture': "url('/img/footer-texture.png')",
       },
     },

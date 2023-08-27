@@ -5,15 +5,18 @@ import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
 import { script } from './chatbot';
 import { chatbotStepifyScript } from './chatbotStepifyScript';
+import botAvatar from '../assets/catbot.png';
 
+// documentation: https://lucasbassetti.com.br/react-simple-chatbot/#/docs/form
 // all available props
+
 const theme = {
-  background: '#f5f8fb',
-  fontFamily: 'Helvetica Neue',
-  headerBgColor: '#ab927d',
+  background: '#f9f8fb',
+  fontFamily: 'Roboto, sans-serif',
+  headerBgColor: '#115e59',
   headerFontColor: '#fff',
-  headerFontSize: '15px',
-  botBubbleColor: '#deab80',
+  headerFontSize: '20px',
+  botBubbleColor: '#115e59',
   botFontColor: '#fff',
   userBubbleColor: '#fff',
   userFontColor: '#4a4a4a',
@@ -38,8 +41,11 @@ const ChatbotStart = () => (
   <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
     <ThemeProvider theme={theme}>
       <ChatBot
-        bubbleOptionStyle={{ backgroundColor: 'white', color: 'black' }}
+        headerTitle="Customer Support"
+        // speechSynthesis={{ enable: true, lang: 'en' }}
+        // bubbleOptionStyle={{ backgroundColor: 'white', color: 'black' }}
         steps={chatbotStepifyScript(script)}
+        botAvatar={botAvatar}
       />
     </ThemeProvider>
   </div>
