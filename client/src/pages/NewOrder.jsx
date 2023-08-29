@@ -19,9 +19,9 @@ const NewOrder = () => {
   const [customerId, setCustomerId] = useState(user._id);
   // const [employeeId, setEmployeeId] = useState('');
 
-  const [claimed, setClaimed] = useState('false');
-  const [price, setPrice] = useState(0);
-  const [paid, setPaid] = useState('false');
+  // const [claimed, setClaimed] = useState('false');
+  // const [price, setPrice] = useState(0);
+  // const [paid, setPaid] = useState('false');
 
   /*
             <h2>{order._id}</h2>
@@ -53,9 +53,7 @@ const NewOrder = () => {
         length,
         width,
         customerId,
-        claimed,
-        price,
-        paid,
+        
       })
       .then((res) => {
         console.log(res.data);

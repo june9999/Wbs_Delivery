@@ -1,4 +1,5 @@
 import React from 'react';
+import catBox from '../../assets/cat-box.jpg';
 
 const SectionContent = () => {
   return (
@@ -23,7 +24,7 @@ const SectionContent = () => {
         <div className="grid grid-cols-2 gap-4 mt-8">
           <img
             className="w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
+            src={catBox}
             alt="office content 1"
           />
           <img
