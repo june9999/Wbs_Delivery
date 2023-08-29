@@ -14,7 +14,7 @@ import Notfound from "../components/blocks/Notfound";
 import Comments from "../pages/Comments";
 import { AnimatePresence } from "framer-motion";
 import AnimatedPage from "./AnimatedPage";
-import Map from "./map";
+import ProjMap from "./ProjMap";
 
 const Main = () => {
   const location = useLocation();
@@ -44,7 +44,7 @@ const Main = () => {
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/map" element={<Map/>}/>
+            <Route path="/map" element={<ProjMap/>}/>
             <Route path="*" element={<Notfound />} />
           
           </Routes>
