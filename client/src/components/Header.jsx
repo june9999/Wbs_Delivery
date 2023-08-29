@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/Auth";
 import Logo from "../assets/cute-cat-courier.png";
+import socket from "../../socket/socket";
+import Card from "./Card";
+// import notification from "../img/notification";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -153,6 +156,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
+      <Card socket={socket} />
     </>
   );
 };

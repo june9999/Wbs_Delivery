@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../context/Auth';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/Auth";
+import socket from "../../socket/socket";
 
-import axios from '../axiosInstance';
+import axios from "../axiosInstance";
 
 const NewOrder = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [pickupLocation, setPickupLocation] = useState('');
-  const [dropLocation, setDropLocation] = useState('');
+  const [pickupLocation, setPickupLocation] = useState("");
+  const [dropLocation, setDropLocation] = useState("");
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [length, setLength] = useState(0);
@@ -18,9 +19,9 @@ const NewOrder = () => {
   const [customerId, setCustomerId] = useState(user._id);
   // const [employeeId, setEmployeeId] = useState('');
 
-  const [claimed, setClaimed] = useState('false');
+  const [claimed, setClaimed] = useState("false");
   const [price, setPrice] = useState(0);
-  const [paid, setPaid] = useState('false');
+  const [paid, setPaid] = useState("false");
 
   /*
             <h2>{order._id}</h2>
@@ -58,10 +59,15 @@ const NewOrder = () => {
       })
       .then((res) => {
         console.log(res.data);
-        navigate('/');
+        socket.emit(
+          "message",
+          `order by ${customerId} from ${pickupLocation} to ${dropLocation} is created`
+        );
+        navigate("/");
       })
       .catch((e) => console.log(e));
   };
+
   return (
     <div>
       <h2>Add Order</h2>

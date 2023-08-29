@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react";
 import axios from "../axiosInstance";
 import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext();
+import socket from "../../socket/socket";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -22,6 +23,14 @@ const AuthProvider = ({ children }) => {
       });
   }, []);
 
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log(socket.id);
+    });
+
+    socket?.emit("newUser", "employee");
+  }, user);
+
   const login = async (user) => {
     setLoading(true);
     try {
@@ -33,7 +42,7 @@ const AuthProvider = ({ children }) => {
       setState(null, false, error.response.data);
     }
   };
-  
+
   const register = async (user) => {
     setLoading(true);
     try {
