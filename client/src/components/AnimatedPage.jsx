@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'; // framer motion library
+import { motion } from "framer-motion"; // framer motion library
 
 const animations = {
   initial: { opacity: 0, y: -100 },
@@ -24,7 +24,7 @@ const AnimatedPage = ({ children }) => {
         opacity: 1,
         x: 0,
         transition: {
-          duration: .8,
+          duration: 0.8,
           ease: [0.61, 1, 0.88, 1],
         },
       }}
