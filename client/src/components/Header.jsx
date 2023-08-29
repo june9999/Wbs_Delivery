@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../context/Auth';
 import Logo from '../assets/cute-cat-courier.png';
+// import Logo from '../assets/cute-cat-courier.png';
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -36,10 +37,10 @@ const Header = () => {
         </nav>
       </header> */}
 
-      <nav className="bg-white border-gray-200   dark:bg-gray-800">
-        <div className="px-4 lg:px-6 flex flex-wrap justify-between items-center mx-auto max-w-screen-xxl shadow-xl pb-2">
+      <nav className="relative bg-white border-gray-200   dark:bg-gray-800">
+        <div className="px-4 py-2 lg:px-6 flex flex-wrap justify-between items-center mx-auto max-w-screen-xxl pb-2 shadow-lg">
           <a href="/" className="flex items-center">
-            <img src={Logo} className="mr-3 h-6 sm:h-9" alt="Cat Logo" />
+            <img src={Logo} className="mr-3 h-6 sm:h-10" alt="Cat Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               RapidCats
             </span>

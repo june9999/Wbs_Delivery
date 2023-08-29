@@ -3,17 +3,19 @@ import Hero from './Hero';
 import SectionTeam from './blocks/SectionTeam';
 import SectionFeature from './blocks/SectionFeature';
 import SectionContent from './blocks/SectionContent';
-import SectionRead from './blocks/SectionRead';
 import SectionTestimonials from './blocks/SectionTestimonials';
+import CookieInfoBanner from '../components/blocks/CookieInfoBanner';
 
 const Home = () => {
   return (
     <>
       <Hero />
-      <SectionContent />
       <SectionFeature />
+      <SectionContent />
       <SectionTestimonials />
       <SectionTeam />
+      {/* <CookieInfoBanner /> */}
+
     </>
   );
 };

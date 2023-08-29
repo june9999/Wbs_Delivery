@@ -1,7 +1,7 @@
-import { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { AuthContext } from '../context/Auth';
 import { Navigate } from 'react-router-dom';
-
+import LoginForm from './LoginForm';
 function Login() {
   const context = useContext(AuthContext);
 
@@ -10,26 +10,37 @@ function Login() {
     password: '',
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log('CONTEXT', context);
     context.login(user);
   };
   if (!context.loading && context.user) {
-    return <Navigate to="/" />;
+    return <Navigate to="/dashboard" />;
   }
 
   if (!context.loading && !context.user) {
     return (
       <>
+      <LoginForm
+        user={user}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+      />
         {context.errors?.message}
         <form onSubmit={handleSubmit}>
           <label htmlFor="">Email:</label>
-          <input type="email" name="email" value={user.email} onChange={handleChange} required />
+          <input
+            type="email"
+            name="email"
+            value={user.email}
+            onChange={handleChange}
+            required
+          />
           <label htmlFor="">Password:</label>
           <input
             type="password"
@@ -40,7 +51,6 @@ function Login() {
           />
           <button>Login</button>
         </form>
-
         {/* <section class="bg-gray-50 dark:bg-gray-900">
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
@@ -81,11 +91,7 @@ function Login() {
       </div>
   </div>
 </section> */}
-
-
       </>
-
-
     );
   }
 }

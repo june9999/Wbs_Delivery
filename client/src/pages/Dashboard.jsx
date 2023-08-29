@@ -11,9 +11,7 @@ const Dashboard = () => {
   const [displayPage, setDisplayPage] = useState(0);
   return (
     // Background image --- parent style: opacity 0.99 relative --- child: img opacity absolute z-index w h cover ---
-    <section
-      className="flex max-w-screen-xl  mx-auto pb-[2rem] gap-[10rem]"
-    >
+    <section className="flex max-w-screen-xl  mx-auto pb-[2rem] gap-[10rem]">
       <div>
         <NavbarSide displayPage={displayPage} setDisplayPage={setDisplayPage} />
       </div>

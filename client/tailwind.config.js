@@ -16,6 +16,13 @@ module.exports = {
 
   theme: {
     extend: {
+      theme: {
+        extend: {
+          backgroundColor: {
+            gray: '#F08080',
+          },
+        },
+      },
       colors: {
         primary: {
           50: '#f0fdfa',
@@ -67,6 +74,7 @@ module.exports = {
           'Noto Color Emoji',
         ],
       },
+
       backgroundImage: {
         // 'cat': "url('./src/assets/runningCat.jpg')",
         // 'footer-texture': "url('/img/footer-texture.png')",
