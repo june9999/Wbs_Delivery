@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from '../axiosInstance';
 
-
 const OrderCards = ({ order, Orders, setOrders }) => {
   const navigate = useNavigate();
   const id = order._id;
@@ -63,7 +62,7 @@ const OrderCards = ({ order, Orders, setOrders }) => {
           </button>
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 
