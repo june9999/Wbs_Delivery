@@ -12,7 +12,7 @@ import {
 
 const center = { lat: 52.52, lng: 13.405 };
 
-const mapLibrary = ['places'];
+// const mapLibrary = ['places'];
 
 const Map = () => {
   const { isLoaded } = useJsApiLoader({
