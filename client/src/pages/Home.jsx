@@ -4,6 +4,7 @@ import FormUpdate from '../components/blocks/FormUpdate';
 import ModalMessage from '../components/blocks/ModalMessage';
 // import ModalDelete from '../components/blocks/ModalDelete';
 import CookieInfoBanner from '../components/blocks/CookieInfoBanner';
+import SectionTeam from '../components/blocks/SectionTeam';
 
 // Based on wireframe, we need to add a form (to calcuate delivery quickly) + successful stories inside  +   trusted companies
 
@@ -12,6 +13,7 @@ const Home = () => {
     <>
       <Hero />
       <CookieInfoBanner />
+      <SectionTeam/>
       {/* <ModalMessage /> */}
       {/* <ModalDelete/> */}
       {/* <FormUpdate/> */}

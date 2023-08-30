@@ -2,45 +2,14 @@ import React from 'react';
 
 const FormCreate = () => {
   return (
+    <>
     <section className="bg-white dark:bg-gray-900">
       <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
         <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-          Add a new product
+          Add Order
         </h2>
-        <form action="#">
-          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="name"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Product Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Type product name"
-                required
-              />
-            </div>
-            <div className="w-full">
-              <label
-                htmlFor="brand"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Brand
-              </label>
-              <input
-                type="text"
-                name="brand"
-                id="brand"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Product brand"
-                required
-              />
-            </div>
+        <form onSubmit={handleSubmit}>
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
             <div className="w-full">
               <label
                 htmlFor="price"
@@ -57,24 +26,7 @@ const FormCreate = () => {
                 required
               />
             </div>
-            <div>
-              <label
-                htmlFor="category"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Category
-              </label>
-              <select
-                id="category"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              >
-                <option selected>Select category</option>
-                <option value="TV">TV/Monitors</option>
-                <option value="PC">PC</option>
-                <option value="GA">Gaming/Console</option>
-                <option value="PH">Phones</option>
-              </select>
-            </div>
+            
             <div>
               <label
                 htmlFor="item-weight"
@@ -87,6 +39,65 @@ const FormCreate = () => {
                 name="item-weight"
                 id="item-weight"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                value={weight}
+          onChange={(e) => setWeight(e.target.value)}
+                placeholder="12"
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="item-height"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Item Height (kg)
+              </label>
+              <input
+                type="number"
+                name="item-height"
+                id="item-height"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                value={height}
+          onChange={(e) => setHeight(e.target.value)}
+
+                placeholder="12"
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="item-length"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Item Length (cm)
+              </label>
+              <input
+                type="number"
+                name="item-length"
+                id="item-length"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                value={length}
+          onChange={(e) => setLength(e.target.value)}
+
+                placeholder="12"
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="item-width"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Item Width (cm)
+              </label>
+              <input
+                type="number"
+                name="item-width"
+                id="item-width"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                value={width}
+                onChange={(e) => setWidth(e.target.value)}
+
                 placeholder="12"
                 required
               />
@@ -115,6 +126,7 @@ const FormCreate = () => {
         </form>
       </div>
     </section>
+    </>
   );
 };
 
