@@ -1,6 +1,10 @@
-import React from 'react';
+import React from "react";
+
+import { AuthContext } from "../context/Auth";
+import { useContext } from "react";
 
 const NavbarSide = ({ displayPage, setDisplayPage }) => {
+  const { user } = useContext(AuthContext);
   return (
     <>
       <button
@@ -51,6 +55,66 @@ const NavbarSide = ({ displayPage, setDisplayPage }) => {
               <span className="ml-3">Dashboard</span>
             </a>
           </li>
+          {user.userType === "employee" ? (
+            <li>
+              <button
+                onClick={() => {
+                  setDisplayPage(3);
+                }}
+                type="button"
+                className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                aria-controls="dropdown-sales"
+                data-collapse-toggle="dropdown-sales"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <span className="flex-1 ml-3 text-left whitespace-nowrap">
+                  Orders
+                </span>
+              </button>
+            </li>
+          ) : (
+            <li>
+              <button
+                onClick={() => {
+                  setDisplayPage(4);
+                }}
+                type="button"
+                className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                aria-controls="dropdown-sales"
+                data-collapse-toggle="dropdown-sales"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <span className="flex-1 ml-3 text-left whitespace-nowrap">
+                  New Order
+                </span>
+              </button>
+            </li>
+          )}
+
           <li>
             <button
               onClick={() => {
@@ -75,7 +139,7 @@ const NavbarSide = ({ displayPage, setDisplayPage }) => {
                 ></path>
               </svg>
               <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                Orders
+                History
               </span>
             </button>
           </li>

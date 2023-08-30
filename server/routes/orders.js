@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const {
   createOrder,
@@ -6,15 +6,19 @@ const {
   getOrderById,
   updateOrder,
   deleteOrder,
-} = require('../controllers/orders');
+  getOrderstoClaim,
+  getOrdersClaimed,
+} = require("../controllers/orders");
 
-const authenticate = require('../middlewares/auth');
+const authenticate = require("../middlewares/auth");
 router.use(authenticate);
 
-router.get('/', getAllOrders);
-router.get('/:id', getOrderById);
-router.post('/', createOrder);
-router.put('/:id', updateOrder);
-router.delete('/:id', deleteOrder);
+router.get("/", getAllOrders);
+router.get("/toclaim", getOrderstoClaim);
+router.get("/claimed", getOrdersClaimed);
+router.get("/:id", getOrderById);
+router.post("/", createOrder);
+router.put("/:id", updateOrder);
+router.delete("/:id", deleteOrder);
 
 module.exports = router;
