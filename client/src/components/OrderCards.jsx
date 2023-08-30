@@ -1,6 +1,7 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "../axiosInstance";
-const OrderCards = ({ order }) => {
+
+const OrderCards = ({ order, Orders, setOrders }) => {
   const navigate = useNavigate();
   const id = order._id;
   const handleDelete = () => {
@@ -9,6 +10,16 @@ const OrderCards = ({ order }) => {
       .then((res) => navigate("/"))
       .catch((e) => console.log(e));
   };
+
+  const handleClaim = () => {
+    order.claimed = true;
+    console.log(order);
+    axios.put(`/api/Orders/${id}`, order).then((res) => {
+      const newOrders = Orders.filter((e) => e._id !== order._id);
+      setOrders(newOrders);
+    });
+  };
+
   return (
     <a
       href="#"
@@ -35,22 +46,34 @@ const OrderCards = ({ order }) => {
           Orderstatus: {order.claimed ? "Claimed" : "Wait for claiming"}
         </p>
         <div>
-          <button
-            onClick={handleDelete}
-            type="submit"
-            className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2"
-          >
-            CANCEL
-          </button>
-          <button
-            onClick={() => {
-              navigate(`/orders/${order._id}/comments`);
-            }}
-            type="submit"
-            className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-          >
-            Evaluaton
-          </button>
+          {order.claimed === false ? (
+            <button
+              onClick={handleClaim}
+              type="submit"
+              className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2"
+            >
+              Claim
+            </button>
+          ) : (
+            <>
+              {/* <button
+                onClick={handleDelete}
+                type="submit"
+                className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2"
+              >
+                CANCEL
+              </button> */}
+              <button
+                onClick={() => {
+                  navigate(`/orders/${order._id}/comments`);
+                }}
+                type="submit"
+                className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              >
+                Evaluaton
+              </button>
+            </>
+          )}
         </div>
       </div>
     </a>

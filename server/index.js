@@ -38,6 +38,7 @@ io.on("connection", (socket) => {
   console.log("connected");
 
   socket.on("newUser", (data) => {
+    // Receive the usertype
     if (data === "employee") {
       socket.join("employee");
       console.log("successfully join employee");
@@ -46,7 +47,7 @@ io.on("connection", (socket) => {
 
   socket.on("message", (data) => {
     console.log(data);
-    io.to("employee").emit("neworder", "a new order is now to be claimed");
+    io.to("employee").emit("neworder", data);
   });
 
   socket.on("disconnect", () => {

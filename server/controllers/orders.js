@@ -58,7 +58,6 @@ const getOrderById = async (req, res) => {
     //   employeeId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     //   },
 
-    console.log("🚀 ~ file: orders.js:28 ~ getOrderById ~ orders:", orders);
     if (orders.length === 0) {
       res.status(404).json({ message: "Order Not Found" });
     }
@@ -110,10 +109,59 @@ const deleteOrder = async (req, res) => {
   }
 };
 
+const getOrdersClaimed = async (req, res) => {
+  try {
+    // find related order based on customer or employee Id
+
+    const orders = await Order.find({
+      $and: [
+        { $or: [{ customerId: req.user._id }, { employeeId: req.user._id }] },
+        { claimed: true },
+      ],
+    })
+      .populate({
+        path: "customerId",
+        select: "username",
+      })
+      .populate({
+        path: "employeeId",
+        select: "username",
+      });
+
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ message: error.message, errors: error.errors });
+  }
+};
+
+const getOrderstoClaim = async (req, res) => {
+  try {
+    // find related order based on customer or employee Id
+
+    const orders = await Order.find({
+      claimed: false,
+    })
+      .populate({
+        path: "customerId",
+        select: "username",
+      })
+      .populate({
+        path: "employeeId",
+        select: "username",
+      });
+
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ message: error.message, errors: error.errors });
+  }
+};
+
 module.exports = {
   createOrder,
   getAllOrders,
   getOrderById,
   updateOrder,
   deleteOrder,
+  getOrderstoClaim,
+  getOrdersClaimed,
 };

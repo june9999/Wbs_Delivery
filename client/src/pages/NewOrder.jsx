@@ -59,10 +59,12 @@ const NewOrder = () => {
       })
       .then((res) => {
         console.log(res.data);
-        socket.emit(
-          "message",
-          `order by ${customerId} from ${pickupLocation} to ${dropLocation} is created`
-        );
+        socket.emit("message", {
+          customerId: customerId,
+          customer: user.username,
+          pickupLocation: pickupLocation,
+          dropLocation: dropLocation,
+        });
         navigate("/");
       })
       .catch((e) => console.log(e));

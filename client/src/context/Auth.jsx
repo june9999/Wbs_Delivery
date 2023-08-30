@@ -27,15 +27,19 @@ const AuthProvider = ({ children }) => {
     socket.on("connect", () => {
       console.log(socket.id);
     });
-
-    socket?.emit("newUser", "employee");
+    user && socket.emit("newUser", user.userType);
   }, user);
 
   const login = async (user) => {
     setLoading(true);
     try {
       const res = await axios.post("auth/login", user);
+
       setState(res.data.user, false, null);
+      console.log(
+        "🚀 ~ file: Auth.jsx:40 ~ login ~ res.data.user:",
+        res.data.user
+      );
       navigate("/");
     } catch (error) {
       console.log(error.response);
