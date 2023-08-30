@@ -1,6 +1,6 @@
 
 
-import Notfound from "../components/blocks/Notfound";
+// import Notfound from "../components/blocks/Notfound";
 import Comments from "../pages/Comments";
 import { AnimatePresence } from "framer-motion";
 import AnimatedPage from "./AnimatedPage";
@@ -50,7 +50,7 @@ const Main = () => {
             <Route path="/register" element={<Register />} />
 
             <Route path="/map" element={<ProjMap/>}/>
-            <Route path="*" element={<Notfound />} />
+            {/* <Route path="*" element={<Notfound />} /> */}
           
 
             
