@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import NewOrder from '../pages/NewOrder';
 import OrderDetails from '../pages/OrderDetails';
 import UpdateOrder from '../pages/UpdateOrder';
-import Login from './Login';
+import LoginForm from '../pages/LoginForm';
 import Register from './Register';
 import ProtectedRoute from './ProtectedRoute';
 import Home from './Home';
@@ -41,10 +41,11 @@ const Main = () => {
               {/* Payment */}
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/payment" element={<Payment />} />
+              <Route path="/comments" element={<Comments />} />
             </Route>
-            <Route path="/login" element={<Login />} />
+
+            <Route path="/login" element={<LoginForm />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/map" element={<Map />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

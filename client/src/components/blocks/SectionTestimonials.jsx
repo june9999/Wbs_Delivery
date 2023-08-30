@@ -4,7 +4,7 @@ const SectionTestimonials = () => {
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6" />
+        <div className="py-2 px-4 mx-auto max-w-screen-xl text-center lg:py-8 lg:px-6" />
         <div className="mx-auto max-w-screen-sm">
           <h2 className="mb-4 text-4xl text-center tracking-tight font-extrabold text-gray-900 dark:text-white">
             Testimonials
@@ -16,7 +16,7 @@ const SectionTestimonials = () => {
         {/* testimonial centered */}
         {/* 
         <section className="bg-white dark:bg-gray-900">
-          <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
+          <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6">
             <figure className="max-w-screen-md mx-auto">
               <svg
                 className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
@@ -58,10 +58,10 @@ const SectionTestimonials = () => {
         {/* testimonials rows */}
         <div className="grid mb-8 lg:mb-12 lg:grid-cols-2">
           {/* quote */}
-          <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r dark:bg-gray-800 dark:border-gray-700">
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-white">
             <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
               <section className="bg-white dark:bg-gray-900">
-                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
+                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6">
                   <figure className="max-w-screen-md mx-auto">
                     {/* quotaion mark svg */}
                     <svg
@@ -109,10 +109,10 @@ const SectionTestimonials = () => {
           </figure>
           {/* quote */}
 
-          <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r dark:bg-gray-800 dark:border-gray-700">
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-white ">
             <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
               <section className="bg-white dark:bg-gray-900">
-                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
+                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6">
                   <figure className="max-w-screen-md mx-auto">
                     {/* quotaion mark svg */}
                     <svg

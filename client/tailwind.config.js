@@ -19,7 +19,7 @@ module.exports = {
       theme: {
         extend: {
           backgroundColor: {
-            gray: '#F08080',
+            mint: '#CCFBF1',
           },
         },
       },

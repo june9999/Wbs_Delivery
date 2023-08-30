@@ -27,7 +27,7 @@ const OrderDetails = () => {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {order && (
         <section className="bg-white dark:bg-gray-900">
-          <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+          <div className="py-2 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 className="mb-2 text-xl font-semibold leading-none text-gray-900 md:text-2xl dark:text-white">
               Order ID: {order._id}
             </h2>
