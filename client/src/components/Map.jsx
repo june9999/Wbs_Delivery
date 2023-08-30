@@ -5,6 +5,7 @@ import {
   Autocomplete,
   DirectionsRenderer,
   MarkerF,
+  LoadScript,
 } from '@react-google-maps/api';
 
 // import { Container, Title, Button } from 'flowbite';
@@ -76,6 +77,9 @@ const Map = () => {
   </div> */}
       <div>
         {/* {isLoaded ? ( */}
+
+        <LoadScript googleMapsApiKey={import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY} libraries={['places']}>
+
         <GoogleMap
           center={center}
           zoom={15}
@@ -123,7 +127,9 @@ const Map = () => {
         >
           Move to Center
         </button>
+        </LoadScript>
       </div>
+      
     </>
   );
 };

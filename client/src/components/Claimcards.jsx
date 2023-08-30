@@ -1,29 +1,21 @@
-import React from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import axios from '../axiosInstance';
-
-
-const OrderCards = ({ order, Orders, setOrders }) => {
+import React from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import axios from "../axiosInstance";
+const Claimcards = ({ order }) => {
   const navigate = useNavigate();
   const id = order._id;
   const handleDelete = () => {
     axios
       .delete(`/api/Orders/${id}`)
-      .then((res) => navigate('/'))
+      .then((res) => navigate("/"))
       .catch((e) => console.log(e));
   };
 
-  const handleClaim = () => {
-    order.claimed = true;
-    console.log(order);
-    axios.put(`/api/Orders/${id}`, order).then((res) => {
-      const newOrders = Orders.filter((e) => e._id !== order._id);
-      setOrders(newOrders);
-    });
-  };
-
   return (
-    <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <a
+      href="#"
+      className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+    >
       <img
         className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
         src="/docs/images/blog/image-4.jpg"
@@ -42,7 +34,7 @@ const OrderCards = ({ order, Orders, setOrders }) => {
           OrderId: {order._id}
         </p>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Orderstatus: {order.claimed ? 'Claimed' : 'Wait for claiming'}
+          Orderstatus: {order.claimed ? "Claimed" : "Wait for claiming"}
         </p>
         <div>
           <button
@@ -59,7 +51,7 @@ const OrderCards = ({ order, Orders, setOrders }) => {
             type="submit"
             className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
           >
-            Rating
+            Evaluaton
           </button>
         </div>
       </div>
@@ -67,4 +59,4 @@ const OrderCards = ({ order, Orders, setOrders }) => {
   );
 };
 
-export default OrderCards;
+export default Claimcards;
