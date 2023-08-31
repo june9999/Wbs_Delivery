@@ -1,4 +1,11 @@
 import React from 'react';
+import cat01 from '../../assets/cat01.gif';
+import catA from '../../assets/cat-fish.jpg';
+import catB from '../../assets/cat-heart.png';
+import catC from '../../assets/cat-box.png';
+import cat03 from '../../assets/cat03.gif';
+import cat1 from '../../assets/cat1.png';
+import cat2 from '../../assets/cat2.png';
 
 const SectionTeam = ({}) => {
   return (
@@ -15,38 +22,41 @@ const SectionTeam = ({}) => {
         </div>
         <div className="grid gap-8 lg:gap-16 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3">
           {/* grid */}
+
           <div className="text-center text-gray-500 dark:text-gray-400">
             <img
               className="mx-auto mb-4 w-36 h-36 rounded-full"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
-              alt="Bonnie Avatar"
+              src={catA}
+              alt="Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <a href="#">Bonnie Green</a>
+              <a href="#">Anusha</a>
             </h3>
-            <p>CEO/Co-founder</p>
+            <p>CEO</p>
           </div>
+
           <div className="text-center text-gray-500 dark:text-gray-400">
             <img
               className="mx-auto mb-4 w-36 h-36 rounded-full"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png"
-              alt="Helene Avatar"
+              src={catB}
+              alt="Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <a href="#">Helene Engels</a>
+              <a href="#">Wenjun</a>
             </h3>
-            <p>CTO/Co-founder</p>
+            <p>CTO</p>
           </div>
+
           <div className="text-center text-gray-500 dark:text-gray-400">
             <img
               className="mx-auto mb-4 w-36 h-36 rounded-full"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-              alt="Jese Avatar"
+              src={catC}
+              alt="Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <a href="#">Jese Leos</a>
+              <a href="#">Jay</a>
             </h3>
-            <p>SE & Marketing</p>
+            <p>Marketing</p>
           </div>
         </div>
       </div>

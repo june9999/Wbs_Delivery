@@ -5,7 +5,7 @@ import Logo from '../assets/cute-cat-courier.png';
 import Bell from './Bell';
 import Login from './Login';
 import Register from './Register';
-// import Logo from '../assets/cute-cat-courier.png';
+import cat1 from '../assets/cat1.png'
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -16,7 +16,7 @@ const Header = () => {
       <nav className="relative bg-white border-gray-200 dark:bg-gray-800">
         <div className="px-4 py-2 lg:px-6 flex flex-wrap justify-between items-center mx-auto max-w-screen-xxl pb-2 shadow-lg">
           <div className="flex items-center">
-            <img src={Logo} className="mr-3 h-6 sm:h-10" alt="Cat Logo" />
+            <img src={cat1} className="mr-3 h-6 sm:h-10" alt="Cat Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               <NavLink to="/">RapidCats</NavLink>
             </span>
