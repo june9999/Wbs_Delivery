@@ -3,6 +3,7 @@ import runningCat from '../assets/runningCat.jpg';
 import fastKitten from '../assets/fast-kitten.gif';
 import ChatbotStart from './ChatbotStart';
 // import catBox from '../assets/cat-box.jpg';
+import cat2 from '../assets/cat2.png';
 
 const Hero = () => {
   return (
@@ -17,7 +18,7 @@ const Hero = () => {
             src={runningCat}
             alt="Transparent Image"
             style={{
-              opacity: 0.6,
+              opacity: 0.7,
               zIndex: -1,
               position: 'absolute',
               width: '100%',
@@ -26,23 +27,24 @@ const Hero = () => {
             }}
           />
 
-          <div className="place-self-center lg:col-span-7 p-10">
+          <div className="place-self-center lg:col-span-7 p-6">
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
               Your Purrcel <br />
               is our Purriority
             </h1>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              RapidCats is an on-demand local delivery service that promises
-              lightning-fast pickup and dropoff of packages and documents within
-              your city, meow!
+            <p className="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-2xl dark:text-gray-400">
+              We are Berlin's express delivery service <br />
+              for package and document shipping
+              <br />
+              at cat-speed. Meow!
             </p>
 
             {/* CTA button 1 */}
-            {/* <a
+            <a
               href="#"
               className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
             >
-              Get started
+              Place your Order
               <svg
                 className="w-5 h-5 ml-2 -mr-1"
                 fill="currentColor"
@@ -55,7 +57,7 @@ const Hero = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a> */}
+            </a>
 
             {/* CTA button 2 */}
             {/* <a
@@ -64,6 +66,8 @@ const Hero = () => {
             >
               Speak to Customer Support
             </a> */}
+          <img src={cat2} alt="cat image" style={{position:'absolute', bottom: -17, right: 0}}/>
+
           </div>
           {/* <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
             {/* <img src={runningCat} alt="running cat" />

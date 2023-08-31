@@ -1,5 +1,6 @@
 import React from 'react';
 import catBox from '../../assets/cat-box.jpg';
+import catBasket2 from '../../assets/cat-basket2.jpg';
 
 const SectionContent = () => {
   return (
@@ -24,17 +25,18 @@ const SectionContent = () => {
             solvers. Small enough to be simple and quick.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-8">
+        {/* <div className="grid grid-cols-2 gap-4 "> */}
+        <div className=" gap-4 w-1/2">
           <img
             className="w-full rounded-lg"
-            src={catBox}
+            src={catBasket2}
             alt="office content 1"
           />
-          <img
+          {/* <img
             className="mt-4 w-full lg:mt-10 rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
+            src={catBasket1}
             alt="office content 2"
-          />
+          /> */}
         </div>
       </div>
     </section>
