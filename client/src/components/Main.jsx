@@ -43,9 +43,9 @@ const Main = () => {
               <Route path="/orders/:id/update" element={<UpdateOrder />} />
 
               {/* Payment */}
-              {/* <Route path="/checkout" element={<Checkout />} />
+              <Route path="/checkout" element={<Checkout />} />
               <Route path="/payment" element={<Payment />} />
-              <Route path="/comments" element={<Comments />} /> */}
+              <Route path="/comments" element={<Comments />} />
 
             </Route>
 

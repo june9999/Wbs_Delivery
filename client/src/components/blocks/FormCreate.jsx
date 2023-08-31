@@ -50,7 +50,7 @@ const FormCreate = () => {
                 htmlFor="item-height"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Item Height (kg)
+                Item Height (cm)
               </label>
               <input
                 type="number"

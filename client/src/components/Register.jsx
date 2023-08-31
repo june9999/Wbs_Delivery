@@ -66,6 +66,8 @@ const Register = () => {
     await context.register(updatedUser);
     setFormStage('registered');
     setLoading(false);
+    formStage === 'registered' && <Navigate to="/dashboard" />
+
   };
 
   if (loading) return <p>Loading...</p>;
@@ -141,8 +143,6 @@ const Register = () => {
                   handleSubmit={handleProfileSubmit}
                 />
               )}
-
-              {formStage === 'registered' && <Navigate to="/dashboard" />}
 
               {/* form end */}
             </div>

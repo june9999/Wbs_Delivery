@@ -116,9 +116,9 @@ const Header = () => {
                   className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
                   aria-current="page"
                 >
-                  <NavLink to="/checkout">Checkout</NavLink>
-                  <NavLink to="/comments">Rating</NavLink>
-                  <NavLink to="/payment">Payment Modal</NavLink>
+                  <NavLink to="/checkout">Check. </NavLink>
+                  <NavLink to="/comments">Rate. </NavLink>
+                  <NavLink to="/payment">Pay</NavLink>
                 </div>
               </li>
             </ul>
