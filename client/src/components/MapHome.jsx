@@ -1,17 +1,17 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 import {
   useJsApiLoader,
   GoogleMap,
   Autocomplete,
   DirectionsRenderer,
   MarkerF,
-} from '@react-google-maps/api';
+} from "@react-google-maps/api";
 
 // import { Container, Title, Button } from 'flowbite';
 
-const center = { lat: 52.52, lng: 13.405 };
+export const center = { lat: 52.52, lng: 13.405 };
 
-const mapLibrary = ['places'];
+const mapLibrary = ["places"];
 
 const Map = () => {
   const { isLoaded } = useJsApiLoader({
@@ -22,8 +22,8 @@ const Map = () => {
 
   const [map, setMap] = useState(null);
   const [directionsResponse, setDirectionsResponse] = useState(null);
-  const [distance, setDistance] = useState('');
-  const [duration, setDuration] = useState('');
+  const [distance, setDistance] = useState("");
+  const [duration, setDuration] = useState("");
   console.log(distance);
   console.log(duration);
 
@@ -38,7 +38,7 @@ const Map = () => {
   }
 
   async function calculateRoute() {
-    if (originRef.current.value === '' || destinationRef.current.value === '') {
+    if (originRef.current.value === "" || destinationRef.current.value === "") {
       return;
     }
 
@@ -55,12 +55,12 @@ const Map = () => {
 
   function clearRoute() {
     setDirectionsResponse(null);
-    setDistance('');
+    setDistance("");
 
-    setDuration('');
+    setDuration("");
 
-    originRef.current.value = '';
-    destinationRef.current.value = '';
+    originRef.current.value = "";
+    destinationRef.current.value = "";
   }
 
   return (
@@ -109,7 +109,7 @@ const Map = () => {
                 type="text"
                 placeholder="Origin"
                 ref={originRef}
-                style={{ width: '20rem' }}
+                style={{ width: "20rem" }}
               />
             </Autocomplete>
             <br />
@@ -119,7 +119,7 @@ const Map = () => {
                 type="text"
                 placeholder="Destination"
                 ref={destinationRef}
-                style={{ width: '20rem' }}
+                style={{ width: "20rem" }}
               />
             </Autocomplete>
           </div>

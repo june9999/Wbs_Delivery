@@ -1,22 +1,25 @@
-import React from "react";
 import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 import axios from "../axiosInstance";
 import OrderCards from "./OrderCards";
 import { v4 as uuidv4 } from "uuid";
 
-const Ordertoclaim = () => {
+const Ordercurrent = () => {
   const [Orders, setOrders] = useState(null); // Orders array from backend
   useEffect(() => {
-    axios.get(`/api/Orders/toclaim`).then((res) => {
-      setOrders(res.data);
-    });
+    axios
+      .get(`/api/Orders/currentOrder`)
+      .then((res) => {
+        setOrders(res.data);
+      })
+      .catch((e) => console.log(e));
   }, []);
 
   return (
     <>
       <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-left text-gray-900 dark:text-white ">
-        Orders to be claimed
+        Current Orders
       </h1>
       <ul className="flex-col ">
         {Orders &&
@@ -30,4 +33,4 @@ const Ordertoclaim = () => {
   );
 };
 
-export default Ordertoclaim;
+export default Ordercurrent;
