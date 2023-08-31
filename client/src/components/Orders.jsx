@@ -9,7 +9,7 @@ const Orders = () => {
   const [Orders, setOrders] = useState(null); // Orders array from backend
   useEffect(() => {
     axios
-      .get(`/api/Orders/claimed`)
+      .get(`/api/Orders/pastorders`)
       .then((res) => {
         setOrders(res.data);
       })
@@ -18,7 +18,7 @@ const Orders = () => {
 
   return (
     <>
-      <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white mt-[2rem]">
+      <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-left text-gray-900 dark:text-white ">
         Past Orders
       </h1>
       <ul className="flex-col ">
