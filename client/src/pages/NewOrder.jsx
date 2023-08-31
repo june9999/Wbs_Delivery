@@ -2,21 +2,28 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/Auth';
-
+import Checkout from './Checkout'
 import axios from '../axiosInstance';
-import Map from '../components/ProjMap';
+import ProjMap from '../components/ProjMap';
 
 const NewOrder = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [pickupLocation, setPickupLocation] = useState('');
+  console.log("pickupLocation",pickupLocation)
   const [dropLocation, setDropLocation] = useState('');
+  // console.log("dropLocation",dropLocation)
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
-
+const [checkout,setCheckout]=useState(true)
+const [distance,setDistance]=useState('')
+const [price,setPrice]=useState(0)
   const [customerId, setCustomerId] = useState(user._id);
+ 
+  console.log("🚀 ~ file: NewOrder.jsx:25 ~ NewOrder ~ dropLocation:", dropLocation.current)
+
   // const [employeeId, setEmployeeId] = useState('');
 
   // const [claimed, setClaimed] = useState('false');
@@ -52,6 +59,7 @@ const NewOrder = () => {
         height,
         length,
         width,
+        price,
         customerId,
         
       })
@@ -60,6 +68,9 @@ const NewOrder = () => {
         navigate('/');
       })
       .catch((e) => console.log(e));
+
+
+      
   };
   return (
     // <div>
@@ -123,8 +134,11 @@ const NewOrder = () => {
 
 
     <>
-
-<Map />
+   
+    
+ {checkout?<> {
+ <>
+<ProjMap price={price} setPrice={setPrice} distance={distance} setDistance={setDistance}  pickupLocation={pickupLocation} setPickupLocation={setPickupLocation} dropLocation={dropLocation} setDropLocation={setDropLocation}/>
 
 
     <section className="bg-white dark:bg-gray-900">
@@ -146,10 +160,24 @@ const NewOrder = () => {
                 name="price"
                 id="price"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="$2999"
+                placeholder="0"
                 required
               />
-            </div> */}
+            </div>  */}
+
+<div className="w-80 ">
+                  <label htmlFor="origin" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Origin</label>
+                  <input type="text" name="brand" id="brand" value={pickupLocation.current?.value || ''} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="PickupLocation"  />
+              </div>
+
+              <div className="w-80 ">
+                  <label htmlFor="destination" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Destination</label>
+                  <input type="text" name="brand" id="brand" value={dropLocation?.current?.value || ''} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="DropLocation"  />
+                 
+              </div>
+
+
+          
             
             <div>
               <label
@@ -174,7 +202,7 @@ const NewOrder = () => {
                 htmlFor="item-height"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Item Height (kg)
+                Item Height (cm)
               </label>
               <input
                 type="number"
@@ -239,6 +267,7 @@ const NewOrder = () => {
                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder="Your description here"
               ></textarea>
+              <p className="mt-8 font-bold text-lg"> Price for Delivery:{price}</p>
             </div>
           </div>
           <button
@@ -250,6 +279,19 @@ const NewOrder = () => {
         </form>
       </div>
     </section>
+    </> }</> : 
+
+    <Checkout price={price} distance={distance}/> 
+    
+    
+   
+    }
+
+<div className="flex items-center justify-center" >
+{ checkout && <button onClick={(()=>setCheckout(false))}  className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Checkout</button>}
+{ !checkout && <button   className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Payment</button>}
+</div>
+    
     </>
 
 
