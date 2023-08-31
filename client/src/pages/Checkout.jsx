@@ -1,8 +1,8 @@
 
-import React from 'react'
+import React from 'react';
 
 
-const Checkout = ({price,distance}) => {
+const Checkout = ({price , distance}) => {
   const p = price
   console.log("🚀 ~ file: Checkout.jsx:7 ~ Checkout ~ price:", price)
   return (

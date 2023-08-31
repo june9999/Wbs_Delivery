@@ -59,6 +59,7 @@ const login = async (req, res) => {
           _id: currentUser._id,
           username: currentUser.username,
           email: currentUser.email,
+          userType: currentUser.userType,
         };
         const accessToken = jwt.sign(user, SECRET);
         res
@@ -84,7 +85,7 @@ const getLoggedinUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ _id: req.user._id }).select(
-      "_id email username"
+      "_id email username userType firstName lastName address zipcode city phone"
     );
     console.log("🚀 ~ file: users.js:71 ~ getLoggedinUser ~ user:", user);
     res.json({ user });
@@ -95,9 +96,28 @@ const getLoggedinUser = async (req, res) => {
   }
 };
 
+const updateUserInfo = async (req, res) => {
+  try {
+    const {
+      params: { id },
+      body,
+    } = req;
+    const updatedUser = await User.findOneAndUpdate({ _id: id }, body, {
+      new: true,
+    });
+    if (!updatedUser) {
+      res.status(404).json({ message: "User Not Found" });
+    }
+    res.json(updatedUser);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   register,
   login,
   logout,
   getLoggedinUser,
+  updateUserInfo,
 };

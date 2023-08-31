@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/Auth';
 import Checkout from './Checkout'
+import socket from '../../socket/socket';
+
 import axios from '../axiosInstance';
 import ProjMap from '../components/ProjMap';
 
@@ -61,10 +63,15 @@ const [price,setPrice]=useState(0)
         width,
         price,
         customerId,
-        
       })
       .then((res) => {
         console.log(res.data);
+        socket.emit('message', {
+          customerId: customerId,
+          customer: user.username,
+          pickupLocation: pickupLocation,
+          dropLocation: dropLocation,
+        });
         navigate('/');
       })
       .catch((e) => console.log(e));
@@ -72,71 +79,13 @@ const [price,setPrice]=useState(0)
 
       
   };
+
   return (
-    // <div>
-    //   <h2>Add Order</h2>
-    //   <form onSubmit={handleSubmit}>
-    //     {/* <label htmlFor="">Title</label>
-    //     <input
-    //       type="text"
-    //       name="title"
-    //       value={title}
-    //       onChange={(e) => setTitle(e.target.value)}
-    //       required
-    //     /> */}
-    //     <label htmlFor="">pickupLocation</label>
-    //     <input
-    //       type="text"
-    //       name="pickupLocation"
-    //       value={pickupLocation}
-    //       onChange={(e) => setPickupLocation(e.target.value)}
-    //     />
-
-    //     <label htmlFor="">dropLocation</label>
-    //     <input
-    //       type="text"
-    //       name="dropLocation"
-    //       value={dropLocation}
-    //       onChange={(e) => setDropLocation(e.target.value)}
-    //     />
-    //     <label htmlFor="">weight</label>
-    //     <input
-    //       type="number"
-    //       name="weight"
-    //       value={weight}
-    //       onChange={(e) => setWeight(e.target.value)}
-    //     />
-    //     <label htmlFor="">height</label>
-    //     <input
-    //       type="number"
-    //       name="height"
-    //       value={height}
-    //       onChange={(e) => setHeight(e.target.value)}
-    //     />
-    //     <label htmlFor="">length</label>
-    //     <input
-    //       type="number"
-    //       name="length"
-    //       value={length}
-    //       onChange={(e) => setLength(e.target.value)}
-    //     />
-    //     <label htmlFor="">width</label>
-    //     <input
-    //       type="number"
-    //       name="width"
-    //       value={width}
-    //       onChange={(e) => setWidth(e.target.value)}
-    //     />
-
-    //     <button>Add Order</button>
-    //   </form>
-    // </div>
-
 
     <>
    
     
- {checkout?<> {
+ {checkout? (
  <>
 <ProjMap price={price} setPrice={setPrice} distance={distance} setDistance={setDistance}  pickupLocation={pickupLocation} setPickupLocation={setPickupLocation} dropLocation={dropLocation} setDropLocation={setDropLocation}/>
 
@@ -173,7 +122,7 @@ const [price,setPrice]=useState(0)
               <div className="w-80 ">
                   <label htmlFor="destination" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Destination</label>
                   <input type="text" name="brand" id="brand" value={dropLocation?.current?.value || ''} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="DropLocation"  />
-                 
+                
               </div>
 
 
@@ -212,28 +161,97 @@ const [price,setPrice]=useState(0)
                 value={height}
           onChange={(e) => setHeight(e.target.value)}
 
-                placeholder="12"
-                required
-              />
+              <div>
+                <label
+                  htmlFor="item-weight"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Item Weight (kg)
+                </label>
+                <input
+                  type="number"
+                  name="item-weight"
+                  id="item-weight"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                  placeholder="12"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="item-height"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Item Height (cm)
+                </label>
+                <input
+                  type="number"
+                  name="item-height"
+                  id="item-height"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  value={height}
+                  onChange={(e) => setHeight(e.target.value)}
+                  placeholder="12"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="item-length"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Item Length (cm)
+                </label>
+                <input
+                  type="number"
+                  name="item-length"
+                  id="item-length"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  value={length}
+                  onChange={(e) => setLength(e.target.value)}
+                  placeholder="12"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="item-width"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Item Width (cm)
+                </label>
+                <input
+                  type="number"
+                  name="item-width"
+                  id="item-width"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  value={width}
+                  onChange={(e) => setWidth(e.target.value)}
+                  placeholder="12"
+                  required
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="description"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Description
+                </label>
+                <textarea
+                  id="description"
+                  rows="8"
+                  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Your description here"
+                ></textarea>
+              </div>
             </div>
-            <div>
-              <label
-                htmlFor="item-length"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Item Length (cm)
-              </label>
-              <input
-                type="number"
-                name="item-length"
-                id="item-length"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                value={length}
-          onChange={(e) => setLength(e.target.value)}
 
-                placeholder="12"
+                {/* placeholder="12"
                 required
-              />
+              /> */}
             </div>
             <div>
               <label
@@ -269,23 +287,25 @@ const [price,setPrice]=useState(0)
               ></textarea>
               <p className="mt-8 font-bold text-lg"> Price for Delivery:{price}</p>
             </div>
-          </div>
+          
           <button
             type="submit"
             className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
           >
             Add product
           </button>
+
         </form>
       </div>
+      
     </section>
-    </> }</> : 
+    </> ) : (
 
     <Checkout price={price} distance={distance}/> 
     
     
    
-    }
+    )}
 
 <div className="flex items-center justify-center" >
 { checkout && <button onClick={(()=>setCheckout(false))}  className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Checkout</button>}
@@ -293,8 +313,6 @@ const [price,setPrice]=useState(0)
 </div>
     
     </>
-
-
   );
 };
 

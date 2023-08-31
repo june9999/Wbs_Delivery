@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
-
-import { Link } from "react-router-dom";
-import axios from "../axiosInstance";
-import OrderCards from "./OrderCards";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from '../axiosInstance';
+import OrderCards from './OrderCards';
+import { v4 as uuidv4 } from 'uuid';
 
 const Orders = () => {
   const [Orders, setOrders] = useState(null); // Orders array from backend
   useEffect(() => {
     axios
-      .get(`/api/Orders`)
-      .then((res) => setOrders(res.data))
+      .get(`/api/Orders/claimed`)
+      .then((res) => {
+        setOrders(res.data);
+      })
       .catch((e) => console.log(e));
   }, []);
 
@@ -21,7 +23,7 @@ const Orders = () => {
       <ul className="flex-col ">
         {Orders &&
           Orders.map((order) => (
-            <li className="mb-[2rem]">
+            <li key={uuidv4()} className="mb-[2rem]">
               <OrderCards order={order} />
             </li>
           ))}

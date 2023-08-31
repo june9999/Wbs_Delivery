@@ -12,14 +12,23 @@
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  mode: 'jit',
+  content: ['./index.html', './src/**/*.{js,jsx,ts,jsx,tsx}'],
+  darkMode: 'class',
 
   theme: {
     extend: {
+      variants: {
+        extend: {},
+      },
+      backgroundImage: {
+        // 'cat': "url('./src/assets/runningCat.jpg')",
+        // 'footer-texture': "url('/img/footer-texture.png')",
+      },
       theme: {
         extend: {
           backgroundColor: {
-            gray: '#F08080',
+            primary: '#CCFBF1',
           },
         },
       },
@@ -74,15 +83,8 @@ module.exports = {
           'Noto Color Emoji',
         ],
       },
-
-      backgroundImage: {
-        // 'cat': "url('./src/assets/runningCat.jpg')",
-        // 'footer-texture': "url('/img/footer-texture.png')",
-      },
     },
   },
-
-  darkMode: 'class',
 
   plugins: [],
 };

@@ -1,10 +1,32 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../context/Auth';
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../context/Auth";
+import axios from "../axiosInstance";
 
 const Userprofile = () => {
   // Where user could change information in user dashboard
-  const { user, logout } = useContext(AuthContext);
-  console.log(user);
+  const { user } = useContext(AuthContext);
+  const [userProfile, SetUserProfile] = useState(user);
+
+  const handlerUpdate = (e) => {
+    e.preventDefault();
+    console.log(
+      "🚀 ~ file: Userprofile.jsx:12 ~ handlerUpdate ~ userProfile:",
+      userProfile
+    );
+    axios
+      .put(`/auth/${user._id}`, userProfile)
+      .then((res) => res)
+      .catch((e) => e.response?.data?.message);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    SetUserProfile({ ...userProfile, [name]: value });
+    console.log(
+      "🚀 ~ file: Userprofile.jsx:21 ~ handleChange ~ userProfile:",
+      userProfile
+    );
+  };
 
   return (
     <>
@@ -23,11 +45,11 @@ const Userprofile = () => {
                   Userame
                 </label>
                 <input
+                  value={user.username}
                   type="text"
                   name="Userame"
                   id="Userame"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  value={user.username}
                   required
                 />
               </div>
@@ -39,11 +61,11 @@ const Userprofile = () => {
                   Email
                 </label>
                 <input
+                  value={user.email}
                   type="text"
                   name="email"
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  value={user.email}
                   required
                 />
               </div>
@@ -55,12 +77,12 @@ const Userprofile = () => {
                   Firstname
                 </label>
                 <input
+                  onChange={handleChange}
                   type="text"
                   name="firstName"
                   id="firstName"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  value={user.firstName}
-                  placeholder="firstname"
+                  placeholder={user.firstName}
                   required
                 />
               </div>
@@ -72,12 +94,12 @@ const Userprofile = () => {
                   Lastname
                 </label>
                 <input
+                  onChange={handleChange}
                   type="text"
                   name="lastName"
                   id="lastName"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  value={user.lastName}
-                  placeholder="Lastname"
+                  placeholder={user.lastName}
                   required
                 />
               </div>
@@ -89,12 +111,12 @@ const Userprofile = () => {
                   Address
                 </label>
                 <input
+                  onChange={handleChange}
                   type="text"
                   name="address"
                   id="address"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  value={user.address}
-                  placeholder="address"
+                  placeholder={user.address}
                   required
                 />
               </div>
@@ -106,12 +128,12 @@ const Userprofile = () => {
                   City
                 </label>
                 <input
-                  type="number"
+                  onChange={handleChange}
+                  type="text"
                   name="city"
                   id="city"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  value={user.city}
-                  placeholder="city"
+                  placeholder={user.city}
                   required
                 />
               </div>
@@ -120,15 +142,15 @@ const Userprofile = () => {
                   htmlFor="phone"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
-                  phone
+                  Phone
                 </label>
                 <input
+                  onChange={handleChange}
                   type="text"
                   name="phone"
                   id="phone"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  value={user.phone}
-                  placeholder="phone"
+                  placeholder={user.phone}
                   required
                 />
               </div>
@@ -140,18 +162,19 @@ const Userprofile = () => {
                   Zipcode
                 </label>
                 <input
+                  onChange={handleChange}
                   type="number"
                   name="zipcode"
                   id="zipcode"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  value={user.zipcode}
-                  placeholder="zipcode"
+                  placeholder={user.zipcode}
                   required
                 />
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <button
+                onClick={handlerUpdate}
                 type="submit"
                 className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >

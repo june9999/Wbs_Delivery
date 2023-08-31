@@ -4,7 +4,7 @@ const FormCreate = () => {
   return (
     <>
     <section className="bg-white dark:bg-gray-900">
-      <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+      <div className="py-2 px-4 mx-auto max-w-2xl lg:py-16">
         <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
           Add Order
         </h2>
@@ -50,7 +50,7 @@ const FormCreate = () => {
                 htmlFor="item-height"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Item Height (kg)
+                Item Height (cm)
               </label>
               <input
                 type="number"

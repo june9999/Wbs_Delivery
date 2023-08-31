@@ -1,11 +1,9 @@
-
 import React, { useRef, useState } from 'react';
 
 import {
   useJsApiLoader,
   GoogleMap,
- 
- Autocomplete,
+  Autocomplete,
   DirectionsRenderer,
   MarkerF,
 } from '@react-google-maps/api';
@@ -15,16 +13,15 @@ import {
 
 const center = { lat: 52.5200,  lng: 13.4050 };
 
- const mapLibrary=['places','directions'];
+const mapLibrary = ['places', 'directions'];
 
 const ProjMap = ({price,setPrice,pickupLocation,setPickupLocation,dropLocation,setDropLocation,distance,setDistance}) => {
   console.log(price)
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY,
-    
-    libraries: mapLibrary ,
+
+    libraries: mapLibrary,
   });
-  
 
   const [map, setMap] = useState(null);
   const [directionsResponse, setDirectionsResponse] = useState(null);
@@ -35,7 +32,7 @@ const ProjMap = ({price,setPrice,pickupLocation,setPickupLocation,dropLocation,s
   console.log(distance)
   console.log(duration)
 
- /** @type React.MutableRefObject<HTMLInputElement> */
+  /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef();
     setPickupLocation(originRef)
   console.log("🚀 ~ file: ProjMap.jsx:40 ~ ProjMap ~ originRef:", originRef)
@@ -48,7 +45,7 @@ const ProjMap = ({price,setPrice,pickupLocation,setPickupLocation,dropLocation,s
   }
 
   async function calculateRoute(e) {
-    e.preventDefault()
+    e.preventDefault();
     if (originRef.current.value === '' || destinationRef.current.value === '') {
       return;
     }
@@ -90,16 +87,16 @@ try {
   function clearRoute() {
     setDirectionsResponse(null);
     setDistance('');
-    
+
     setDuration('');
-    
+
     originRef.current.value = '';
     destinationRef.current.value = '';
   }
 
   return (
     <>
-{/* <div>
+      {/* <div>
     <Container padding="4" bg="gray-200" rounded="md">
     <Title size="lg" weight="bold">
       Hello, Flowbite!
@@ -122,7 +119,7 @@ try {
           //   mapTypeControl: false,
           //   fullscreenControl: false,
           // }}
-          onLoad={map => setMap(map)}
+          onLoad={(map) => setMap(map)}
         >
           
           <MarkerF position={center} />
@@ -131,7 +128,7 @@ try {
             <DirectionsRenderer directions={directionsResponse} />
           )}
         </GoogleMap>
-      {/* ) : (
+        {/* ) : (
         <div>Loading Google Maps...</div>
       )} */}
 </div>
@@ -145,40 +142,40 @@ try {
                   <label htmlFor="origin" className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Origin</label>
                   <input type="text" name="brand" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="PickupLocation" ref={originRef} />
               </div>
-              </Autocomplete>
-              <Autocomplete>
+            </Autocomplete>
+            <Autocomplete>
               {/* <input
                 type='text'
                 placeholder='Destination'
                 ref={destinationRef}
               /> */}
-            
 
             <div className="w-80 ml-12 ">
                   <label htmlFor="destination" className="  block mb-2 text-lg font-medium text-gray-900 dark:text-white">Destination</label>
                   <input type="text" name="brand" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="DropLocation" ref={destinationRef} />
               </div>
-
             </Autocomplete>
             {/* <button  type='submit' onClick={calculateRoute}>
               Calculate Route
             </button> */}
- <button
-            type="submit"
-            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12 mr-4" onClick={calculateRoute}
+            <button
+              type="submit"
+              className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12 mr-4"
+              onClick={calculateRoute}
             >
-            Show Route
-          </button>
+              Show Route
+            </button>
 
-          <button
-            type="submit"
-            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12" onClick={clearRoute}
-          >
-            Clear Route
-          </button>
+            <button
+              type="submit"
+              className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12"
+              onClick={clearRoute}
+            >
+              Clear Route
+            </button>
 
             {/* <button onClick={clearRoute}>New Route</button> */}
-</form>
+          </form>
 
  <div className="ml-12 mt-8">
   <div>
@@ -192,8 +189,7 @@ try {
 </div> 
 </div>
 
-
-{/* <button onClick={() => {
+          {/* <button onClick={() => {
               map.panTo(center)
               map.setZoom(15)
             }}
@@ -201,14 +197,15 @@ try {
               Move to Center
             </button> */}
 
-<button
+          <button
             type="submit"
-            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12"  onClick={() => {
-              map.panTo(center)
-              map.setZoom(15)
+            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12"
+            onClick={() => {
+              map.panTo(center);
+              map.setZoom(15);
             }}
           >
-             Center Map
+            Center Map
           </button>
 
     
