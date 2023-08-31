@@ -25,7 +25,8 @@ const SectionContent = () => {
             solvers. Small enough to be simple and quick.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4 ">
+        {/* <div className="grid grid-cols-2 gap-4 "> */}
+        <div className=" gap-4 w-1/2">
           <img
             className="w-full rounded-lg"
             src={catBasket2}

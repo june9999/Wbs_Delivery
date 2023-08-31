@@ -7,11 +7,11 @@ import autoprefixer from 'autoprefixer';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  build: {
-    rollupOptions: {
-      external: ['styled-components'],
-    },
-  },
+  // build: {
+  //   rollupOptions: {
+  //     external: ['styled-components'],
+  //   },
+  // },
   // plugins: [
   //   pwaPlugin({
   //     mode: 'development',

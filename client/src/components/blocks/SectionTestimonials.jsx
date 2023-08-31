@@ -56,13 +56,13 @@ const SectionTestimonials = () => {
         </section> */}
 
         {/* testimonials rows */}
-        <div className="grid mb-8 lg:mb-12 lg:grid-cols-2">
+        <div className="grid mb-8 lg:mb-12 lg:grid-cols-2 max-w-screen-xl mx-auto">
           {/* quote */}
-          <figure className="flex flex-col justify-center items-center p-8 text-center bg-white">
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-white ">
             <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
               <section className="bg-white dark:bg-gray-900">
                 <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6">
-                  <figure className="max-w-screen-md mx-auto">
+                  <figure className="text-left max-w-screen-md mx-auto">
                     {/* quotaion mark svg */}
                     <svg
                       className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
@@ -113,7 +113,7 @@ const SectionTestimonials = () => {
             <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
               <section className="bg-white dark:bg-gray-900">
                 <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6">
-                  <figure className="max-w-screen-md mx-auto">
+                  <figure className="text-left max-w-screen-md mx-auto">
                     {/* quotaion mark svg */}
                     <svg
                       className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
