@@ -1,11 +1,11 @@
-import React from 'react';
-import { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/Auth';
-import { Navigate } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 import NewProfile from './NewProfile';
 import RegisterForm from './RegisterForm';
+import 'flowbite';
 
-function Register() {
+const Register = () => {
   const context = useContext(AuthContext);
   const errors = context.errors;
 
@@ -24,6 +24,10 @@ function Register() {
     phone: '',
     image: '',
   });
+
+  if (!context.loading && context.user) {
+    return <Navigate to="/dashboard" />;
+  }
 
   const [formStage, setFormStage] = useState('register');
   const [loading, setLoading] = useState(false);
@@ -62,92 +66,92 @@ function Register() {
     await context.register(updatedUser);
     setFormStage('registered');
     setLoading(false);
+    formStage === 'registered' && <Navigate to="/dashboard" />
+
   };
 
   if (loading) return <p>Loading...</p>;
 
-  if (formStage === 'register') {
-    return (
-      <RegisterForm
-        user={user}
-        errors={errors}
-        handleChange={handleChange}
-        handleSubmit={handleRegister}
-      />
-    );
-  }
+  // if (!context.loading && !context.user) {
+  return (
+    <>
+      {/* <!-- Modal toggle --> */}
+      <button
+        data-modal-show="register-modal"
+        data-modal-target="register-modal" // id of target element
+        data-modal-toggle="register-modal"
+        className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+        type="button"
+      >
+        Register
+      </button>
 
-  if (formStage === 'profile') {
-    user && console.log(user);
+      {/* <!-- Main modal --> */}
+      <div
+        id="register-modal"
+        tabIndex="-1"
+        aria-hidden="false"
+        className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+      >
+        <div className="relative w-full max-w-md max-h-full">
+          {/* <!-- Modal content --> */}
+          <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            {/* close X button */}
 
-    return (
-      <NewProfile
-        user={user}
-        errors={errors}
-        handleChange={handleChange}
-        handleSubmit={handleProfileSubmit}
-      />
-    );
-  }
+            <button
+              type="button"
+              className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              data-modal-hide="register-modal"
+            >
+              <svg
+                className="w-3 h-3"
+                aria-hidden="false"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              <span className="sr-only">Close modal</span>
+            </button>
 
-  if (formStage === 'registered') return <Navigate to="/dashboard" />;
+            {/* <div className="px-6 py-6 lg:px-8">
+              <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
+                Register
+              </h3> */}
+              {/* form start */}
+              {formStage === 'register' && (
+                <RegisterForm
+                  user={user}
+                  errors={errors}
+                  handleChange={handleChange}
+                  handleSubmit={handleRegister}
+                />
+              )}
 
-  return null;
-}
+              {formStage === 'profile' && (
+                <NewProfile
+                  user={user}
+                  errors={errors}
+                  handleChange={handleChange}
+                  handleSubmit={handleProfileSubmit}
+                />
+              )}
+
+              {/* form end */}
+            </div>
+          </div>
+        </div>
+      {/* </div> */}
+    </>
+  );
+  // }
+};
 
 export default Register;
-
-
-/*
-<form className="form" onSubmit={handleSubmit}>
-      <label htmlFor="">Username:</label>
-      {errors?.username && (
-        <p className="text-danger">{errors?.username.message}</p>
-      )}
-      <input
-        type="text"
-        name="username"
-        value={user.username}
-        onChange={handleChange}
-        required
-      />
-
-      <label htmlFor="">Email:</label>
-      {errors?.email && <p className="text-danger">{errors?.email.message}</p>}
-      <input
-        type="email"
-        name="email"
-        value={user.email}
-        onChange={handleChange}
-        required
-      />
-
-      <label htmlFor="">Password:</label>
-      {errors?.password && (
-        <p className="text-danger">{errors?.password.message}</p>
-      )}
-      <input
-        type="password"
-        name="password"
-        value={user.password}
-        onChange={handleChange}
-        required
-      />
-
-      <label htmlFor="">Confirm Password:</label>
-      {errors?.confirmPassword && (
-        <p className="text-danger">{errors?.confirmPassword.message}</p>
-      )}
-      <input
-        type="password"
-        name="confirmPassword"
-        value={user.confirmPassword}
-        onChange={handleChange}
-        required
-      />
-
-      <button>Register</button>
-    </form>
-
-
-*/

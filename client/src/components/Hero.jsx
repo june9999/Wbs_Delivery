@@ -2,7 +2,6 @@ import React from 'react';
 import runningCat from '../assets/runningCat.jpg';
 import fastKitten from '../assets/fast-kitten.gif';
 import ChatbotStart from './ChatbotStart';
-import MapHome from './MapHome';
 // import catBox from '../assets/cat-box.jpg';
 
 const Hero = () => {
@@ -37,7 +36,6 @@ const Hero = () => {
               lightning-fast pickup and dropoff of packages and documents within
               your city, meow!
             </p>
-            <MapHome />
 
             {/* CTA button 1 */}
             {/* <a
