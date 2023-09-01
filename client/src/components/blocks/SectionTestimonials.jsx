@@ -3,7 +3,7 @@ import React from 'react';
 const SectionTestimonials = () => {
   return (
     <>
-      <section className="bg-white dark:bg-gray-900">
+      <section className="bg-primary-50 dark:bg-gray-900">
         <div className="py-2 px-4 mx-auto max-w-screen-xl text-center lg:py-8 lg:px-6" />
         <div className="mx-auto max-w-screen-sm">
           <h2 className="mb-4 text-4xl text-center tracking-tight font-extrabold text-gray-900 dark:text-white">
@@ -56,12 +56,12 @@ const SectionTestimonials = () => {
         </section> */}
 
         {/* testimonials rows */}
-        <div className="grid mb-8 lg:mb-12 lg:grid-cols-2 max-w-screen-xl mx-auto">
+        <div className="grid pb-8 lg:pb-12 lg:grid-cols-2 max-w-screen-xl mx-auto">
           {/* quote */}
-          <figure className="flex flex-col justify-center items-center p-8 text-center bg-white ">
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-primary-50">
             <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
-              <section className="bg-white dark:bg-gray-900">
-                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6">
+              <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900">
+                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg">
                   <figure className="text-left max-w-screen-md mx-auto">
                     {/* quotaion mark svg */}
                     <svg
@@ -109,10 +109,10 @@ const SectionTestimonials = () => {
           </figure>
           {/* quote */}
 
-          <figure className="flex flex-col justify-center items-center p-8 text-center bg-white ">
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-primary-50">
             <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
-              <section className="bg-white dark:bg-gray-900">
-                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6">
+              <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900">
+                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg">
                   <figure className="text-left max-w-screen-md mx-auto">
                     {/* quotaion mark svg */}
                     <svg

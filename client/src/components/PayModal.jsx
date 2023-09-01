@@ -3,7 +3,7 @@ import { AuthContext } from '../context/Auth';
 import { Navigate, NavLink } from 'react-router-dom';
 import 'flowbite';
 
-const Login = () => {
+const PayModal = () => {
   const context = useContext(AuthContext);
   const [user, setUser] = useState({
     email: '',
@@ -35,7 +35,7 @@ const Login = () => {
           className="block mx-3  text-black bg-primary-100 hover:bg-primary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 shadow-lg"
           type="button"
         >
-          Login
+          PayPal Button
         </button>
 
         {/* <!-- Main modal --> */}
@@ -72,7 +72,7 @@ const Login = () => {
               </button>
               <div className="px-6 py-6 lg:px-8">
                 <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
-                  Log in
+                  Payment Login
                 </h3>
 
                 {/* form start */}
@@ -87,7 +87,7 @@ const Login = () => {
                       htmlFor="email"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Your email
+                      Email
                     </label>
                     <input
                       type="email"
@@ -106,12 +106,12 @@ const Login = () => {
                       htmlFor="password"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Your password
+                      password
                     </label>
                     <input
                       type="password"
                       name="password"
-                      id="password"
+                      id="password5"
                       placeholder="••••••••"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                       value={user.password}
@@ -122,7 +122,7 @@ const Login = () => {
 
                   {/* Remember me checkbox */}
 
-                  <div className="flex justify-between">
+                  {/* <div className="flex justify-between">
                     <div className="flex items-start">
                       <div className="flex items-center h-5">
                         <input
@@ -142,19 +142,19 @@ const Login = () => {
                     <div className="text-sm text-blue-700 hover:underline dark:text-blue-500">
                       <NavLink to="/">Lost Password?</NavLink>
                     </div>
-                  </div>
+                  </div> */}
                   <button
                     type="submit"
                     className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
-                    Log in
+                    Pay now
                   </button>
-                  <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
+                  {/* <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                     Not registered?{' '}
                     <div className="text-blue-700 hover:underline dark:text-blue-500">
                       <NavLink to="/register">Create account</NavLink>
                     </div>
-                  </div>
+                  </div> */}
                 </form>
 
                 {/* form end */}
@@ -167,4 +167,4 @@ const Login = () => {
   // }
 };
 
-export default Login;
+export default PayModal;

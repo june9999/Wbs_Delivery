@@ -3,18 +3,17 @@ import catBasket1 from '../../assets/cat-basket1.jpg';
 
 const SectionFeature = () => {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900">
       <div className="flexpy-2 px-4 mx-auto max-w-screen-xl sm:py-8 lg:px-6">
         <div className="flex gap-8 mb-16">
           <div className="max-w-screen-md mb-8 lg:mb-16">
             <div>
               <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                Instant delivery in the wohle city
+                Instant delivery in the whole city
               </h2>
               <p className="text-gray-500 sm:text-xl dark:text-gray-400">
-                Here at Flowbite we focus on markets where technology,
-                innovation, and capital can unlock long-term value and drive
-                economic growth.
+                Get urgent parcels delivered from door to
+                door within less than 2 hours — across town.
               </p>
             </div>
           </div>

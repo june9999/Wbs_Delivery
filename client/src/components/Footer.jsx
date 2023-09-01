@@ -1,11 +1,8 @@
 import React from 'react';
-// import Logo from '../assets/cute-cat-courier.png';
 
 const Footer = () => {
   return (
-
-
-    <footer className=" bg-white dark:bg-gray-900">
+    <footer className=" bg-gradient-to-b from-primary-50 to-primary-100 dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xxl">
         <div className="grid grid-cols-3 gap-8 px-4 py-6 sm:mx-20 sm:py-8 md:grid-cols-3 text-center">
           <div>
@@ -23,7 +20,6 @@ const Footer = () => {
                   Careers
                 </a>
               </li>
-
             </ul>
           </div>
           <div>
@@ -53,7 +49,7 @@ const Footer = () => {
                   Privacy Policy
                 </a>
               </li>
-            
+
               <li className="mb-4">
                 <a href="#" className="hover:underline">
                   Terms &amp; Conditions
@@ -61,13 +57,12 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-            
         </div>
-        <div className="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+        <div className="px-4 py-6 bg-primary-50 dark:bg-gray-700 md:flex md:items-center md:justify-between">
           <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
-            © 2023 <a href="">RapidCats</a> - All Rights
-            Reserved.
+            © 2023 <a href="">RapidCats</a> - All Rights Reserved.
           </span>
+
           <div className="flex mt-4 space-x-5 sm:justify-center md:mt-0">
             <a
               href="#"
@@ -122,7 +117,6 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Twitter page</span>
             </a>
-            
           </div>
         </div>
       </div>
