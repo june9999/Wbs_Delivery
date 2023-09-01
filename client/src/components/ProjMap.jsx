@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
 import {
   useJsApiLoader,
@@ -6,20 +6,25 @@ import {
   Autocomplete,
   DirectionsRenderer,
   MarkerF,
-} from '@react-google-maps/api';
+} from "@react-google-maps/api";
 
 // import { Container, Title, Button } from 'flowbite';
 
+const center = { lat: 52.52, lng: 13.405 };
+const mapLibrary = ["places", "directions"];
 
-const center = { lat: 52.5200,  lng: 13.4050 };
-
-const mapLibrary = ['places', 'directions'];
-
-const ProjMap = ({price,setPrice,pickupLocation,setPickupLocation,dropLocation,setDropLocation,distance,setDistance}) => {
-  console.log(price)
+const ProjMap = ({
+  price,
+  setPrice,
+  pickupLocation,
+  setPickupLocation,
+  dropLocation,
+  setDropLocation,
+  distance,
+  setDistance,
+}) => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY,
-
     libraries: mapLibrary,
   });
 
@@ -27,71 +32,75 @@ const ProjMap = ({price,setPrice,pickupLocation,setPickupLocation,dropLocation,s
   const [directionsResponse, setDirectionsResponse] = useState(null);
 
   //  const [distance, setDistance] = useState('');
-  const [duration, setDuration] = useState('');
+  const [duration, setDuration] = useState("");
   // const [price,setPrice]=useState(0)
-  console.log(distance)
-  console.log(duration)
+  // console.log(distance)
+  // console.log(duration)
 
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef();
-    setPickupLocation(originRef)
-  console.log("🚀 ~ file: ProjMap.jsx:40 ~ ProjMap ~ originRef:", originRef)
-  
-  /** @type React.MutableRefObject<HTMLInputElement> */
   const destinationRef = useRef();
-       setDropLocation(destinationRef)
+
+  /** @type React.MutableRefObject<HTMLInputElement> */
   if (!isLoaded) {
     return <div>Loading...</div>;
   }
 
   async function calculateRoute(e) {
     e.preventDefault();
-    if (originRef.current.value === '' || destinationRef.current.value === '') {
+    if (originRef.current.value === "" || destinationRef.current.value === "") {
       return;
     }
 
-    console.log("DASASSADADDSDASDSA")
-try {
-  const directionsService = new google.maps.DirectionsService()
-  const results = await directionsService.route({
-    origin:originRef.current.value,
-    //  origin:setPickupLocation(originRef.current.value),
-    destination: destinationRef.current.value,
-    //  destination:setDropLocation(destinationRef.current.value),
-    travelMode: google.maps.TravelMode.DRIVING,
-  })
-  console.log("RESSSSULT",results)
-  setDirectionsResponse(results);
-  setDistance(results.routes[0].legs[0].distance.value);
-  setDuration(results.routes[0].legs[0].duration.value);
-  /// calculations
-  const baseFare =  12;
-  const costPerMin =   0.75;
-  const costPerKm =   0.75;
-  const surgeBoostMultiplier =  1;
-  const minPrice =  20;
+    console.log("DASASSADADDSDASDSA");
+    try {
+      const directionsService = new google.maps.DirectionsService();
+      const results = await directionsService
+        .route({
+          origin: originRef.current.value,
+          //  origin:setPickupLocation(originRef.current.value),
+          destination: destinationRef.current.value,
+          //  destination:setDropLocation(destinationRef.current.value),
+          travelMode: google.maps.TravelMode.DRIVING,
+        })
+        .then((res) => {
+          setPickupLocation(originRef.current.value);
+          setDropLocation(destinationRef.current.value);
+        });
+      console.log("RESSSSULT", results);
+      setDirectionsResponse(results);
+      setDistance(results.routes[0].legs[0].distance.value);
+      setDuration(results.routes[0].legs[0].duration.value);
+      /// calculations
+      const baseFare = 12;
+      const costPerMin = 0.75;
+      const costPerKm = 0.75;
+      const surgeBoostMultiplier = 1;
+      const minPrice = 20;
 
-  const distance = results.routes[0].legs[0].distance.value;
-  const duration = results.routes[0].legs[0].duration.value;
-  const durationCost = (costPerMin * duration) / 1000;
-  const distanceCost = (costPerKm * distance) / 1000;
-  let rideFare = ((baseFare + durationCost + distanceCost) * surgeBoostMultiplier).toFixed(2);
-  rideFare = setPrice(rideFare < minPrice ? minPrice : rideFare);
-  console.log("Priceeee",rideFare)
-} catch (error) {
-  console.log("mapppppp errorrrrr",error)
-}
-   
+      const distance = results.routes[0].legs[0].distance.value;
+      const duration = results.routes[0].legs[0].duration.value;
+      const durationCost = (costPerMin * duration) / 1000;
+      const distanceCost = (costPerKm * distance) / 1000;
+      let rideFare = (
+        (baseFare + durationCost + distanceCost) *
+        surgeBoostMultiplier
+      ).toFixed(2);
+      rideFare = setPrice(rideFare < minPrice ? minPrice : rideFare);
+      console.log("Priceeee", rideFare);
+    } catch (error) {
+      console.log("mapppppp errorrrrr", error);
+    }
   }
 
   function clearRoute() {
     setDirectionsResponse(null);
-    setDistance('');
+    setDistance("");
 
-    setDuration('');
+    setDuration("");
 
-    originRef.current.value = '';
-    destinationRef.current.value = '';
+    originRef.current.value = "";
+    destinationRef.current.value = "";
   }
 
   return (
@@ -106,41 +115,52 @@ try {
     </Button>
   </Container>
   </div> */}
-    <div>
-      {/* {isLoaded ? ( */}
-      <div className="flex items-center justify-center">
-        <GoogleMap
-          center={center}
-          zoom={15}
-          mapContainerStyle={{ width: '45vw', height: '400px' }}
-          // options={{
-          //   zoomControl: false,
-          //   streetViewControl: false,
-          //   mapTypeControl: false,
-          //   fullscreenControl: false,
-          // }}
-          onLoad={(map) => setMap(map)}
-        >
-          
-          <MarkerF position={center} />
+      <div>
+        {/* {isLoaded ? ( */}
+        <div className="flex items-center justify-center">
+          <GoogleMap
+            center={center}
+            zoom={15}
+            mapContainerStyle={{ width: "45vw", height: "400px" }}
+            // options={{
+            //   zoomControl: false,
+            //   streetViewControl: false,
+            //   mapTypeControl: false,
+            //   fullscreenControl: false,
+            // }}
+            onLoad={(map) => setMap(map)}
+          >
+            <MarkerF position={center} />
 
-          {directionsResponse && (
-            <DirectionsRenderer directions={directionsResponse} />
-          )}
-        </GoogleMap>
-        {/* ) : (
+            {directionsResponse && (
+              <DirectionsRenderer directions={directionsResponse} />
+            )}
+          </GoogleMap>
+          {/* ) : (
         <div>Loading Google Maps...</div>
       )} */}
-</div>
+        </div>
 
-<div className= " mt-8 flex items-center justify-center"  >
-<form className="mt-8">
-<Autocomplete>
+        <div className=" mt-8 flex items-center justify-center">
+          <form className="mt-8">
+            <Autocomplete>
               {/* <input type='text' placeholder='Origin' ref={originRef} /> */}
 
               <div className="w-80 ml-12 ">
-                  <label htmlFor="origin" className="block mb-2 text-lg font-medium text-gray-900 dark:text-white mt-4">Origin</label>
-                  <input type="text" name="brand" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="PickupLocation" ref={originRef} />
+                <label
+                  htmlFor="origin"
+                  className="block mb-2 text-lg font-medium text-gray-900 dark:text-white mt-4"
+                >
+                  Origin
+                </label>
+                <input
+                  type="text"
+                  name="brand"
+                  id="brand"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="PickupLocation"
+                  ref={originRef}
+                />
               </div>
             </Autocomplete>
             <Autocomplete>
@@ -150,9 +170,21 @@ try {
                 ref={destinationRef}
               /> */}
 
-            <div className="w-80 ml-12 ">
-                  <label htmlFor="destination" className="  block mb-2 text-lg font-medium text-gray-900 dark:text-white mt-4">Destination</label>
-                  <input type="text" name="brand" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="DropLocation" ref={destinationRef} />
+              <div className="w-80 ml-12 ">
+                <label
+                  htmlFor="destination"
+                  className="  block mb-2 text-lg font-medium text-gray-900 dark:text-white mt-4"
+                >
+                  Destination
+                </label>
+                <input
+                  type="text"
+                  name="brand"
+                  id="brand"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="DropLocation"
+                  ref={destinationRef}
+                />
               </div>
             </Autocomplete>
             {/* <button  type='submit' onClick={calculateRoute}>
@@ -175,30 +207,43 @@ try {
             </button>
 
             <button
-            type="submit"
-            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12"
-            onClick={() => {
-              map.panTo(center);
-              map.setZoom(15);
-            }}
-          >
-            Center Map
-          </button>
+              type="submit"
+              className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12"
+              onClick={() => {
+                map.panTo(center);
+                map.setZoom(15);
+              }}
+            >
+              Center Map
+            </button>
 
             {/* <button onClick={clearRoute}>New Route</button> */}
           </form>
 
- <div className="ml-12 ">
-  <div>
-  <label htmlFor="distance" className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Distance</label>
-  <p  className="w-80  block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  > {distance/1000} km</p> 
+          <div className="ml-12 ">
+            <div>
+              <label
+                htmlFor="distance"
+                className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
+              >
+                Distance
+              </label>
+              <p className="w-80  block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                {" "}
+                {distance / 1000} km
+              </p>
 
-  <label htmlFor="duration" className="block mt-4 mb-2 text-lg font-medium text-gray-900 dark:text-white">Duration</label>
-  <p  className="w-80  block mb-2 text-sm font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  >{duration/60} min</p> 
-
-
-</div> 
-</div>
+              <label
+                htmlFor="duration"
+                className="block mt-4 mb-2 text-lg font-medium text-gray-900 dark:text-white"
+              >
+                Duration
+              </label>
+              <p className="w-80  block mb-2 text-sm font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                {duration / 60} min
+              </p>
+            </div>
+          </div>
 
           {/* <button onClick={() => {
               map.panTo(center)
@@ -208,17 +253,9 @@ try {
               Move to Center
             </button> */}
 
-        
-
-    
-    {/* <p className="ml-12 mt-8">Price for Delivery:  {price}</p> */}
-    
-   
-    </div>
-    </div>
-    
-
-    
+          {/* <p className="ml-12 mt-8">Price for Delivery:  {price}</p> */}
+        </div>
+      </div>
     </>
   );
 };
