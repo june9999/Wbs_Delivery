@@ -17,7 +17,8 @@ import Home from './Home';
 import Dashboard from '../pages/Dashboard';
 import Payment from '../pages/Payment';
 import Checkout from '../pages/Checkout';
-import Contact from '../pages/Contact'
+import Contact from '../pages/Contact';
+import Confirmation from '../components/Confirmation';
 
 
 
@@ -46,6 +47,8 @@ const Main = () => {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/payment" element={<Payment />} />
               <Route path="/comments" element={<Comments />} />
+
+              <Route path='/confirmation' element={<Confirmation/>} />
 
             </Route>
 
