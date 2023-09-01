@@ -7,6 +7,8 @@ const OrderCards = ({ order, Orders, setOrders }) => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const id = order._id;
+  const start = Date.now();
+  console.log("🚀 ~ file: OrderCards.jsx:11 ~ start:", start);
   const handleDelete = () => {
     axios
       .delete(`/api/Orders/${id}`)
@@ -37,25 +39,21 @@ const OrderCards = ({ order, Orders, setOrders }) => {
 
   return (
     <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-      <img
-        className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-        src="/docs/images/blog/image-4.jpg"
-        alt=""
-      />
       <div className="flex flex-col justify-between p-4 leading-normal">
         <Link to={`/orders/${order._id}`}>
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Order
           </h5>
         </Link>
+
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Customer: {order.customerId.username}
+          Id: {order._id}
         </p>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          OrderId: {order._id}
+          {/* Last Update: {start - order.updatedAt} */}
         </p>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Orderstatus:{" "}
+          Order Status:{" "}
           {order.delivered
             ? "Order ended"
             : order.claimed

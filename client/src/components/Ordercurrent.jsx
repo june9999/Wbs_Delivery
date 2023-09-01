@@ -21,7 +21,7 @@ const Ordercurrent = () => {
       <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-left text-gray-900 dark:text-white ">
         Current Orders
       </h1>
-      <ul className="flex ">
+      <ul className="flex gap-[1rem]">
         {Orders &&
           Orders.map((order) => (
             <li key={uuidv4()} className="mb-[2rem]">
