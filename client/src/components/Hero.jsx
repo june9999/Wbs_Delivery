@@ -8,7 +8,7 @@ import cat2 from '../assets/cat2.png';
 const Hero = () => {
   return (
     <>
-      <section className="bg-white dark:bg-gray-900">
+      <section className="bg-white dark:bg-gray-900 shadow-lg">
         {/* Background image --- parent style: opacity 0.99 relative --- child: img opacity absolute z-index w h cover --- */}
         <div
           className="grid max-w-screen-xxl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
@@ -28,7 +28,7 @@ const Hero = () => {
           />
 
           <div className="place-self-center lg:col-span-7 p-6">
-            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+            <h1 className="text-white max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
               Your Purrcel <br />
               is our Purriority
             </h1>
@@ -42,9 +42,9 @@ const Hero = () => {
             {/* CTA button 1 */}
             <a
               href="#"
-              className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+              className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-primary-200 hover:bg-primary-200 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 shadow-2xl"
             >
-              Place your Order
+              Place an Order
               <svg
                 className="w-5 h-5 ml-2 -mr-1"
                 fill="currentColor"
