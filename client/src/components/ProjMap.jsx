@@ -133,13 +133,13 @@ try {
       )} */}
 </div>
 
-<div className= "ml-96 mt-8 items-center justify-center"  >
-<form>
+<div className= " mt-8 flex items-center justify-center"  >
+<form className="mt-8">
 <Autocomplete>
               {/* <input type='text' placeholder='Origin' ref={originRef} /> */}
 
-              <div className="w-80 ml-12">
-                  <label htmlFor="origin" className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Origin</label>
+              <div className="w-80 ml-12 ">
+                  <label htmlFor="origin" className="block mb-2 text-lg font-medium text-gray-900 dark:text-white mt-4">Origin</label>
                   <input type="text" name="brand" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="PickupLocation" ref={originRef} />
               </div>
             </Autocomplete>
@@ -151,7 +151,7 @@ try {
               /> */}
 
             <div className="w-80 ml-12 ">
-                  <label htmlFor="destination" className="  block mb-2 text-lg font-medium text-gray-900 dark:text-white">Destination</label>
+                  <label htmlFor="destination" className="  block mb-2 text-lg font-medium text-gray-900 dark:text-white mt-4">Destination</label>
                   <input type="text" name="brand" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="DropLocation" ref={destinationRef} />
               </div>
             </Autocomplete>
@@ -174,15 +174,26 @@ try {
               Clear Route
             </button>
 
+            <button
+            type="submit"
+            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12"
+            onClick={() => {
+              map.panTo(center);
+              map.setZoom(15);
+            }}
+          >
+            Center Map
+          </button>
+
             {/* <button onClick={clearRoute}>New Route</button> */}
           </form>
 
- <div className="ml-12 mt-8">
+ <div className="ml-12 ">
   <div>
   <label htmlFor="distance" className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Distance</label>
   <p  className="w-80  block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  > {distance/1000} km</p> 
 
-  <label htmlFor="duration" className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Duration</label>
+  <label htmlFor="duration" className="block mt-4 mb-2 text-lg font-medium text-gray-900 dark:text-white">Duration</label>
   <p  className="w-80  block mb-2 text-sm font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  >{duration/60} min</p> 
 
 
@@ -197,16 +208,7 @@ try {
               Move to Center
             </button> */}
 
-          <button
-            type="submit"
-            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12"
-            onClick={() => {
-              map.panTo(center);
-              map.setZoom(15);
-            }}
-          >
-            Center Map
-          </button>
+        
 
     
     {/* <p className="ml-12 mt-8">Price for Delivery:  {price}</p> */}
