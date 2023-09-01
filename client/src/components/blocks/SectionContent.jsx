@@ -4,7 +4,7 @@ import catBasket2 from '../../assets/cat-basket2.jpg';
 
 const SectionContent = () => {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="from-primary-50 dark:bg-gray-900">
       {/* <h2 className="mb-4 text-4xl text-center tracking-tight font-extrabold text-gray-900 dark:text-white">
         About the Company
       </h2> */}

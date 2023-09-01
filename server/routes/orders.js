@@ -7,7 +7,8 @@ const {
   updateOrder,
   deleteOrder,
   getOrderstoClaim,
-  getOrdersClaimed,
+  getOrdersPast,
+  getOrdersCurrent,
 } = require("../controllers/orders");
 
 const authenticate = require("../middlewares/auth");
@@ -15,7 +16,8 @@ router.use(authenticate);
 
 router.get("/", getAllOrders);
 router.get("/toclaim", getOrderstoClaim);
-router.get("/claimed", getOrdersClaimed);
+router.get("/pastorders", getOrdersPast);
+router.get("/currentOrder", getOrdersCurrent);
 router.get("/:id", getOrderById);
 router.post("/", createOrder);
 router.put("/:id", updateOrder);

@@ -109,14 +109,14 @@ const deleteOrder = async (req, res) => {
   }
 };
 
-const getOrdersClaimed = async (req, res) => {
+const getOrdersPast = async (req, res) => {
   try {
     // find related order based on customer or employee Id
 
     const orders = await Order.find({
       $and: [
         { $or: [{ customerId: req.user._id }, { employeeId: req.user._id }] },
-        { claimed: true },
+        { delivered: true },
       ],
     })
       .populate({
@@ -139,7 +139,32 @@ const getOrderstoClaim = async (req, res) => {
     // find related order based on customer or employee Id
 
     const orders = await Order.find({
-      claimed: false,
+      $and: [{ paid: true }, { claimed: false }],
+    })
+      .populate({
+        path: "customerId",
+        select: "username",
+      })
+      .populate({
+        path: "employeeId",
+        select: "username",
+      });
+
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ message: error.message, errors: error.errors });
+  }
+};
+
+const getOrdersCurrent = async (req, res) => {
+  try {
+    // find related order based on customer or employee Id
+
+    const orders = await Order.find({
+      $and: [
+        { $or: [{ customerId: req.user._id }, { employeeId: req.user._id }] },
+        { delivered: false },
+      ],
     })
       .populate({
         path: "customerId",
@@ -163,5 +188,6 @@ module.exports = {
   updateOrder,
   deleteOrder,
   getOrderstoClaim,
-  getOrdersClaimed,
+  getOrdersPast,
+  getOrdersCurrent,
 };

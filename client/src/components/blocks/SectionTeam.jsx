@@ -1,6 +1,6 @@
 import React from 'react';
 import cat01 from '../../assets/cat01.gif';
-import catA from '../../assets/cat-fish.jpg';
+import catA from '../../assets/cat-fish.png';
 import catB from '../../assets/cat-heart.png';
 import catC from '../../assets/cat-box.png';
 import cat03 from '../../assets/cat03.gif';
@@ -9,7 +9,7 @@ import cat2 from '../../assets/cat2.png';
 
 const SectionTeam = ({}) => {
   return (
-    <section className="bg-white dark:bg-gray-900 mb-10">
+    <section className="bg-primary-50 dark:bg-gray-900 pb-10">
       <div className="py-2 px-4 mx-auto max-w-screen-xl text-center lg:py-8 lg:px-6">
         <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">

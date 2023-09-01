@@ -31,8 +31,8 @@ const Userprofile = () => {
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
-        <div className="max-w-2xl px-4 py-8 mx-auto lg:py-16">
-          <h2 className="mb-10 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
+        <div className="max-w-2xl  py-8 mx-auto lg:py-16">
+          <h2 className="mb-10 text-4xl tracking-tight font-extrabold text-left text-gray-900 dark:text-white">
             Your Personal Profile
           </h2>
           <form action="#">
