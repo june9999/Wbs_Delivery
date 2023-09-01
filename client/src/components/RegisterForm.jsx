@@ -99,7 +99,7 @@ const RegisterForm = ({ user, errors, handleChange, handleSubmit }) => {
                     required
                   />
                 </div>
-                <div className="ml-3 text-sm">
+                {/* <div className="ml-3 text-sm">
                   <label
                     htmlFor="terms"
                     className="font-light text-gray-500 dark:text-gray-300"
@@ -112,7 +112,7 @@ const RegisterForm = ({ user, errors, handleChange, handleSubmit }) => {
                       Terms and Conditions
                     </a>
                   </label>
-                </div>
+                </div> */}
               </div>
               <button
                 type="submit"
