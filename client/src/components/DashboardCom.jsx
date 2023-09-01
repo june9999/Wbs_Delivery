@@ -11,12 +11,12 @@ const DashboardCom = () => {
       </h1>
       <div className="flex gap-[2rem] wrap">
         <section>
-          <Dashtable />
           <Ordercurrent />
+          <Dashtable />
         </section>
-        <section>
+        {/* <section>
           <Orders />
-        </section>
+        </section> */}
       </div>
     </>
   );
