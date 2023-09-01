@@ -140,7 +140,7 @@ const Register = () => {
                   user={user}
                   errors={errors}
                   handleChange={handleChange}
-                  handleSubmit={handleProfileSubmit}
+                  handleProfileSubmit={handleProfileSubmit}
                 />
               )}
 
