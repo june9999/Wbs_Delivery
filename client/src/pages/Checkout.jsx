@@ -1,13 +1,23 @@
+
 import React from 'react';
 
-// the page to confirm the delivery information
 
-const Checkout = () => {
+const Checkout = ({price , distance}) => {
+  const p = price
+  console.log("🚀 ~ file: Checkout.jsx:7 ~ Checkout ~ price:", price)
   return (
-    <>
-      {/* { Order Summary goes into this line} */}
+   <div className="flex items-center justify-center mt-24">
+    <div >
+<h1  className="w-28 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 mb-8 ml-80">Checkout</h1>
 
-      <div>
+ <p  className="flex items-center justify-center w-100 ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  >Distance : {distance/1000}km</p> 
+<p className="flex items-center justify-center w-100 ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">Base fare : 12</p>
+<p className="flex items-center justify-center ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-24">Total :  {p}</p>
+
+
+
+
+<div>
         <button
           type="button"
           className="text-gray-900 bg-[#F7BE38] hover:bg-[#F7BE38]/90 focus:ring-4 focus:outline-none focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#F7BE38]/50 mr-2 mb-2"
@@ -153,8 +163,10 @@ const Checkout = () => {
         </svg>
       </button> */}
       </div>
-    </>
-  );
-};
+
+</div>
+    </div>
+  )
+}
 
 export default Checkout;

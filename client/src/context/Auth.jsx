@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
       console.log(socket.id);
     });
     user && socket.emit("newUser", user.userType);
-  }, user);
+  }, [user]);
 
   const login = async (user) => {
     setLoading(true);

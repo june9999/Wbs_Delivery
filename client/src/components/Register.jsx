@@ -66,7 +66,7 @@ const Register = () => {
     await context.register(updatedUser);
     setFormStage('registered');
     setLoading(false);
-    formStage === 'registered' && <Navigate to="/dashboard" />
+    {formStage === 'registered' && <Navigate to="/dashboard" />}
 
   };
 
@@ -80,7 +80,7 @@ const Register = () => {
         data-modal-show="register-modal"
         data-modal-target="register-modal" // id of target element
         data-modal-toggle="register-modal"
-        className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+        className="text-black bg-primary-200 hover:bg-primary-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 shadow-lg"
         type="button"
       >
         Register
