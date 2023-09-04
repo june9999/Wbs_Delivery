@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/Auth';
 import Checkout from './Checkout'
+// import Confirmation from '../components/Confirmation' 
 import socket from '../../socket/socket';
 
 import axios from '../axiosInstance';
@@ -14,7 +15,7 @@ const NewOrder = () => {
   const [pickupLocation, setPickupLocation] = useState('');
   console.log("pickupLocation",pickupLocation)
   const [dropLocation, setDropLocation] = useState('');
-  // console.log("dropLocation",dropLocation)
+   console.log("dropLocation",dropLocation)
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [length, setLength] = useState(0);
@@ -22,9 +23,10 @@ const NewOrder = () => {
 const [checkout,setCheckout]=useState(true)
 const [distance,setDistance]=useState('')
 const [price,setPrice]=useState(0)
+const [paid,setPaid]=useState(false)
   const [customerId, setCustomerId] = useState(user._id);
  
-  console.log("🚀 ~ file: NewOrder.jsx:25 ~ NewOrder ~ dropLocation:", dropLocation.current)
+  
 
   // const [employeeId, setEmployeeId] = useState('');
 
@@ -62,6 +64,7 @@ const [price,setPrice]=useState(0)
         length,
         width,
         price,
+        paid,
         customerId,
       })
       .then((res) => {
@@ -116,12 +119,14 @@ const [price,setPrice]=useState(0)
 
 <div className=" ">
                   <label htmlFor="origin" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Origin</label>
-                  <input type="text" name="brand" id="brand" value={pickupLocation.current?.value || ''} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="PickupLocation"  />
+                  <input type="text" name="brand" id="brand" value={pickupLocation.current?.value || ''} onChange={(e)=>setPickupLocation(setPickupLocation?.current?.value)}  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="PickupLocation"  />
               </div>
 
               <div className=" ">
                   <label htmlFor="destination" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Destination</label>
-                  <input type="text" name="brand" id="brand" value={dropLocation?.current?.value || ''} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="DropLocation"  />
+                  <input type="text" name="brand" id="brand" value={dropLocation?.current?.value || ''}
+                 
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="DropLocation"  />
                 
               </div>
 
@@ -290,7 +295,7 @@ const [price,setPrice]=useState(0)
             </div>
           
           <button
-            type="submit"
+            
             className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
           >
             Add product
@@ -308,9 +313,16 @@ const [price,setPrice]=useState(0)
    
     )}
 
-<div className="flex items-center justify-center" >
+<div className="flex items-center justify-center mb-8" >
 { checkout && <button onClick={(()=>setCheckout(false))}  className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Checkout</button>}
-{ !checkout && <button onClick={payment}   className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Payment</button>}
+{ !checkout && <button    className="ml-4 mr-4 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Payment</button>}
+
+
+{
+  !checkout && <button  onClick={(()=>setPaid(true)) && <NavLink to="/Confirmation"></NavLink>}  className="flex item-center justify-center inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Pay</button>
+
+}
+
 </div>
     
     </>
