@@ -49,7 +49,7 @@ const Login = () => {
         >
           <div className="relative w-full max-w-md max-h-full">
             {/* <!-- Modal content --> */}
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div className="relative  rounded-lg shadow dark:bg-gray-700 bg-gradient-to-t from-primary-50 to-primary-100">
               <button
                 type="button"
                 className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -141,7 +141,7 @@ const Login = () => {
                         Remember me
                       </label>
                     </div>
-                    <div className="text-sm text-blue-700 hover:underline dark:text-blue-500">
+                    <div className="text-sm text-primary-600 hover:underline dark:text-primary-500">
                       <NavLink to="/">Lost Password?</NavLink>
                     </div>
                   </div>
@@ -153,7 +153,7 @@ const Login = () => {
                   </button>
                   <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                     Not registered?{' '}
-                    <div className="text-blue-700 hover:underline dark:text-blue-500">
+                    <div className="text-primary-600 hover:underline dark:text-primary-500">
                       <NavLink to="/register">Create account</NavLink>
                     </div>
                   </div>

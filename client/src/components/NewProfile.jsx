@@ -9,17 +9,17 @@ function NewProfile({ user, errors, handleChange, handleProfileSubmit }) {
   // const errors = context.errors;
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+    <section className="dark:bg-gray-900 rounded-lg">
+      <div className="flex flex-col items-center justify-center mx-auto lg:py-0 ">
+        <div className="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 bg-gradient-to-t from-primary-50 to-primary-10">
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8  mx-16">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Create Profile
             </h1>
             {errors?.username && (
               <p className="text-danger">{errors?.username.message}</p>
             )}
-            <form className="space-y-4 md:space-y-6" onSubmit={handleProfileSubmit}>
+            <form className="space-y-4 md:space-y-6 text-right" onSubmit={handleProfileSubmit}>
               <div>
                 {/*  <form className="form" onSubmit={handleProfileSubmit}> */}
                 {/* <label htmlFor="">userType</label>
@@ -46,7 +46,7 @@ function NewProfile({ user, errors, handleChange, handleProfileSubmit }) {
                     required
                   /> */}
 
-                <label htmlFor="">firstName</label>
+                <label htmlFor="">firstName </label>
                 {errors?.firstName && (
                   <p className="text-danger">{errors?.firstName.message}</p>
                 )}
@@ -59,7 +59,7 @@ function NewProfile({ user, errors, handleChange, handleProfileSubmit }) {
                 />
               </div>
               <div>
-                <label htmlFor="">lastName</label>
+                <label htmlFor="">lastName </label>
                 {errors?.lastName && (
                   <p className="text-danger">{errors?.lastName.message}</p>
                 )}
@@ -72,7 +72,7 @@ function NewProfile({ user, errors, handleChange, handleProfileSubmit }) {
                 />
               </div>
               <div>
-                <label htmlFor="">address</label>
+                <label htmlFor="">address </label>
                 {errors?.address && (
                   <p className="text-danger">{errors?.address.message}</p>
                 )}
@@ -85,7 +85,7 @@ function NewProfile({ user, errors, handleChange, handleProfileSubmit }) {
                 />
               </div>
               <div>
-                <label htmlFor="">zipcode</label>
+                <label htmlFor="">zipcode </label>
                 {errors?.zipcode && (
                   <p className="text-danger">{errors?.zipcode.message}</p>
                 )}
@@ -98,7 +98,7 @@ function NewProfile({ user, errors, handleChange, handleProfileSubmit }) {
                 />
               </div>
               <div>
-                <label htmlFor="">city</label>
+                <label htmlFor="">city </label>
                 {errors?.city && (
                   <p className="text-danger">{errors?.city.message}</p>
                 )}
@@ -111,7 +111,7 @@ function NewProfile({ user, errors, handleChange, handleProfileSubmit }) {
                 />
               </div>
               <div>
-                <label htmlFor="">phone</label>
+                <label htmlFor="">phone </label>
                 {errors?.phone && (
                   <p className="text-danger">{errors?.phone.message}</p>
                 )}
@@ -124,7 +124,7 @@ function NewProfile({ user, errors, handleChange, handleProfileSubmit }) {
                 />
               </div>
               <div>
-                <label htmlFor="">image</label>
+                <label htmlFor="">image </label>
                 {errors?.image && (
                   <p className="text-danger">{errors?.image.message}</p>
                 )}

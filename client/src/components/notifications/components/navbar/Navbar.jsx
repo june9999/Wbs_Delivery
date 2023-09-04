@@ -1,3 +1,4 @@
+import React from 'react';
 import './navbar.css';
 import Notification from '../../img/notification.svg';
 import Message from '../../img/message.svg';
