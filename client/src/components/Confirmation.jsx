@@ -5,6 +5,8 @@ const Confirmation = () => {
   return (
     <div>
 
+        <h2>Confirmed</h2>
+
 <ModalSuccess/>
 
     </div>

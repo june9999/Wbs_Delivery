@@ -10,10 +10,11 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: [true, "droplocation is required"],
     },
-    weight: { type: Number, max: 5, required: [true, "weight is required"] },
-    height: { type: Number, max: 2, required: [true, "height is required"] },
-    length: { type: Number, max: 2, required: [true, "length is required"] },
-    width: { type: Number, max: 2, required: [true, "width is required"] },
+    weight: { type: Number,min:0, max: 10, required: [true, "weight is required"] },
+    height: { type: Number,min:0, max: 20, required: [true, "height is required"] },
+    
+    length: { type: Number, min:0,max: 20, required: [true, "length is required"] },
+    width: { type: Number,min:0, max: 20, required: [true, "width is required"] },
     customerId: {
       type: mongoose.Schema.Types.ObjectId,
       required: [true, "customerId is required"],
