@@ -22,7 +22,6 @@ const OrderCards = ({ order, Orders, setOrders }) => {
   const handleClaim = () => {
     order.claimed = true;
     order.employeeId = user._id;
-    console.log("🚀 ~ file: OrderCards.jsx:26 ~ axios.put ~ order:", order);
     axios.put(`/api/Orders/${id}`, order).then((res) => {
       const newOrders = Orders.filter((e) => e._id !== order._id);
       setOrders(newOrders);

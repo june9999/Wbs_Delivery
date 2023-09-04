@@ -1,22 +1,22 @@
 // import Notfound from "../components/blocks/Notfound";
-import Comments from '../pages/Comments';
-import { AnimatePresence } from 'framer-motion';
-import AnimatedPage from './AnimatedPage';
-import ProjMap from './ProjMap';
-import React from 'react';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import NewOrder from '../pages/NewOrder';
-import OrderDetails from '../pages/OrderDetails';
-import UpdateOrder from '../pages/UpdateOrder';
-import LoginForm from '../pages/LoginForm';
-import Register from './Register';
-import ProtectedRoute from './ProtectedRoute';
-import Home from './Home';
-import Dashboard from '../pages/Dashboard';
-import Payment from '../pages/Payment';
-import Checkout from '../pages/Checkout';
-import Contact from '../pages/Contact';
-import Confirmation from '../components/Confirmation';
+import Comments from "../pages/Comments";
+import { AnimatePresence } from "framer-motion";
+import AnimatedPage from "./AnimatedPage";
+import ProjMap from "./ProjMap";
+import React from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import NewOrder from "../pages/NewOrder";
+import OrderDetails from "../pages/OrderDetails";
+import UpdateOrder from "../pages/UpdateOrder";
+import LoginForm from "../pages/LoginForm";
+import Register from "./Register";
+import ProtectedRoute from "./ProtectedRoute";
+import Home from "./Home";
+import Dashboard from "../pages/Dashboard";
+import Payment from "../pages/Payment";
+import Checkout from "../pages/Checkout";
+import Contact from "../pages/Contact";
+import Confirmation from "../components/Confirmation";
 
 const Main = () => {
   const location = useLocation();
@@ -49,7 +49,7 @@ const Main = () => {
               <Route path="/confirmation" element={<Confirmation />} />
             </Route>
 
-            {/* <Route path="/login" element={<LoginForm />} /> */}
+            <Route path="/login" element={<LoginForm />} />
             {/* <Route path="/register" element={<Register />} /> */}
             <Route path="/contact" element={<Contact />} />
           </Routes>
