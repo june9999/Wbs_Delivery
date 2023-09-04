@@ -29,6 +29,8 @@ const ProjMap = ({
     libraries: mapLibrary,
   });
 
+
+
   const [map, setMap] = useState(null);
   const [directionsResponse, setDirectionsResponse] = useState(null);
 
@@ -42,10 +44,34 @@ const ProjMap = ({
   const originRef = useRef();
   const destinationRef = useRef();
 
+  useEffect (()=>{
+    const baseFare = 12;
+    const costPerMin = 0.75;
+    const costPerKm = 0.75;
+    const surgeBoostMultiplier = 1;
+    const minPrice = 20;
+
+    //  const distance = results.routes[0].legs[0].distance.value;
+    //  const duration = results.routes[0].legs[0].duration.value;
+    const durationCost = (costPerMin * duration) / 1000;
+    console.log("🚀 ~ file: ProjMap.jsx:86 ~ calculateRoute ~ durationCost:", durationCost)
+    const distanceCost = (costPerKm * distance) / 1000;
+    console.log("🚀 ~ file: ProjMap.jsx:88 ~ calculateRoute ~ distanceCost:", distanceCost)
+    let rideFare = (
+      (baseFare + durationCost + distanceCost) *
+      surgeBoostMultiplier
+    ).toFixed(2);
+    rideFare = setPrice(rideFare < minPrice ? minPrice : rideFare);
+    console.log("Priceeee", rideFare);
+  },[duration,distance])
+
+
   /** @type React.MutableRefObject<HTMLInputElement> */
   if (!isLoaded) {
     return <div>Loading...</div>;
   }
+
+  
 
   async function calculateRoute(e) {
     e.preventDefault();
@@ -65,30 +91,36 @@ const ProjMap = ({
           travelMode: google.maps.TravelMode.DRIVING,
         })
         .then((res) => {
+          console.log("🚀 ~ file: ProjMap.jsx:68 ~ .then ~ res:", res)
           setPickupLocation(originRef.current.value);
           setDropLocation(destinationRef.current.value);
-        });
-      console.log("RESSSSULT", results);
-      setDirectionsResponse(results);
-      setDistance(results.routes[0].legs[0].distance.value);
-      setDuration(results.routes[0].legs[0].duration.value);
+          // console.log("RESSSSULT", results);
+          setDirectionsResponse(res);
+          setDistance(res.routes[0].legs[0].distance.value);
+          setDuration(res.routes[0].legs[0].duration.value);})
+        //   .then((res) => {
+        //   const baseFare = 12;
+        //   const costPerMin = 0.75;
+        //   const costPerKm = 0.75;
+        //   const surgeBoostMultiplier = 1;
+        //   const minPrice = 20;
+    
+        //   //  const distance = results.routes[0].legs[0].distance.value;
+        //   //  const duration = results.routes[0].legs[0].duration.value;
+        //   const durationCost = (costPerMin * duration) / 1000;
+        //   console.log("🚀 ~ file: ProjMap.jsx:86 ~ calculateRoute ~ durationCost:", durationCost)
+        //   const distanceCost = (costPerKm * distance) / 1000;
+        //   console.log("🚀 ~ file: ProjMap.jsx:88 ~ calculateRoute ~ distanceCost:", distanceCost)
+        //   let rideFare = (
+        //     (baseFare + durationCost + distanceCost) *
+        //     surgeBoostMultiplier
+        //   ).toFixed(2);
+        //   rideFare = setPrice(rideFare < minPrice ? minPrice : rideFare);
+        //   console.log("Priceeee", rideFare);
+        // });
       /// calculations
-      const baseFare = 12;
-      const costPerMin = 0.75;
-      const costPerKm = 0.75;
-      const surgeBoostMultiplier = 1;
-      const minPrice = 20;
+    
 
-      const distance = results.routes[0].legs[0].distance.value;
-      const duration = results.routes[0].legs[0].duration.value;
-      const durationCost = (costPerMin * duration) / 1000;
-      const distanceCost = (costPerKm * distance) / 1000;
-      let rideFare = (
-        (baseFare + durationCost + distanceCost) *
-        surgeBoostMultiplier
-      ).toFixed(2);
-      rideFare = setPrice(rideFare < minPrice ? minPrice : rideFare);
-      console.log("Priceeee", rideFare);
     } catch (error) {
       console.log("mapppppp errorrrrr", error);
     }
