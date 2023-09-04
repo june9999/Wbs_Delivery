@@ -1,8 +1,8 @@
-import React, { createContext, useState, useEffect } from "react";
-import axios from "../axiosInstance";
-import { useNavigate } from "react-router-dom";
+import React, { createContext, useState, useEffect } from 'react';
+import axios from '../axiosInstance';
+import { Navigate, useNavigate } from 'react-router-dom';
 export const AuthContext = createContext();
-import socket from "../../socket/socket";
+import socket from '../../socket/socket';
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
   };
   useEffect(() => {
     axios
-      .get("auth/currentUser")
+      .get('auth/currentUser')
       .then((res) => setState(res.data.user, false, null))
       .catch((error) => {
         setState(null, false, null);
@@ -24,23 +24,23 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    socket.on("connect", () => {
+    socket.on('connect', () => {
       console.log(socket.id);
     });
-    user && socket.emit("newUser", user.userType);
+    user && socket.emit('newUser', user.userType);
   }, [user]);
 
   const login = async (user) => {
     setLoading(true);
     try {
-      const res = await axios.post("auth/login", user);
+      const res = await axios.post('auth/login', user);
 
       setState(res.data.user, false, null);
       console.log(
-        "🚀 ~ file: Auth.jsx:40 ~ login ~ res.data.user:",
+        '🚀 ~ file: Auth.jsx:40 ~ login ~ res.data.user:',
         res.data.user
       );
-      navigate("/");
+      navigate('/dashboard');
     } catch (error) {
       console.log(error.response);
       setState(null, false, error.response.data);
@@ -50,10 +50,10 @@ const AuthProvider = ({ children }) => {
   const register = async (user) => {
     setLoading(true);
     try {
-      const res = await axios.post("auth/register", user);
-      console.log("🚀 ~ file: Auth.jsx:40 ~ register ~ user:", user);
+      const res = await axios.post('auth/register', user);
+      console.log('🚀 ~ file: Auth.jsx:40 ~ register ~ user:', user);
       setState(res.data.user, false, null);
-      navigate("/");
+      navigate('/');
     } catch (error) {
       console.log(error.response);
       setState(null, false, error.response.data.errors);
@@ -62,9 +62,10 @@ const AuthProvider = ({ children }) => {
   const logout = async () => {
     setLoading(true);
     try {
-      const res = await axios.post("auth/logout", {});
+      const res = await axios.post('auth/logout', {});
       setState(null, false, null);
-      navigate("/");
+      <Navigate to="/"/>;
+      // navigate("/");
       window.location.reload();
     } catch (error) {
       console.log(error.response);
