@@ -1,7 +1,15 @@
 import React from 'react';
 import PayModal from '../components/PayModal';
 
-const Checkout = ({ price, distance }) => {
+
+const Checkout = ({ price, distance, paid }) => {
+const navigate=useNavigate()
+
+const handleChange=(()=>{
+   
+
+})
+
   const p = price;
   console.log('🚀 ~ file: Checkout.jsx:7 ~ Checkout ~ price:', price);
   return (
@@ -167,6 +175,15 @@ const Checkout = ({ price, distance }) => {
           />
         </svg>
       </button> */}
+
+
+{
+  !paid && (<button  onClick={handleChange}
+  className="flex item-center justify-center inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-24 ">Pay</button>) 
+
+}
+
+
         </div>
       </div>
     </div>
