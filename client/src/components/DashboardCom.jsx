@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Orders from "./Orders";
 import Ordercurrent from "./Ordercurrent";
+import Dashtable from "./Dashtable";
 
 const DashboardCom = () => {
   return (
@@ -11,10 +12,11 @@ const DashboardCom = () => {
       <div className="flex gap-[2rem] wrap">
         <section>
           <Ordercurrent />
+          <Dashtable />
         </section>
-        <section>
+        {/* <section>
           <Orders />
-        </section>
+        </section> */}
       </div>
     </>
   );
