@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import {
   useJsApiLoader,
@@ -11,7 +11,6 @@ import {
 // import { Container, Title, Button } from 'flowbite';
 
 const center = { lat: 52.52, lng: 13.405 };
-
 const mapLibrary = ["places", "directions"];
 
 const ProjMap = ({
@@ -27,7 +26,6 @@ const ProjMap = ({
   console.log(price);
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY,
-
     libraries: mapLibrary,
   });
 
@@ -37,17 +35,14 @@ const ProjMap = ({
   //  const [distance, setDistance] = useState('');
   const [duration, setDuration] = useState("");
   // const [price,setPrice]=useState(0)
-  console.log(distance);
-  console.log(duration);
+  // console.log(distance)
+  // console.log(duration)
 
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef();
-  setPickupLocation(originRef);
-  console.log("🚀 ~ file: ProjMap.jsx:40 ~ ProjMap ~ originRef:", originRef);
+  const destinationRef = useRef();
 
   /** @type React.MutableRefObject<HTMLInputElement> */
-  const destinationRef = useRef();
-  setDropLocation(destinationRef);
   if (!isLoaded) {
     return <div>Loading...</div>;
   }
@@ -61,13 +56,18 @@ const ProjMap = ({
     console.log("DASASSADADDSDASDSA");
     try {
       const directionsService = new google.maps.DirectionsService();
-      const results = await directionsService.route({
-        origin: originRef.current.value,
-        //  origin:setPickupLocation(originRef.current.value),
-        destination: destinationRef.current.value,
-        //  destination:setDropLocation(destinationRef.current.value),
-        travelMode: google.maps.TravelMode.DRIVING,
-      });
+      const results = await directionsService
+        .route({
+          origin: originRef.current.value,
+          //  origin:setPickupLocation(originRef.current.value),
+          destination: destinationRef.current.value,
+          //  destination:setDropLocation(destinationRef.current.value),
+          travelMode: google.maps.TravelMode.DRIVING,
+        })
+        .then((res) => {
+          setPickupLocation(originRef.current.value);
+          setDropLocation(destinationRef.current.value);
+        });
       console.log("RESSSSULT", results);
       setDirectionsResponse(results);
       setDistance(results.routes[0].legs[0].distance.value);
