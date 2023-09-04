@@ -41,7 +41,7 @@ const ChatbotStart = () => (
   <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
     <ThemeProvider theme={theme}>
       <ChatBot
-        headerTitle="Customer Support"
+        headerTitle="Cat Bot"
         // speechSynthesis={{ enable: true, lang: 'en' }}
         // bubbleOptionStyle={{ backgroundColor: 'white', color: 'black' }}
         steps={chatbotStepifyScript(script)}

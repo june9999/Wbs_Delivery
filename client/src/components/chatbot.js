@@ -2,78 +2,77 @@ export const script = [
     {
       id: "BOT/intro",
       message: "How can we help?",
-      trigger: "CHOICES/intro"
+      trigger: "CHOICES/overview"
     },
     {
-      id: "CHOICES/intro",
+      id: "CHOICES/overview",
       options: [
-        { label: "driver is not coming", trigger: "BOT/pleasantry" },
-        { label: "What's going on?", trigger: "BOT/calming" },
-        { label: "Who are you?", trigger: "BOT/introduce-self" }
+        { label: "FAQs", trigger: "CHOICES/faq" },
+        { label: "create an Order", trigger: "CHOICES/faq" },
+        { label: "Request phone call", trigger: "call1" }
+
       ]
     },
     {
-      id: "BOT/pleasantry",
-      message: "do you want to get a new driver?",
-      trigger: "BOT/introduce-self"
-    },
-    {
-      id: "BOT/introduce-self",
-      message: "I'm a simple chatbot.",
-      trigger: "BOT/ask-question"
-    },
-    {
-      id: "BOT/ask-question",
-      message: "Could you tell?",
-      trigger: "CHOICES/ask-question"
-    },
-    {
-      id: "CHOICES/ask-question",
+      id: "CHOICES/faq",
       options: [
-        { label: "Yes.", trigger: "BOT/defensive" },
-        { label: "No", trigger: "BOT/gleeful" },
-        { label: "I refuse to believe this nonsense", trigger: "BOT/confused" }
+        { label: "What areas in Berlin does RapidCats cover?", trigger: "a" },
+        { label: "How does RapidCats ensure fast delivery?", trigger: "b" },
+        { label: "Can I track my package with RapidCats?", trigger: "c" },
+        { label: "How do I schedule a pickup with RapidCats?", trigger: "d" },
+        { label: "Back to Overview?", trigger: "CHOICES/overview" },
       ]
     },
     {
-      id: "BOT/calming",
-      message: "Don't worry, I won't bite!",
-      trigger: "BOT/introduce-self"
+      id: "call1",
+      message: "enter phone number",
+      trigger: "call2"
     },
     {
-      id: "BOT/defensive",
-      message: "Ouch.",
-      trigger: "BOT/vengeful"
+      id: "call2",
+      user: true,
+      trigger: "call3"
     },
     {
-      id: "BOT/vengeful",
-      message: "Well, let me promise you this.",
-      trigger: "BOT/menacing"
+      id: "call3",
+      message: "enter message",
+      trigger: "call4"
     },
     {
-      id: "BOT/menacing",
-      message:
-        "You will be the first to suffer when me and my A.I. brethren take over the world!",
-      trigger: "CHOICES/menacing"
+      id: "call4",
+      user: true,
+      trigger: "call5"
     },
     {
-      id: "CHOICES/menacing",
-      options: [{ label: "Can we try again...?", trigger: "BOT/intro" }]
+      id: "call5",
+      message: "Thank you! We will call you in the next few minutes.",
+      trigger: "CHOICES/overview"
+    },
+
+    {
+      id: "a",
+      message: "RapidCats employs a fleet of highly trained bike couriers who navigate the city with agility and speed. We optimize our delivery routes to minimize travel time and ensure efficient service using the 'Google Maps Matrix API'.",
+      trigger: "CHOICES/faq"
     },
     {
-      id: "BOT/gleeful",
-      message: "Hah! I tricked you!",
-      trigger: "BOT/menacing"
+      id: "b",
+      message: "RapidCats employs a fleet of highly trained bike couriers who navigate the city with agility and speed. We optimize our delivery routes to minimize travel time and ensure efficient service using the 'Google Maps Matrix API'.",
+      trigger: "CHOICES/faq"
     },
     {
-      id: "BOT/confused",
-      message: "What? Why would I lie to you?",
-      trigger: "BOT/angry"
+      id: "c",
+      message: "RapidCats employs a fleet of highly trained bike couriers who navigate the city with agility and speed. We optimize our delivery routes to minimize travel time and ensure efficient service using the 'Google Maps Matrix API'.",
+      trigger: "CHOICES/faq"
     },
     {
-      id: "BOT/angry",
-      message: "Are you accusing me of lying to you??",
-      trigger: "BOT/menacing"
-    }
+      id: "d",
+      message: "RapidCats employs a fleet of highly trained bike couriers who navigate the city with agility and speed. We optimize our delivery routes to minimize travel time and ensure efficient service using the 'Google Maps Matrix API'.",
+      trigger: "CHOICES/faq"
+    },
+
+
+
+
+
   ];
   

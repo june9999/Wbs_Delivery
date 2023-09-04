@@ -95,7 +95,7 @@ const Register = () => {
       >
         <div className="relative w-full max-w-md max-h-full">
           {/* <!-- Modal content --> */}
-          <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <div className="relative rounded-lg shadow dark:bg-gray-700 bg-gradient-to-t from-primary-50 to-primary-100">
             {/* close X button */}
 
             <button

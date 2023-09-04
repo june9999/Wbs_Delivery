@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import socket from "../../socket/socket";
-import bell from "../img/bell.svg";
+// import bell from "../img/bell.svg";
+import bell from "../assets/bell.png";
 
 // import notification from "../img/notification.svg";
 
@@ -32,6 +33,7 @@ const Bell = () => {
   };
 
   return (
+    <>
     <div className="navbar">
       <div className="icons">
         <div className="icon" onClick={() => setOpen(!open)}>
@@ -41,7 +43,7 @@ const Bell = () => {
           )}
         </div>
         <div className="icon" onClick={() => setOpen(!open)}>
-          <img src={bell} className="mr-3 h-6 sm:h-10" alt="notification" />
+          <img src={bell} className="mr-3 h-3 sm:h-5" alt="notification" />
         </div>
         {/* <div className="icon" onClick={() => setOpen(!open)}>
           <img alt="icon2" />
@@ -56,6 +58,10 @@ const Bell = () => {
         </div>
       )}
     </div>
+
+    {/* flowbite bell */}
+
+    </>
   );
 };
 

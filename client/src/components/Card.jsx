@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import socket from "../../socket/socket";
+import React, { useEffect, useState } from 'react';
+import socket from '../../socket/socket';
 
 const Card = () => {
   const [notifications, setNotifications] = useState([]);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    socket.on("neworder", (data) => {
-      console.log("🚀 ~ file: Card.jsx:10 ~ socket.on ~ data:", data);
+    socket.on('neworder', (data) => {
+      console.log('🚀 ~ file: Card.jsx:10 ~ socket.on ~ data:', data);
       setNotifications((prev) => [...prev, data]);
     });
     console.log(notifications);
@@ -15,7 +15,7 @@ const Card = () => {
 
   const displayNotification = () => {
     return (
-      <span className="notification">{`cusotmer create a new order.`}</span>
+      <span className="notification">{`customer created a new order.`}</span>
     );
   };
 
@@ -45,6 +45,19 @@ const Card = () => {
           {notifications.map((n) => displayNotification(n))}
           <button className="nButton" onClick={handleRead}>
             Mark as read
+            {/* <div className="flex items-center">
+              <div className="ml-3 text-sm font-normal">
+                <div className="text-sm font-semibold text-gray-900 dark:text-white">
+                  Bonnie Green
+                </div>
+                <div className="text-sm font-normal">
+                  commmented on your photo
+                </div>
+                <span className="text-xs font-medium text-blue-600 dark:text-blue-500">
+                  a few seconds ago
+                </span>
+              </div>
+            </div> */}
           </button>
         </div>
       )}
