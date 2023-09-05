@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className=" bg-gradient-to-b from-primary-50 to-primary-100 dark:bg-gray-900">
+    <footer className="bg-gradient-to-b from-primary-50 to-primary-100 dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xxl">
         <div className="grid grid-cols-3 gap-8 px-4 py-6 sm:mx-20 sm:py-8 md:grid-cols-3 text-center">
           <div>
@@ -58,7 +58,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="px-4 py-6 bg-primary-50 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+        <div className="px-20 py-6 bg-primary-50 dark:bg-gray-700 md:flex md:items-center md:justify-between">
           <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
             © 2023 <a href="">RapidCats</a> - All Rights Reserved.
           </span>
