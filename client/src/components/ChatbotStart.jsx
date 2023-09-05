@@ -29,13 +29,13 @@ const theme = {
 //   justify-content: center;
 // `;
 
-const steps = [
-  {
-    id: '1',
-    message: 'Hello World',
-    end: true,
-  },
-];
+// const steps = [
+//   {
+//     id: '1',
+//     message: 'Hello World',
+//     end: true,
+//   },
+// ];
 
 const ChatbotStart = () => (
   <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl ">

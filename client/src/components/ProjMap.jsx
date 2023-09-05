@@ -174,8 +174,8 @@ const ProjMap = ({
         <div>Loading Google Maps...</div>
       )} */}
         </div>
-        <div className="flex ">
-        <div className=" mt-8 flex-wrap items-center justify-center overflow-auto  ">
+        <div className="flex">
+        <div className="mt-8 flex-wrap items-center justify-center overflow-auto  ">
           <form className="mt-8">
             <Autocomplete>
               {/* <input type='text' placeholder='Origin' ref={originRef} /> */}

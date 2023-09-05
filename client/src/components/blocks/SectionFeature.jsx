@@ -16,13 +16,16 @@ const SectionFeature = () => {
               </h2>
               <p className="text-gray-500 sm:text-xl dark:text-gray-400">
                 Get urgent parcels delivered from door to door within less than
-                1 hour. Our 24/7 express courier delivery service provides you with exceptional convenience, reliability, and peace of mind. At RapidCats, we understand the importance of a seamless and worry-free delivery experience.
+                1 hour. Our 24/7 express courier delivery service provides you
+                with exceptional convenience, reliability, and peace of mind. At
+                RapidCats, we understand the importance of a seamless and
+                worry-free delivery experience.
               </p>
             </div>
           </div>
           <img
             className=" w-auto h-[10rem] rounded-lg mt-12 lg:h-[20rem] lg:mt-15 lg:ml-24"
-            src={catBasket1}
+            src={runningCat}
             alt="cat in bike basket"
           />
         </div>

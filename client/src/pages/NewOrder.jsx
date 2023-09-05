@@ -81,7 +81,7 @@ const NewOrder = () => {
   console.log("checking ordid", id);
 
   return (
-    <div className=" bg-gradient-to-t from-primary-50 to-primary-100">
+    <div className="bg-gradient-to-t from-primary-50 to-primary-100">
       {checkout ? (
         <>
           <ProjMap

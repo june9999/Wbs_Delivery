@@ -1,8 +1,14 @@
 import React from 'react';
+import CatInBox from '../../assets/cat-in-box.png';
 
 const FormContact = () => {
   return (
     <section className="bg-primary-50/0 dark:bg-gray-900 py-4">
+            <img
+        className="mx-auto pt-10 w-60 h-70 rounded-lg "
+        src={CatInBox}
+        alt="cat in bike basket"
+      />
       {/* <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900"> */}
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">

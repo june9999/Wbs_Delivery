@@ -13,10 +13,9 @@ const Home = () => {
       <Hero />
       <SectionFeature />
       <SectionTestimonials />
-      {/* <SectionContent /> */}
       <SectionTeam />
+      {/* <SectionContent /> */}
       {/* <CookieInfoBanner /> */}
-      <Comments />
     </>
   );
 };
