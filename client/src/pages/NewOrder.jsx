@@ -17,6 +17,7 @@ const NewOrder = () => {
   console.log("pickupLocation", pickupLocation);
   const [dropLocation, setDropLocation] = useState("");
   // console.log("dropLocation",dropLocation)
+  const [id,setId]=useState("");
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [length, setLength] = useState(0);
@@ -69,17 +70,20 @@ const [paid,setPaid]=useState(false)
         customerId,
       })
       .then((res) => {
-        console.log(res.data);
+        setId(res.data._id)
+        console.log(res.data._id);
         socket.emit("message", {
           customerId: customerId,
           customer: user.username,
           pickupLocation: pickupLocation,
           dropLocation: dropLocation,
         });
-        navigate("/");
+        // navigate("/");
       })
       .catch((e) => console.log(e));
   };
+
+  console.log("checking ordid",id)
 
   return (
     <>
@@ -333,10 +337,10 @@ const [paid,setPaid]=useState(false)
           </section>
         </>
       ) : (
-        <Checkout price={price} distance={distance} paid={paid} setPaid={setPaid} />
+        <Checkout price={price} distance={distance} paid={paid} setPaid={setPaid} id={id} />
       )}
 
-      <div className="flex items-center justify-center mt-8 ml-24">
+      <div className="flex items-center justify-center mt-4 ml-24">
         {checkout && (
           <button
             onClick={() => setCheckout(false)}
@@ -347,10 +351,10 @@ const [paid,setPaid]=useState(false)
         )}
         {!checkout && (
           <button
-            // onClick={payment}
+           onClick={"/orders"}
             className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  "
           >
-            Payment
+            My Orders
           </button>
         )}
       </div>
