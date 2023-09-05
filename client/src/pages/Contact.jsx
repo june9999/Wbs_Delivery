@@ -6,15 +6,17 @@ import PayModal from '../components/PayModal';
 
 const Contact = () => {
   return (
-    <div className=' bg-primary-100'>
+    <div className='flex items-center justify-center bg-primary-100 '>
       <img
         className="mx-auto pt-10 w-60 h-70 rounded-lg "
         src={CatInBox}
         alt="cat in bike basket"
       />
       <FormContact />
-      <div className="" style={{ position: 'absolute', top: 600, right: 0 }}>
+       <div className="mt-72 " > 
+       
         <ChatbotStart />
+        
       </div>
     </div>
   );

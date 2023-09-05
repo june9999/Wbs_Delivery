@@ -31,23 +31,23 @@ const handleClick=(()=>{
   const p = price;
   console.log('🚀 ~ file: Checkout.jsx:7 ~ Checkout ~ price:', price);
   return (
-    <div className="flex items-center justify-center mt-24">
-      <div>
-        <h1 className="w-28 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 mb-8 ml-80">
+    <div className="flex items-center justify-center mt-24 ml-24 md:mr-24">
+      <div >
+        <h1 className="flex items-center justify-center mb-8  text-4xl md:ml-8">
           Checkout
         </h1>
-
-        <p className="flex items-center justify-center w-100 ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+        <div className="w-45vw">
+        <p className="flex items-center justify-center w-[12rem] md:w-80 md:ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
           Distance : {distance / 1000}km
         </p>
-        <p className="flex items-center justify-center w-100 ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+        <p className="flex items-center justify-center w-[12rem] md:w-80 md:ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
           Base fare : 12
         </p>
-        <p className="flex items-center justify-center ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-24">
+        <p className="flex items-center justify-center w-[12rem] md:ml-60 md:w-80 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-24">
           Total : {p}
         </p>
-
-        <div>
+        </div>
+        <div className="mb-4">
           {/* <button
             type="button"
             className="text-gray-900 bg-[#F7BE38] hover:bg-[#F7BE38]/90 focus:ring-4 focus:outline-none focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#F7BE38]/50 mr-2 mb-2"
@@ -73,7 +73,7 @@ const handleClick=(()=>{
           
           <button
             type="button"
-            className="text-white bg-[#050708] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2"
+            className=" text-white bg-[#050708] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 md:mr-2 mb-4 mt-2"
           >
             Pay with Apple Pay
             <svg
@@ -95,7 +95,7 @@ const handleClick=(()=>{
 
           <button
             type="button"
-            className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 mr-2 mb-2"
+            className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 mr-2 mb-4"
           >
             <svg
               aria-hidden="true"
@@ -117,7 +117,7 @@ const handleClick=(()=>{
           </button>
           <button
             type="button"
-            className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2"
+            className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 md:mr-2 mb-2"
           >
             <svg
               aria-hidden="true"
@@ -203,7 +203,7 @@ const handleClick=(()=>{
          <div className="flex items-center justify-center">
         {
   !paid&&(<button  onClick={handleClick}
-  className="flex item-center justify-center inline-flex items-center px-5 py-2.5  sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-24 ">Pay</button>) 
+  className="flex item-center justify-center inline-flex items-center px-5 py-2.5  sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 md:ml-24 ">Pay</button>) 
 
 }
 </div> 

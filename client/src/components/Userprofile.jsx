@@ -30,8 +30,9 @@ const Userprofile = () => {
 
   return (
     <>
-      <section className="bg-white dark:bg-gray-900">
-        <div className="max-w-2xl  py-8 mx-auto lg:py-16">
+    <div className="  md:ml-96 mr-4 border-black">
+      <section className="bg-#14b8a6  dark:bg-gray-900 border-black">
+        <div className="max-w-2xl    mx-auto lg:py-16">
           <h2 className="mb-10 text-4xl tracking-tight font-extrabold text-left text-gray-900 dark:text-white">
             Your Personal Profile
           </h2>
@@ -202,6 +203,7 @@ const Userprofile = () => {
           </form>
         </div>
       </section>
+      </div>
     </>
   );
 };
