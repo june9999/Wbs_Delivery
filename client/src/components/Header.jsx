@@ -15,21 +15,22 @@ const Header = () => {
   return (
     <>
       {/* <nav className="relative bg-white border-gray-200 dark:bg-gray-800"> */}
-      <nav className="relative bg-gradient-to-r from-primary-100 to-primary-50 border-gray-200 dark:bg-gray-800">
+      <nav className="relative bg-gradient-to-r from-primary-100 to-primary-100 border-gray-200 dark:bg-gray-800 shadow-xl">
         <div className="px-4 py-2 lg:px-6 flex flex-wrap justify-between items-center mx-auto max-w-screen-xxl pb-2">
           {/* Logo */}
           <div className="flex items-center">
-            <img src={cat1} className="mr-3 h-6 sm:h-10" alt="Cat Logo" />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              <NavLink to="/">RapidCats</NavLink>
-            </span>
+            <div className="text-primary-800 self-center text-xl font-bold whitespace-nowrap dark:text-white">
+            <NavLink to="/">
+            <img src={cat1} className=" h-6 sm:h-10" alt="Cat Logo" />
+              <span className='ml-1 text-2xl'>RapidCats</span></NavLink>
+            </div>
           </div>
           {/* Conditional rendering of Login/Logout */}
           {user ? (
             <div className="flex items-center lg:order-2">
-              <div className="text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none dark:focus:ring-gray-800">
+              <div className="text-primary-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none dark:focus:ring-gray-800">
                 <NavLink to="/dashboard">
-                  Hello <br />
+                  Welcome <br />
                   {user.username}
                 </NavLink>
               </div>

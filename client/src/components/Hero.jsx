@@ -4,7 +4,7 @@ import fastKitten from '../assets/fast-kitten.gif';
 import ChatbotStart from './ChatbotStart';
 // import catBox from '../assets/cat-box.jpg';
 import cat2 from '../assets/cat2.png';
-import HeroVideo from '../assets/hero-video.mp4';
+import HeroVideo from '../assets/heroVideo.mp4';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
@@ -22,10 +22,25 @@ const Hero = () => {
           className="grid max-w-screen-xxl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
           style={{ opacity: 0.99, position: 'relative' }}
         >
-          <video autoPlay loop muted>
+          {/* <video
+            autoPlay
+            loop
+            muted
+            style={{
+              opacity: 0.3,
+              zIndex: -1,
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+            ref={(video) => {
+              if (video) video.playbackRate = 0.2;
+            }}
+          > 
             <source src={HeroVideo} type="video/mp4" />
             Your browser does not support the video tag.
-          </video>
+          </video>*/}
 
           <img
             src={runningCat}
@@ -40,12 +55,12 @@ const Hero = () => {
             }}
           />
 
-          <div className="place-self-center lg:col-span-7 p-6">
-            <h1 className="text-white max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+          <div className="place-self-center lg:col-span-9 p-6">
+            <h1 className="text-primary-800 max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
               Your Purrcel <br />
               is our Purriority
             </h1>
-            <p className="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-2xl dark:text-gray-400">
+            <p className="max-w-2xl mb-6 font-bold text-gray-800 lg:mb-8 md:text-lg lg:text-2xl dark:text-gray-400">
               We are Berlin's express delivery service <br />
               for package and document shipping
               <br />

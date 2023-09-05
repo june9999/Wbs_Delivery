@@ -5,6 +5,7 @@ import SectionFeature from './blocks/SectionFeature';
 import SectionContent from './blocks/SectionContent';
 import SectionTestimonials from './blocks/SectionTestimonials';
 import CookieInfoBanner from '../components/blocks/CookieInfoBanner';
+import Comments from '../pages/Comments';
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
       {/* <SectionContent /> */}
       <SectionTeam />
       {/* <CookieInfoBanner /> */}
-
+      <Comments />
     </>
   );
 };
