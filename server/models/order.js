@@ -30,7 +30,7 @@ const orderSchema = new mongoose.Schema(
     paid: {
       type: Boolean,
       default: "false",
-      required: [true, "paid is required"],
+      required: [ "paid is required"],
     },
     delivered: {
       type: Boolean,
