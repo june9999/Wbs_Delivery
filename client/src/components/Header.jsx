@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react';
-import { NavLink, Navigate } from 'react-router-dom';
-import { AuthContext } from '../context/Auth';
-import Logo from '../assets/cute-cat-courier.png';
-import Bell from './Bell';
-import Login from './Login';
-import Register from './Register';
-import cat1 from '../assets/cat1.png';
-import NotificationModal from './NotificationModal';
+import React, { useState, useContext } from "react";
+import { NavLink, Navigate } from "react-router-dom";
+import { AuthContext } from "../context/Auth";
+import Logo from "../assets/cute-cat-courier.png";
+import Bell from "./Bell";
+import Login from "./Login";
+import Register from "./Register";
+import cat1 from "../assets/cat1.png";
+import NotificationModal from "./NotificationModal";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -33,8 +33,8 @@ const Header = () => {
                   {user.username}
                 </NavLink>
               </div>
-              <NotificationModal />
-              {/* <Bell /> */}
+              {/* <NotificationModal /> */}
+              <Bell />
 
               <div className="text-gray-800 dark:text-white bg-primary-100 hover:bg-primary-200 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 shadow-lg">
                 <button onClick={logout}>Logout</button>

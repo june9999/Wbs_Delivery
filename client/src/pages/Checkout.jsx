@@ -2,8 +2,10 @@ import React from "react";
 import PayModal from "../components/PayModal";
 import axios from "../axiosInstance";
 import socket from "../../socket/socket";
+import { useNavigate, NavLink } from "react-router-dom";
 const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
   console.log("id checking", id);
+  const navigate = useNavigate();
   const handleClick = () => {
     const newPaid = !paid;
     console.log(newPaid, "paid status");
@@ -18,6 +20,7 @@ const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
       })
       .then((res) => {
         socket.emit("message", orderData);
+        navigate("/dashboard");
       })
       .catch((e) => console.log(e));
   };
