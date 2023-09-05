@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import Orders from '../components/Orders';
-import Chat from '../components/Chat';
-import Userprofile from '../components/Userprofile';
-import NavbarSide from '../components/NavbarSide';
-import Ordertoclaim from '../components/Ordertoclaim';
-import NewOrder from './NewOrder';
-import DashboardCom from '../components/DashboardCom';
-import Contact from './Contact';
+import React, { useState } from "react";
+import Orders from "../components/Orders";
+import Chat from "../components/Chat";
+import Userprofile from "../components/Userprofile";
+import NavbarSide from "../components/NavbarSide";
+import Ordertoclaim from "../components/Ordertoclaim";
+import NewOrder from "./NewOrder";
+import DashboardCom from "../components/DashboardCom";
+import Contact from "./Contact";
 
 // import runningCat from "../assets/runningCat.jpg";
 
@@ -20,7 +20,7 @@ const Dashboard = () => {
       <div>
         <NavbarSide displayPage={displayPage} setDisplayPage={setDisplayPage} />
       </div>
-      <div className="flex-col pt-[2rem] bg-gradient-to-t from-primary-50 to-primary-100 p-10">
+      <div className="flex-col pt-[2rem] bg-gradient-to-t from-primary-50 to-primary-100 p-10 max-w-[80%]">
         {/* {displayPage === 0 && <Overview />} */}
 
         {displayPage === 5 && <DashboardCom />}
