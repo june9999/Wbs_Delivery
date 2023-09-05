@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useNavigate,NavLink } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../context/Auth';
-import Checkout from './Checkout'
-// import Confirmation from '../components/Confirmation' 
-import socket from '../../socket/socket';
+import React, { useState } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/Auth";
+import Checkout from "./Checkout";
+// import Confirmation from '../components/Confirmation'
+import socket from "../../socket/socket";
 
 import axios from "../axiosInstance";
 import ProjMap from "../components/ProjMap";
@@ -22,13 +22,11 @@ const NewOrder = () => {
   const [height, setHeight] = useState(0);
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
-const [checkout,setCheckout]=useState(true)
-const [distance,setDistance]=useState('')
-const [price,setPrice]=useState(0)
-const [paid,setPaid]=useState(false)
+  const [checkout, setCheckout] = useState(true);
+  const [distance, setDistance] = useState("");
+  const [price, setPrice] = useState(0);
+  const [paid, setPaid] = useState(false);
   const [customerId, setCustomerId] = useState(user._id);
- 
-  
 
   // const [employeeId, setEmployeeId] = useState('');
 
@@ -70,14 +68,10 @@ const [paid,setPaid]=useState(false)
         customerId,
       })
       .then((res) => {
+
         setId(res.data._id)
         console.log(res.data._id);
-        socket.emit("message", {
-          customerId: customerId,
-          customer: user.username,
-          pickupLocation: pickupLocation,
-          dropLocation: dropLocation,
-        });
+        socket.emit("message", res.data);
         // navigate("/");
       })
       .catch((e) => console.log(e));
@@ -303,28 +297,28 @@ const [paid,setPaid]=useState(false)
                 required
               />
             </div> */}
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="description"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Description
-              </label>
-              <textarea
-                id="description"
-                rows="8"
-                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Your description here"
-              ></textarea>
-              <p className="mt-8 font-bold text-lg"> Price for Delivery:{price}</p>
-            </div>
-          
-          <button
-            
-            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-          >
-            Add product
-          </button>
+                <div className="sm:col-span-2">
+                  <label
+                    htmlFor="description"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Description
+                  </label>
+                  <textarea
+                    id="description"
+                    rows="8"
+                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="Your description here"
+                  ></textarea>
+                  <p className="mt-8 font-bold text-lg">
+                    {" "}
+                    Price for Delivery:{price}
+                  </p>
+                </div>
+
+                <button className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                  Add product
+                </button>
 
                 {/* <button
                   type="submit"
