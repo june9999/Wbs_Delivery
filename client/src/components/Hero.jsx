@@ -4,16 +4,29 @@ import fastKitten from '../assets/fast-kitten.gif';
 import ChatbotStart from './ChatbotStart';
 // import catBox from '../assets/cat-box.jpg';
 import cat2 from '../assets/cat2.png';
+import HeroVideo from '../assets/hero-video.mp4';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/orders/new');
+  };
+
   return (
     <>
-      <section className="bg-white dark:bg-gray-900 shadow-lg">
+      <section className="bg-  dark:bg-gray-900 shadow-lg">
         {/* Background image --- parent style: opacity 0.99 relative --- child: img opacity absolute z-index w h cover --- */}
         <div
           className="grid max-w-screen-xxl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
           style={{ opacity: 0.99, position: 'relative' }}
         >
+          <video autoPlay loop muted>
+            <source src={HeroVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
           <img
             src={runningCat}
             alt="Transparent Image"
@@ -40,11 +53,11 @@ const Hero = () => {
             </p>
 
             {/* CTA button 1 */}
-            <a
-              href="#"
+            <button
+              onClick={handleClick}
               className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-primary-200 hover:bg-primary-300 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 shadow-2xl"
             >
-              Place an Order
+              Create Order
               <svg
                 className="w-5 h-5 ml-2 -mr-1"
                 fill="currentColor"
@@ -57,7 +70,7 @@ const Hero = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a>
+            </button>
 
             {/* CTA button 2 */}
             {/* <a
@@ -66,8 +79,11 @@ const Hero = () => {
             >
               Speak to Customer Support
             </a> */}
-          <img src={cat2} alt="cat image" style={{position:'absolute', bottom: -17, right: 0}}/>
-
+            <img
+              src={cat2}
+              alt="cat image"
+              style={{ position: 'absolute', bottom: -17, right: 0 }}
+            />
           </div>
           {/* <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
             {/* <img src={runningCat} alt="running cat" />

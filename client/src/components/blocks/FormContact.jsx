@@ -2,8 +2,9 @@ import React from 'react';
 
 const FormContact = () => {
   return (
-    <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900 py-4">
-      <div className="py-8 md:py-16 px-4 mx-auto max-w-screen-md">
+    <section className="bg-primary-50/0 dark:bg-gray-900 py-4">
+      {/* <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900"> */}
+      <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
           Contact Us
         </h2>
