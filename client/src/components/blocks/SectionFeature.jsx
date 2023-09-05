@@ -18,7 +18,7 @@ const SectionFeature = () => {
             </div>
           </div>
           <img
-            className=" w-60 h-70 rounded-lg"
+            className=" w-auto h-[10rem] rounded-lg mt-12 lg:h-[20rem] lg:mt-15 lg:ml-24"
             src={catBasket1}
             alt="cat in bike basket"
           />

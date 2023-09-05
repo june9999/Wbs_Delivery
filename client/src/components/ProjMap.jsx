@@ -148,13 +148,14 @@ const ProjMap = ({
     </Button>
   </Container>
   </div> */}
-      <div>
+  <div className="flex items-center justify-center">
+      <div >
         {/* {isLoaded ? ( */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center w-[45v] h-[10rem] md:w-[45vw] md:h-[350px] border-2 border-black mt-24">
           <GoogleMap
             center={center}
             zoom={15}
-            mapContainerStyle={{ width: "45vw", height: "400px" }}
+            mapContainerStyle={{ width: "100%", height: "100%" }}
             // options={{
             //   zoomControl: false,
             //   streetViewControl: false,
@@ -173,8 +174,8 @@ const ProjMap = ({
         <div>Loading Google Maps...</div>
       )} */}
         </div>
-
-        <div className=" mt-8 flex items-center justify-center">
+        <div className="flex ">
+        <div className=" mt-8 flex-wrap items-center justify-center overflow-auto  ">
           <form className="mt-8">
             <Autocomplete>
               {/* <input type='text' placeholder='Origin' ref={originRef} /> */}
@@ -190,7 +191,7 @@ const ProjMap = ({
                   type="text"
                   name="brand"
                   id="brand"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-[60%] md:w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="PickupLocation"
                   ref={originRef}
                 />
@@ -206,7 +207,7 @@ const ProjMap = ({
               <div className="w-80 ml-12 ">
                 <label
                   htmlFor="destination"
-                  className="  block mb-2 text-lg font-medium text-gray-900 dark:text-white mt-4"
+                  className="  block mb-2 text-lg font-medium text-gray-900 dark:text-white mt-4 "
                 >
                   Destination
                 </label>
@@ -214,7 +215,7 @@ const ProjMap = ({
                   type="text"
                   name="brand"
                   id="brand"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-[60%] md:w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="DropLocation"
                   ref={destinationRef}
                 />
@@ -225,23 +226,23 @@ const ProjMap = ({
             </button> */}
             <button
               type="submit"
-              className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12 mr-4"
+              className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12 "
               onClick={calculateRoute}
             >
-              Show Route
+               Route
             </button>
 
             <button
               type="submit"
-              className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12"
+              className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-8"
               onClick={clearRoute}
             >
-              Clear Route
+              Clear 
             </button>
 
             <button
               type="submit"
-              className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ml-12"
+              className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 md:ml-8 ml-16"
               onClick={() => {
                 map.panTo(center);
                 map.setZoom(15);
@@ -257,11 +258,11 @@ const ProjMap = ({
             <div>
               <label
                 htmlFor="distance"
-                className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
+                className="block mb-2 mt-4 text-lg font-medium text-gray-900 dark:text-white"
               >
                 Distance
               </label>
-              <p className="w-80  block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+              <p className="w-80  block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 w-[70%] md:w-80">
                 {" "}
                 {distance / 1000} km
               </p>
@@ -272,10 +273,12 @@ const ProjMap = ({
               >
                 Duration
               </label>
-              <p className="w-80  block mb-2 text-sm font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+              <p className="w-80  block mb-2 text-sm font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 w-[70%] md:w-80">
                 {duration / 60} min
               </p>
+              </div>
             </div>
+          </div>
           </div>
 
           {/* <button onClick={() => {
