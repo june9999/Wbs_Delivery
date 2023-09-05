@@ -45,6 +45,7 @@ const Card = () => {
           {notifications.map((n) => displayNotification(n))}
           <button className="nButton" onClick={handleRead}>
             Mark as read
+            {/* https://flowbite.com/docs/components/toast/#push-notification */}
             {/* <div className="flex items-center">
               <div className="ml-3 text-sm font-normal">
                 <div className="text-sm font-semibold text-gray-900 dark:text-white">

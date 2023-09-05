@@ -1,8 +1,9 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import socket from "../../socket/socket";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import socket from '../../socket/socket';
 // import bell from "../img/bell.svg";
-import bell from "../assets/bell.png";
+import bell from '../assets/bell.png';
+import MessageModal from './NotificationModal';
 
 // import notification from "../img/notification.svg";
 
@@ -11,8 +12,8 @@ const Bell = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    socket.on("neworder", (data) => {
-      console.log("🚀 ~ file: Card.jsx:10 ~ socket.on ~ data:", data);
+    socket.on('neworder', (data) => {
+      console.log('🚀 ~ file: Card.jsx:10 ~ socket.on ~ data:', data);
       setNotifications((prev) => [...prev, data]);
     });
     console.log(notifications);
@@ -34,33 +35,37 @@ const Bell = () => {
 
   return (
     <>
-    <div className="navbar">
-      <div className="icons">
-        <div className="icon" onClick={() => setOpen(!open)}>
-          {/* <img src={Notification} alt="Notification" /> */}
-          {notifications.length > 0 && (
-            <div className="counter">{notifications.length}</div>
-          )}
-        </div>
-        <div className="icon" onClick={() => setOpen(!open)}>
-          <img src={bell} className="mr-3 h-3 sm:h-5" alt="notification" />
-        </div>
-        {/* <div className="icon" onClick={() => setOpen(!open)}>
+      <div className="navbar">
+        <div className="icons">
+          <div className="icon" onClick={() => setOpen(!open)}>
+            {/* <img src={Notification} alt="Notification" /> */}
+            {notifications.length > 0 && (
+              <div className="counter">{notifications.length}</div>
+            )}
+          </div>
+          <div className="icon" onClick={() => setOpen(!open)}>
+            <img src={bell} className="mr-3 h-3 sm:h-5" alt="notification" />
+          </div>
+          {/* <div className="icon" onClick={() => setOpen(!open)}>
           <img alt="icon2" />
         </div> */}
-      </div>
-      {open && (
-        <div className="notifications">
-          {notifications.map((n) => displayNotification(n))}
-          <button className="nButton" onClick={handleRead}>
-            Mark as read
-          </button>
         </div>
-      )}
-    </div>
+        {open && (
+          <div className="notifications">
+            {notifications.map((n) => displayNotification(n))}
 
-    {/* flowbite bell */}
 
+            <button className="nButton" onClick={handleRead}>
+              Dismiss
+            </button>
+            <button className="nButton" onClick={handleRead}>
+              Claim
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* flowbite bell */}
     </>
   );
 };
