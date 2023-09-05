@@ -4,6 +4,7 @@ import fastKitten from '../assets/fast-kitten.gif';
 import ChatbotStart from './ChatbotStart';
 // import catBox from '../assets/cat-box.jpg';
 import cat2 from '../assets/cat2.png';
+import HeroVideo from '../assets/hero-video.mp4';
 
 const Hero = () => {
   return (
@@ -14,6 +15,17 @@ const Hero = () => {
           className="grid max-w-screen-xxl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
           style={{ opacity: 0.99, position: 'relative' }}
         >
+          {/* <video
+            src={HeroVideo}
+            type="mp4"
+            loop
+            class="clip w-full"
+          ></video> */}
+          {/* <video className="w-full" autoplay muted controls>
+  <source src={HeroVideo} type="video/mp4">
+  Your browser does not support the video tag
+</video> */}
+
           <img
             src={runningCat}
             alt="Transparent Image"
@@ -66,8 +78,11 @@ const Hero = () => {
             >
               Speak to Customer Support
             </a> */}
-          <img src={cat2} alt="cat image" style={{position:'absolute', bottom: -17, right: 0}}/>
-
+            <img
+              src={cat2}
+              alt="cat image"
+              style={{ position: 'absolute', bottom: -17, right: 0 }}
+            />
           </div>
           {/* <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
             {/* <img src={runningCat} alt="running cat" />

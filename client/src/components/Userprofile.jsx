@@ -30,7 +30,7 @@ const Userprofile = () => {
 
   return (
     <>
-      <section className="bg-white dark:bg-gray-900">
+      <section className="bg-primary-50/00 dark:bg-gray-900">
         <div className="max-w-2xl  py-8 mx-auto lg:py-16">
           <h2 className="mb-10 text-4xl tracking-tight font-extrabold text-left text-gray-900 dark:text-white">
             Your Personal Profile

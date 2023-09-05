@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import socket from '../../socket/socket';
 // import bell from "../img/bell.svg";
 import bell from '../assets/bell.png';
-import MessageModal from './NotificationModal';
+import NotificationModal from './NotificationModal';
 
 // import notification from "../img/notification.svg";
 
