@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../context/Auth';
-import { Navigate, NavLink } from 'react-router-dom';
-import NewProfile from './NewProfile';
-import RegisterForm from './RegisterForm';
-import 'flowbite';
-import Bell from './Bell';
-import bell from '../assets/bell.png';
-import ProfilePicture from '../assets/profile-picture.png';
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/Auth";
+import { Navigate, NavLink } from "react-router-dom";
+import NewProfile from "./NewProfile";
+import RegisterForm from "./RegisterForm";
+import "flowbite";
+import Bell from "./Bell";
+import bell from "../assets/bell.png";
+import ProfilePicture from "../assets/profile-picture.png";
+import socket from "../../socket/socket";
 
 const NotificationModal = () => {
   const context = useContext(AuthContext);
@@ -26,7 +27,7 @@ const NotificationModal = () => {
   const handleClaim = () => {
     // axios set entry to claimed
     // Navigate to Dashboard/Orders
-    console.log('claimed clicked');
+    console.log("claimed clicked");
   };
 
   // if (loading) return <p>Loading...</p>;

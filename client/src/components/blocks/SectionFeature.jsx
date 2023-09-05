@@ -20,11 +20,11 @@ const SectionFeature = () => {
               </p>
             </div>
           </div>
-          {/* <img
-            className=" rounded-lg"
-            src={runningCat}
+          <img
+            className=" w-auto h-[10rem] rounded-lg mt-12 lg:h-[20rem] lg:mt-15 lg:ml-24"
+            src={catBasket1}
             alt="cat in bike basket"
-          /> */}
+          />
         </div>
 
         <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">

@@ -38,7 +38,7 @@ const steps = [
 ];
 
 const ChatbotStart = () => (
-  <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+  <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl ">
     <ThemeProvider theme={theme}>
       <ChatBot
         headerTitle="Cat Bot"
