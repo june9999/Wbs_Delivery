@@ -11,31 +11,16 @@ import botAvatar from '../assets/catbot.png';
 // all available props
 
 const theme = {
-  background: '#f9f8fb',
   fontFamily: 'Roboto, sans-serif',
-  headerBgColor: '#115e59',
-  headerFontColor: '#fff',
+  background: '#F0FDFA',
+  headerBgColor: '#99F6E4',
+  headerFontColor: '#195E5A',
   headerFontSize: '20px',
-  botBubbleColor: '#115e59',
-  botFontColor: '#fff',
-  userBubbleColor: '#fff',
-  userFontColor: '#4a4a4a',
+  botBubbleColor: '#99F6E4',
+  botFontColor: '#195E5A',
+  userBubbleColor: '#99F6E4',
+  userFontColor: '#195E5A',
 };
-
-// const Main = styled.div`
-//   font-family: sans-serif;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-// `;
-
-// const steps = [
-//   {
-//     id: '1',
-//     message: 'Hello World',
-//     end: true,
-//   },
-// ];
 
 const ChatbotStart = () => (
   <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl ">
@@ -46,6 +31,8 @@ const ChatbotStart = () => (
         // bubbleOptionStyle={{ backgroundColor: 'white', color: 'black' }}
         steps={chatbotStepifyScript(script)}
         botAvatar={botAvatar}
+        width='700px'
+        hideUserAvatar
       />
     </ThemeProvider>
   </div>

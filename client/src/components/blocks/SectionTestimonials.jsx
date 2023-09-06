@@ -58,8 +58,8 @@ const SectionTestimonials = () => {
           {/* quote */}
           <figure className="flex flex-col justify-center items-center p-8 text-center bg-primary-50">
             <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
-              <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900">
-                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg">
+              <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900 rounded-lg ">
+                <div className="rounded-lg max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg">
                   <figure className="text-left max-w-screen-md mx-auto">
                     {/* quotaion mark svg */}
                     <svg
@@ -107,8 +107,8 @@ const SectionTestimonials = () => {
 
           <figure className="flex flex-col justify-center items-center p-8 text-center bg-primary-50">
             <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
-              <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900">
-                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg">
+              <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900 rounded-lg">
+                <div className="rounded-lg max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg">
                   <figure className="text-left max-w-screen-md mx-auto">
                     {/* quotaion mark svg */}
                     <svg
@@ -126,7 +126,7 @@ const SectionTestimonials = () => {
 
                     <blockquote>
                       <p className="text-lg font-medium text-gray-500 dark:text-white">
-                        "I used RapidCats' express courier service to send a fragile package. I was concerned about the safety, but the team at RapidCats assured me that they would handle it with care. I was relieved to receive the package in perfect condition. Their attention to detail and secure handling exceeded my expectations. Their customer service was also exceptional, answering all my queries promptly. I am extremely satisfied with their service and will definitely use them for all my future courier needs."
+                        "I used RapidCats' express courier service to send a fragile package. I was concerned about the safety of the item, but the team at RapidCats assured me that they would handle it with care. I was relieved to receive the package in perfect condition. Their attention to detail and secure handling exceeded my expectations. Their customer service was also exceptional, answering all my queries promptly. I am extremely satisfied with their service and will definitely use them for all my future courier needs."
                       </p>
                     </blockquote>
                     {/* profile picture */}

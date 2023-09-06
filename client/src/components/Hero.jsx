@@ -11,12 +11,12 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/orders/new');
+    navigate('/login');
   };
 
   return (
     <>
-      <section className="bg-  dark:bg-gray-900 shadow-lg">
+      <section className="backdrop-blur dark:bg-gray-900 shadow-lg">
         {/* Background image --- parent style: opacity 0.99 relative --- child: img opacity absolute z-index w h cover --- */}
         <div
           className="grid max-w-screen-xxl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"

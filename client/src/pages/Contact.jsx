@@ -5,11 +5,10 @@ import PayModal from '../components/PayModal';
 
 const Contact = () => {
   return (
-    <div className="flex items-center justify-center bg-primary-100/00 ">
+    <div className="flex flex-col items-center justify-center bg-primary-100/00 ">
       <FormContact />
-      <div className="mt-72 ">
-        <ChatbotStart />
-      </div>
+      {/* <div className="mt-72 ">
+      </div> */}
     </div>
   );
 };

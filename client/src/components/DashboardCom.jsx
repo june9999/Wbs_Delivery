@@ -6,7 +6,7 @@ import Dashtable from "./Dashtable";
 const DashboardCom = () => {
   return (
     <>
-      <div className="flex-col gap-[2rem] wrap">
+      <div className="flex-col gap-[2rem] flex-wrap">
         <section className=" ">
           <Ordercurrent />
           <Dashtable />

@@ -1,32 +1,35 @@
-import React from "react";
-import PayModal from "../components/PayModal";
-import axios from "../axiosInstance";
-import socket from "../../socket/socket";
-import { useNavigate, NavLink } from "react-router-dom";
+import React from 'react';
+import PayModal from '../components/PayModal';
+import axios from '../axiosInstance';
+import socket from '../../socket/socket';
+import { useNavigate, NavLink } from 'react-router-dom';
 const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
-  console.log("id checking", id);
+  console.log('id checking', id);
   const navigate = useNavigate();
+
   const handleClick = () => {
     const newPaid = !paid;
-    console.log(newPaid, "paid status");
+    console.log(newPaid, 'paid status');
     setPaid(newPaid);
-    console.log("🚀 ~ file: Checkout.jsx:16 ~ handleClick ~ paid:", {
+    console.log('🚀 ~ file: Checkout.jsx:16 ~ handleClick ~ paid:', {
       setPaid,
     });
     axios
       .put(`/api/Orders/${id}`, { paid: newPaid })
       .then((res) => {
-        res.data, console.log(res.data.paid, "res paid");
+        res.data, console.log(res.data.paid, 'res paid');
       })
       .then((res) => {
-        socket.emit("message", orderData);
-        navigate("/dashboard");
+        socket.emit('message', orderData);
+        navigate('/dashboard');
       })
       .catch((e) => console.log(e));
+
+    navigate('/');
   };
 
   const p = price;
-  console.log("🚀 ~ file: Checkout.jsx:7 ~ Checkout ~ price:", price);
+  console.log('🚀 ~ file: Checkout.jsx:7 ~ Checkout ~ price:', price);
   return (
     <div className="flex items-center justify-center mt-24 ml-24 md:mr-24">
       <div>

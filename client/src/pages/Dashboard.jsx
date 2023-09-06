@@ -16,11 +16,11 @@ const Dashboard = () => {
   const [displayPage, setDisplayPage] = useState(5);
   return (
     // Background image --- parent style: opacity 0.99 relative --- child: img opacity absolute z-index w h cover ---
-    <section className="flex max-w-screen-xxl mx-auto bg-gradient-to-t from-primary-50 to-primary-100">
+    <section className="flex max-w-screen-xxl mx-auto bg-gradient-to-t from-primary-50 to-primary-50">
       <div>
         <NavbarSide displayPage={displayPage} setDisplayPage={setDisplayPage} />
       </div>
-      <div className="flex-col pt-[2rem] bg-gradient-to-t from-primary-50 to-primary-100 p-10 max-w-[80%]">
+      <div className="flex-col pt-[2rem] bg-gradient-to-t from-primary-50 to-primary-50 p-10">
         {/* {displayPage === 0 && <Overview />} */}
 
         {displayPage === 5 && <DashboardCom />}
