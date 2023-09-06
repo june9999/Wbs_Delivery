@@ -31,7 +31,7 @@ const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
   const p = price;
   console.log('🚀 ~ file: Checkout.jsx:7 ~ Checkout ~ price:', price);
   return (
-    <div className="flex items-center justify-center mt-24 ml-24 md:mr-24">
+    <div className="flex items-center justify-center mt-24 ml-4 md:mr-24">
       <div>
         <h1 className="flex items-center justify-center mb-8  text-4xl md:ml-8">
           Checkout

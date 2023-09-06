@@ -138,6 +138,9 @@ const ProjMap = ({
 
   return (
     <>
+
+<h2 className="flex items-center justify-center text-2xl font-bold">Create Order</h2>
+
       {/* <div>
     <Container padding="4" bg="gray-200" rounded="md">
     <Title size="lg" weight="bold">
@@ -151,7 +154,7 @@ const ProjMap = ({
   <div className="flex items-center justify-center">
       <div >
         {/* {isLoaded ? ( */}
-        <div className="flex items-center justify-center w-[45v] h-[10rem] md:w-[45vw] md:h-[350px] border-2 border-black mt-24 ml-20">
+        <div className="flex items-center justify-center  h-[10rem] md:w-[45vw] md:h-[350px] border-2 border-black mt-12 md:ml-24">
           <GoogleMap
             center={center}
             zoom={15}
@@ -191,7 +194,7 @@ const ProjMap = ({
                   type="text"
                   name="brand"
                   id="brand"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-[60%] md:w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-[60%] md:w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 w-[15rem]"
                   placeholder="PickupLocation"
                   ref={originRef}
                 />
@@ -215,7 +218,7 @@ const ProjMap = ({
                   type="text"
                   name="brand"
                   id="brand"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-[60%] md:w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-[60%] md:w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 w-[15rem]"
                   placeholder="DropLocation"
                   ref={destinationRef}
                 />
@@ -254,7 +257,7 @@ const ProjMap = ({
             {/* <button onClick={clearRoute}>New Route</button> */}
           </form>
 
-          <div className="ml-12 ">
+          <div className="ml-4 ">
             <div>
               <label
                 htmlFor="distance"
@@ -262,7 +265,7 @@ const ProjMap = ({
               >
                 Distance
               </label>
-              <p className="w-80  block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 w-[70%] md:w-80">
+              <p className=" block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 w-[16rem] md:w-80">
                 {" "}
                 {distance / 1000} km
               </p>
@@ -273,7 +276,7 @@ const ProjMap = ({
               >
                 Duration
               </label>
-              <p className="w-80  block mb-2 text-sm font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 w-[70%] md:w-80">
+              <p className="  block mb-2 text-sm font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 w-[16rem] md:w-80">
                 {duration / 60} min
               </p>
               </div>
