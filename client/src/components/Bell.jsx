@@ -1,13 +1,15 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import socket from "../../socket/socket";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import socket from '../../socket/socket';
 // import bell from "../img/bell.svg";
-import bell from "../assets/bell.png";
-import axios from "../axiosInstance";
-import ProfilePicture from "../assets/profile-picture.png";
-import NotificationModal from "./NotificationModal";
-import { useContext } from "react";
-import { AuthContext } from "../context/Auth";
+import bell from '../assets/bell.png';
+import axios from '../axiosInstance';
+import ProfilePicture from '../assets/profile-picture.png';
+import NotificationModal from './NotificationModal';
+import { useContext } from 'react';
+import { AuthContext } from '../context/Auth';
 
 // import notification from "../img/notification.svg";
 
@@ -15,11 +17,12 @@ const Bell = () => {
   const { user } = useContext(AuthContext);
   const [notifications, setNotifications] = useState([]);
   const [open, setOpen] = useState(false);
-  const [id, setId] = useState("");
+  const [id, setId] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    socket.on("neworder", (data) => {
-      console.log("🚀 ~ file: Card.jsx:10 ~ socket.on ~ data:", data);
+    socket.on('neworder', (data) => {
+      console.log('🚀 ~ file: Card.jsx:10 ~ socket.on ~ data:', data);
       setNotifications((prev) => [...prev, data]);
       setId(data._id);
     });
@@ -35,6 +38,7 @@ const Bell = () => {
       .catch((e) => console.log(e));
     setNotifications([]);
     setOpen(false);
+    navigate(`/`);
   };
 
   const handleDismiss = () => {
@@ -99,11 +103,13 @@ const Bell = () => {
                 </div>
                 <div className="ml-3 text-sm font-normal">
                   <div className="text-sm font-semibold text-gray-900 dark:text-white">
-                    A new order by {data.customer} from {data.pickupLocation} to
-                    {data.dropLocation} is waiting to be claimed
+                    New incoming order
+                    <br />
+                    from: {data.pickupLocation}
+                    <br />
+                    to: {data.dropLocation}
                   </div>
-                  <div className="text-sm font-normal">ordered</div>
-                  <span className="text-xs font-medium text-blue-600 dark:text-blue-500">
+                  <span className="text-xs font-medium text-primary-500 dark:text-blue-500">
                     a few seconds ago
                   </span>
                 </div>
@@ -183,8 +189,7 @@ const Bell = () => {
           <div className="notifications">
             {notifications.map((n) => displayNotification(n))}
 
-            <p className="nButton" onClick={handleRead}>
-            </p>
+            <p className="nButton" onClick={handleRead}></p>
           </div>
         )}
       </div>
