@@ -17,7 +17,7 @@ const NewOrder = () => {
   console.log("pickupLocation", pickupLocation);
   const [dropLocation, setDropLocation] = useState("");
   // console.log("dropLocation",dropLocation)
-  const [id,setId]=useState("");
+  const [id, setId] = useState("");
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [length, setLength] = useState(0);
@@ -27,6 +27,7 @@ const NewOrder = () => {
   const [price, setPrice] = useState(0);
   const [paid, setPaid] = useState(false);
   const [customerId, setCustomerId] = useState(user._id);
+  const [orderData, setOrderData] = useState(user._id);
 
   // const [employeeId, setEmployeeId] = useState('');
 
@@ -68,19 +69,19 @@ const NewOrder = () => {
         customerId,
       })
       .then((res) => {
-
-        setId(res.data._id)
+        setId(res.data._id);
+        setOrderData(res.data);
         console.log(res.data._id);
-        socket.emit("message", res.data);
+        // socket.emit("message", res.data);
         // navigate("/");
       })
       .catch((e) => console.log(e));
   };
 
-  console.log("checking ordid",id)
+  console.log("checking ordid", id);
 
   return (
-    <div className=" bg-gradient-to-t from-primary-50 to-primary-100">
+    <div className="primary-50/00">
       {checkout ? (
         <>
           <ProjMap
@@ -188,8 +189,6 @@ const NewOrder = () => {
                       required
                     />
                   </div>
-
-                
 
                   {/* <div>
                 <label
@@ -331,7 +330,14 @@ const NewOrder = () => {
           </section>
         </>
       ) : (
-        <Checkout price={price} distance={distance} paid={paid} setPaid={setPaid} id={id} />
+        <Checkout
+          price={price}
+          distance={distance}
+          paid={paid}
+          setPaid={setPaid}
+          id={id}
+          orderData={orderData}
+        />
       )}
 
       <div className="flex items-center justify-center  ml-24 mb-8 ">
@@ -362,13 +368,10 @@ const NewOrder = () => {
    
     )} */}
 
-  <div className="flex items-center justify-center pb-8" >
-{/* { checkout && <button onClick={(()=>setCheckout(false))}  className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Checkout</button>}  */}
-{/* { !checkout && <button    className="ml-4 mr-4 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Payment</button>} */}
- 
-
-
-</div>
+      <div className="flex items-center justify-center pb-8">
+        {/* { checkout && <button onClick={(()=>setCheckout(false))}  className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Checkout</button>}  */}
+        {/* { !checkout && <button    className="ml-4 mr-4 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">Payment</button>} */}
+      </div>
     </div>
   );
 };

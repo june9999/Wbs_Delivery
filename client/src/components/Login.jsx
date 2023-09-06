@@ -34,7 +34,7 @@ const Login = () => {
           data-modal-show="authentication-modal"
           data-modal-target="authentication-modal" // id of target element
           data-modal-toggle="authentication-modal"
-          className="block mx-3  text-black bg-primary-100 hover:bg-primary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 shadow-lg"
+          className="block mx-3 text-primary-800 bg-primary-200 hover:bg-primary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 shadow-lg"
           type="button"
         >
           Login

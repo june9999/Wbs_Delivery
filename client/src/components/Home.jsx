@@ -5,17 +5,20 @@ import SectionFeature from './blocks/SectionFeature';
 import SectionContent from './blocks/SectionContent';
 import SectionTestimonials from './blocks/SectionTestimonials';
 import CookieInfoBanner from '../components/blocks/CookieInfoBanner';
+import Comments from '../pages/Comments';
+import Layout from "../pages/Layout";
 
 const Home = () => {
   return (
     <>
+    <Layout>
       <Hero />
       <SectionFeature />
       <SectionTestimonials />
-      {/* <SectionContent /> */}
       <SectionTeam />
+      {/* <SectionContent /> */}
       {/* <CookieInfoBanner /> */}
-
+      </Layout>
     </>
   );
 };

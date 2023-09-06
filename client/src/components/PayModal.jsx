@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../context/Auth';
-import { Navigate, NavLink } from 'react-router-dom';
-import 'flowbite';
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/Auth";
+import { Navigate, NavLink } from "react-router-dom";
+import "flowbite";
 
 const PayModal = () => {
   const context = useContext(AuthContext);
   const [user, setUser] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const handleChange = (e) => {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('pay now button was clicked');
+    console.log("pay now button was clicked");
 
     // context.login(user);
   };

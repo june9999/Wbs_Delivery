@@ -1,51 +1,51 @@
 import React from 'react';
 import PayModal from '../components/PayModal';
-import axios from "../axiosInstance";
+import axios from '../axiosInstance';
+import socket from '../../socket/socket';
+import { useNavigate, NavLink } from 'react-router-dom';
+const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
+  console.log('id checking', id);
+  const navigate = useNavigate();
 
-
-const Checkout = ({ price, distance, paid,setPaid, id}) => {
-
-
-
-
-
- 
-console.log("id checking",id)
-const handleClick=(()=>{
-
- const newPaid= !paid;
- console.log(newPaid,"paid status")
-  setPaid(newPaid)
-    console.log("🚀 ~ file: Checkout.jsx:16 ~ handleClick ~ paid:", {setPaid})
+  const handleClick = () => {
+    const newPaid = !paid;
+    console.log(newPaid, 'paid status');
+    setPaid(newPaid);
+    console.log('🚀 ~ file: Checkout.jsx:16 ~ handleClick ~ paid:', {
+      setPaid,
+    });
     axios
-    .put(`/api/Orders/${id}`,{paid:newPaid})
-    .then((res)=>{(res.data),
-      console.log(res.data.paid,"res paid")})
-    .catch((e)=>console.log(e))  
-    
- 
+      .put(`/api/Orders/${id}`, { paid: newPaid })
+      .then((res) => {
+        res.data, console.log(res.data.paid, 'res paid');
+      })
+      .then((res) => {
+        socket.emit('message', orderData);
+        navigate('/dashboard');
+      })
+      .catch((e) => console.log(e));
 
-
-})
+    navigate('/');
+  };
 
   const p = price;
   console.log('🚀 ~ file: Checkout.jsx:7 ~ Checkout ~ price:', price);
   return (
     <div className="flex items-center justify-center mt-24 ml-24 md:mr-24">
-      <div >
+      <div>
         <h1 className="flex items-center justify-center mb-8  text-4xl md:ml-8">
           Checkout
         </h1>
         <div className="w-45vw">
-        <p className="flex items-center justify-center w-[12rem] md:w-80 md:ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-          Distance : {distance / 1000}km
-        </p>
-        <p className="flex items-center justify-center w-[12rem] md:w-80 md:ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-          Base fare : 12
-        </p>
-        <p className="flex items-center justify-center w-[12rem] md:ml-60 md:w-80 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-24">
-          Total : {p}
-        </p>
+          <p className="flex items-center justify-center w-[12rem] md:w-80 md:ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            Distance : {distance / 1000}km
+          </p>
+          <p className="flex items-center justify-center w-[12rem] md:w-80 md:ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            Base fare : 12
+          </p>
+          <p className="flex items-center justify-center w-[12rem] md:ml-60 md:w-80 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-24">
+            Total : {p}
+          </p>
         </div>
         <div className="mb-4">
           {/* <button
@@ -194,19 +194,17 @@ const handleClick=(()=>{
           />
         </svg>
       </button> */}
-
-
-
-
-
         </div>
-         <div className="flex items-center justify-center">
-        {
-  !paid&&(<button  onClick={handleClick}
-  className="flex item-center justify-center inline-flex items-center px-5 py-2.5  sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 md:ml-24 ">Pay</button>) 
-
-}
-</div> 
+        <div className="flex items-center justify-center">
+          {!paid && (
+            <button
+              onClick={handleClick}
+              className="flex item-center justify-center inline-flex items-center px-5 py-2.5  sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 md:ml-24 "
+            >
+              Pay
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
