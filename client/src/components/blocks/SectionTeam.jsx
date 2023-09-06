@@ -26,7 +26,7 @@ const SectionTeam = ({}) => {
               src={catA}
               alt="Avatar"
             />
-            <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h3 className="mb-1 text-2xl font-bold tracking-tight text-primary-800 dark:text-white">
               <a href="#">Anusha</a>
             </h3>
             <p>CEO</p>
@@ -38,7 +38,7 @@ const SectionTeam = ({}) => {
               src={catB}
               alt="Avatar"
             />
-            <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h3 className="mb-1 text-2xl font-bold tracking-tight text-primary-800 dark:text-white">
               <a href="#">Wenjun</a>
             </h3>
             <p>CTO</p>
@@ -50,7 +50,7 @@ const SectionTeam = ({}) => {
               src={catLaptop}
               alt="Avatar"
             />
-            <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h3 className="mb-1 text-2xl font-bold tracking-tight text-primary-800 dark:text-white">
               <a href="#">Jay</a>
             </h3>
             <p>Marketing</p>

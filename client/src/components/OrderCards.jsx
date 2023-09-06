@@ -1,7 +1,7 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "../axiosInstance";
 import { AuthContext } from "../context/Auth";
-import { useContext } from "react";
+import React, { useContext } from "react";
 
 const OrderCards = ({ order, Orders, setOrders }) => {
   const navigate = useNavigate();
@@ -46,13 +46,13 @@ const OrderCards = ({ order, Orders, setOrders }) => {
         </Link>
 
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Id: {order._id}
+          Id: {order._id.slice(-5)}
         </p>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
           {/* Last Update: {start - order.updatedAt} */}
         </p>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Order Status:{" "}
+          Status:{" "}
           {order.delivered
             ? "Order ended"
             : order.claimed
@@ -67,7 +67,7 @@ const OrderCards = ({ order, Orders, setOrders }) => {
               navigate(`/orders/${order._id}`);
             }}
             type="submit"
-            className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-[1rem]"
+            className="text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-[1rem]"
           >
             Details
           </button>
@@ -76,9 +76,9 @@ const OrderCards = ({ order, Orders, setOrders }) => {
             <button
               onClick={handleClaim}
               type="submit"
-              className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2"
+              className="text-white bg-primary-400 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2"
             >
-              Pick up
+              Claim
             </button>
           )}
           {/* condition2 */}
@@ -86,7 +86,7 @@ const OrderCards = ({ order, Orders, setOrders }) => {
             <button
               onClick={handleDelete}
               type="submit"
-              className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2"
+              className="text-white bg-primary-500 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2"
             >
               Cancel
             </button>

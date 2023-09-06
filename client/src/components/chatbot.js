@@ -8,7 +8,6 @@ export const script = [
       id: "CHOICES/overview",
       options: [
         { label: "FAQs", trigger: "CHOICES/faq" },
-        { label: "create an Order", trigger: "CHOICES/faq" },
         { label: "Request phone call", trigger: "call1" }
 
       ]

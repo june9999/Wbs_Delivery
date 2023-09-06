@@ -23,11 +23,11 @@ const SectionFeature = () => {
               </p>
             </div>
           </div>
-          <img
+          {/* <img
             className=" w-auto h-[10rem] rounded-lg mt-12 lg:h-[20rem] lg:mt-15 lg:ml-24"
             src={runningCat}
             alt="cat in bike basket"
-          />
+          /> */}
         </div>
 
         <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
@@ -42,7 +42,7 @@ const SectionFeature = () => {
                 <BiTimer />
               </svg>
             </div>
-            <h3 className="mb-2 text-xl font-bold dark:text-white">
+            <h3 className="mb-2 text-xl font-bold text-primary-800 dark:text-white">
               lightning-fast
             </h3>
             <p className="text-gray-500 dark:text-gray-400">
@@ -65,7 +65,7 @@ const SectionFeature = () => {
                 <MdOutlineNotificationsActive />
               </svg>
             </div>
-            <h3 className="mb-2 text-xl font-bold dark:text-white">
+            <h3 className="mb-2 text-xl font-bold text-primary-800 dark:text-white">
               Real-time Updates
             </h3>
             <p className="text-gray-500 dark:text-gray-400">
@@ -88,7 +88,7 @@ const SectionFeature = () => {
                 <AiFillSafetyCertificate />
               </svg>
             </div>
-            <h3 className="mb-2 text-xl font-bold dark:text-white">
+            <h3 className="mb-2 text-xl font-bold text-primary-800 dark:text-white">
               Secure and Safe Handling
             </h3>
             <p className="text-gray-500 dark:text-gray-400">

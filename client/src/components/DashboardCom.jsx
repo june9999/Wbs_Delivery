@@ -7,7 +7,7 @@ const DashboardCom = () => {
   return (
     <>
       <div className="flex-col gap-[2rem] flex-wrap">
-        <section className=" ">
+        <section className="">
           <Ordercurrent />
           <Dashtable />
         </section>

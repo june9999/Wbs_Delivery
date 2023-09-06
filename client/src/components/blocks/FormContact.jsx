@@ -4,7 +4,7 @@ import ChatbotStart from '../ChatbotStart';
 
 const FormContact = () => {
   return (
-    <section className="bg-primary-50/0 dark:bg-gray-900 py-4">
+    <section className=" bg-primary-50/0 dark:bg-gray-900 py-4">
       <img
         className="mx-auto pt-10 w-60 h-70 rounded-lg "
         src={CatInBox}
