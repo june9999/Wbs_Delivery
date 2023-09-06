@@ -5,12 +5,14 @@ import socket from "../../socket/socket";
 import bell from "../assets/bell.png";
 import axios from "../axiosInstance";
 import ProfilePicture from "../assets/profile-picture.png";
-
 import NotificationModal from "./NotificationModal";
+import { useContext } from "react";
+import { AuthContext } from "../context/Auth";
 
 // import notification from "../img/notification.svg";
 
 const Bell = () => {
+  const { user } = useContext(AuthContext);
   const [notifications, setNotifications] = useState([]);
   const [open, setOpen] = useState(false);
   const [id, setId] = useState("");
@@ -26,7 +28,7 @@ const Bell = () => {
 
   const handleClaim = () => {
     axios
-      .put(`/api/Orders/${id}`, { claimed: true })
+      .put(`/api/Orders/${id}`, { claimed: true, employeeId: user._id })
       .then((res) => {
         res.data, console.log(res.data);
       })

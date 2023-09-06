@@ -38,12 +38,12 @@ function TableItems({ order, Orders, setOrders }) {
 
   return (
     <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-      <th
+      {/* <th
         scope="row"
         className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
         {order._id}
-      </th>
+      </th> */}
 
       <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         <div className="flex items-center">{order.pickupLocation}</div>
@@ -54,9 +54,9 @@ function TableItems({ order, Orders, setOrders }) {
       <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         {order.employeeId?.username || ""}
       </td>
-      <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+      {/* <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         <div className="flex items-center">{order.employeeId?._id || ""}</div>
-      </td>
+      </td> */}
       <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         <div className="flex items-center">
           <svg
