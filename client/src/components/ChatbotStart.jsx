@@ -15,7 +15,7 @@ const theme = {
   background: '#F0FDFA',
   headerBgColor: '#99F6E4',
   headerFontColor: '#195E5A',
-  headerFontSize: '20px',
+  headerFontSize: '24px',
   botBubbleColor: '#99F6E4',
   botFontColor: '#195E5A',
   userBubbleColor: '#99F6E4',
@@ -32,7 +32,9 @@ const ChatbotStart = () => (
         steps={chatbotStepifyScript(script)}
         botAvatar={botAvatar}
         width='700px'
+        style={{fontSize: '5rem'}}
         hideUserAvatar
+        
       />
     </ThemeProvider>
   </div>
