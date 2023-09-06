@@ -26,7 +26,6 @@ const Main = () => {
     <main>
       <AnimatedPage>
         <AnimatePresence mode="wait">
-          <Layout>
             <Routes key={location.pathname} location={location}>
               <Route path="/" element={<Home />} />
 
@@ -55,7 +54,6 @@ const Main = () => {
               {/* <Route path="/register" element={<Register />} /> */}
               <Route path="/contact" element={<Contact />} />
             </Routes>
-          </Layout>
         </AnimatePresence>
       </AnimatedPage>
     </main>

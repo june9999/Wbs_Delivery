@@ -11,14 +11,12 @@ import Layout from "../pages/Layout";
 const Home = () => {
   return (
     <>
-    <Layout>
       <Hero />
       <SectionFeature />
       <SectionTestimonials />
       <SectionTeam />
       {/* <SectionContent /> */}
       {/* <CookieInfoBanner /> */}
-      </Layout>
     </>
   );
 };

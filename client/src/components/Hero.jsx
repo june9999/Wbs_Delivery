@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/Auth';
 import runningCat from '../assets/runningCat.jpg';
 import fastKitten from '../assets/fast-kitten.gif';
 import ChatbotStart from './ChatbotStart';
@@ -9,9 +10,14 @@ import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
   const navigate = useNavigate();
+  const context = useContext(AuthContext);
 
   const handleClick = () => {
-    navigate('/login');
+    if (context.user) {
+      navigate('/orders/new');
+    } else {
+      navigate('/login');
+    }
   };
 
   return (
@@ -46,7 +52,7 @@ const Hero = () => {
             src={runningCat}
             alt="Transparent Image"
             style={{
-              opacity: 0.7,
+              opacity: 0.5,
               zIndex: -1,
               position: 'absolute',
               width: '100%',
