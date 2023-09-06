@@ -32,7 +32,7 @@ const ChatbotStart = () => (
         steps={chatbotStepifyScript(script)}
         botAvatar={botAvatar}
         width='700px'
-        style={{fontSize: '5rem'}}
+      
         hideUserAvatar
         
       />

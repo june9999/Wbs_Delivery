@@ -73,6 +73,7 @@ const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
 
           <button
             type="button"
+            onClick={handleClick}
             className=" text-white bg-[#050708] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 md:mr-2 mb-4 mt-2"
           >
             Pay with Apple Pay
@@ -95,6 +96,7 @@ const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
 
           <button
             type="button"
+            onClick={handleClick}
             className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 mr-2 mb-4"
           >
             <svg
@@ -117,6 +119,7 @@ const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
           </button>
           <button
             type="button"
+            onClick={handleClick}
             className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 md:mr-2 mb-2"
           >
             <svg
@@ -195,16 +198,16 @@ const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
         </svg>
       </button> */}
         </div>
-        <div className="flex items-center justify-center">
+        {/* <div className="flex items-center justify-center">
           {!paid && (
             <button
               onClick={handleClick}
-              className="flex item-center justify-center inline-flex items-center px-5 py-2.5  sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 md:ml-24 "
+              className="flex item-center justify-center inline-flex items-center px-5 py-2.5  sm:mt-6 text-sm font-medium text-center text-white bg-primary-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 md:ml-24 "
             >
               Pay
             </button>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

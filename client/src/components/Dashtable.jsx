@@ -48,7 +48,7 @@ const Dashtable = () => {
                       Drop location
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      Employee
+                      type
                     </th>
                     {/* <th scope="col" className="px-4 py-3">
                       Employee Id

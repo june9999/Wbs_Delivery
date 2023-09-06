@@ -184,7 +184,6 @@ const Bell = () => {
             {notifications.map((n) => displayNotification(n))}
 
             <p className="nButton" onClick={handleRead}>
-              No new message
             </p>
           </div>
         )}
