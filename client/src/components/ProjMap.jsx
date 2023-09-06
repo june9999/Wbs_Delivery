@@ -151,7 +151,7 @@ const ProjMap = ({
   <div className="flex items-center justify-center">
       <div >
         {/* {isLoaded ? ( */}
-        <div className="flex items-center justify-center w-[45v] h-[10rem] md:w-[45vw] md:h-[350px] border-2 border-black mt-24">
+        <div className="flex items-center justify-center w-[45v] h-[10rem] md:w-[45vw] md:h-[350px] border-2 border-black mt-24 ml-20">
           <GoogleMap
             center={center}
             zoom={15}
@@ -174,9 +174,9 @@ const ProjMap = ({
         <div>Loading Google Maps...</div>
       )} */}
         </div>
-        <div className="flex ">
-        <div className=" mt-8 flex-wrap items-center justify-center overflow-auto  ">
-          <form className="mt-8">
+        <div className="flex items-center justify-center">
+        <div className=" mt-8 flex-wrap  flex items-center justify-center overflow-auto  ">
+          <form className="mt-12">
             <Autocomplete>
               {/* <input type='text' placeholder='Origin' ref={originRef} /> */}
 
