@@ -95,10 +95,10 @@ const NewOrder = () => {
             setDropLocation={setDropLocation}
           />
 
-          <section className=" bg-white/00 dark:bg-gray-900">
+          <section className="bg-white/00 dark:bg-gray-900">
             <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
               <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-                Add Order
+                My Order
               </h2>
               <form onSubmit={handleSubmit}>
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
@@ -220,19 +220,16 @@ const NewOrder = () => {
                   <textarea
                     id="description"
                     rows="8"
-                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="block mt-10 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Your description here"
                   ></textarea>
-                  <p className="flex align-items mt-8 font-bold text-lg">
-                    {' '}
-                    Total: € {price} 
+                  <p className="flex justify-center align-items mt-8 font-bold text-lg">
+                    Total: € {price}
                   </p>
                 </div>
-
-                <button className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                <button className="mx-[40%] inline-flex items-center px-20 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 ">
                   Create Order
                 </button>
-
                 {/* <button
                   type="submit"
                   className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
@@ -258,19 +255,20 @@ const NewOrder = () => {
         {checkout && (
           <button
             onClick={() => setCheckout(false)}
-            className=" inline-flex items-center px-5 py-2.5   text-sm font-medium text-center text-white bg-primary-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  "
+            className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  "
           >
             Checkout
           </button>
         )}
-        {!checkout && (
+        {/* {!checkout && (
           <button
             onClick={'/orders'}
+          
             className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  "
           >
             My Orders
           </button>
-        )}
+        )} */}
       </div>
 
       {/* </section> */}
@@ -279,7 +277,6 @@ const NewOrder = () => {
     <Checkout price={price} distance={distance}/> 
     
     
-   
     )} */}
 
       <div className="flex items-center justify-center pb-8">
