@@ -38,7 +38,7 @@ const Bell = () => {
       .catch((e) => console.log(e));
     setNotifications([]);
     setOpen(false);
-    navigate(`/`);
+    navigate(`/dashboard`);
   };
 
   const handleDismiss = () => {
