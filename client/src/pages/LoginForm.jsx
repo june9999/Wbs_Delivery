@@ -97,7 +97,7 @@ const LoginForm = () => {
                         Remember me
                       </label>
                     </div>
-                    <div className="text-sm text-blue-700 hover:underline dark:text-blue-500">
+                    <div className="text-sm text-primary-500 hover:underline dark:text-blue-500">
                       <NavLink to="/">Lost Password?</NavLink>
                     </div>
                   </div>

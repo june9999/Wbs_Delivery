@@ -17,13 +17,13 @@ const Ordercurrent = () => {
 
   return (
     <div className="flex flex-col flex-wrap ">
-      <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-left text-gray-900 dark:text-white">
+      <h1 className="mb-12 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
         Current Orders
       </h1>
 
 
-      <div className="overflow-x-auto">
-      <ul className="flex  gap-2 flex-wrap">
+      <div className="">
+      <ul className="flex gap-2 flex-wrap">
         {Orders &&
           Orders.map((order) => (
             <li key={uuidv4()} className="flex flex-shrink-0 mb-[2rem] flex-wrap">

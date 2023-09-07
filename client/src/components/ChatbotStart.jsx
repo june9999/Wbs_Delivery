@@ -22,6 +22,10 @@ const theme = {
   userFontColor: '#195E5A',
 };
 
+const bubbleStyle = {
+  fontSize: '22px',
+};
+
 const ChatbotStart = () => (
   <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl ">
     <ThemeProvider theme={theme}>
@@ -31,10 +35,10 @@ const ChatbotStart = () => (
         // bubbleOptionStyle={{ backgroundColor: 'white', color: 'black' }}
         steps={chatbotStepifyScript(script)}
         botAvatar={botAvatar}
-        width='700px'
-      
+        width="600px"
+        height="600px"
+        bubbleStyle={bubbleStyle}
         hideUserAvatar
-        
       />
     </ThemeProvider>
   </div>

@@ -43,7 +43,7 @@ const NavbarSide = ({ displayPage, setDisplayPage }) => {
         aria-label="Sidenav"
       > */}
       {sidedisplay && (
-        <div className="overflow-y-auto py-5 px-3 h-full bg-gradient-to-t from-primary-50 to-primary-100  border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div className="overflow-y-auto py-5 px-3 h-full bg-gradient-to-t from-primary-50 to-primary-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700">
           <ul className="space-y-2">
             <li>
               <a

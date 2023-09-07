@@ -6,7 +6,7 @@ import Dashboard from './Dashboard';
 
 const Contact = () => {
   return (
-    <div className="flex flex-col items-center justify-center bg-primary-100/00">
+    <div className="flex flex-col items-center justify-center bg-primary-50">
       <FormContact />
       {/* <div className="mt-72 ">
       </div> */}

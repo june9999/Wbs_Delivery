@@ -1,12 +1,11 @@
-import React, { useState, useContext } from "react";
-import { NavLink, Navigate } from "react-router-dom";
-import { AuthContext } from "../context/Auth";
-import Logo from "../assets/cute-cat-courier.png";
-import Bell from "./Bell";
-import Login from "./Login";
-import Register from "./Register";
-import cat1 from "../assets/cat1.png";
-import NotificationModal from "./NotificationModal";
+import React, { useState, useContext } from 'react';
+import { NavLink, Navigate } from 'react-router-dom';
+import { AuthContext } from '../context/Auth';
+import Logo from '../assets/cute-cat-courier.png';
+import Bell from './Bell';
+import Login from './Login';
+import Register from './Register';
+import cat1 from '../assets/cat1.png';
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -15,34 +14,40 @@ const Header = () => {
   return (
     <>
       {/* <nav className="relative bg-white border-gray-200 dark:bg-gray-800"> */}
-      <nav className="relative bg-gradient-to-r from-primary-100 to-primary-100 border-gray-200 dark:bg-gray-800 shadow-xl">
-        <div className="px-4 py-2 lg:px-6 flex flex-wrap justify-between items-center mx-auto max-w-screen-xxl pb-2">
+      <nav className="relative bg-gradient-to-r from-primary-100 to-primary-100 border-gray-200 dark:bg-gray-800 shadow-lg">
+        <div className="px-4 py-1 lg:px-6 flex flex-wrap justify-between items-center mx-auto max-w-screen-xxl">
           {/* Logo */}
           <div className="flex items-center">
             <div className="text-primary-800 self-center text-xl font-bold whitespace-nowrap dark:text-white">
-            <NavLink to="/">
-            <img src={cat1} className=" h-6 sm:h-10" alt="Cat Logo" />
-              <span className='ml-1 text-2xl'>RapidCats</span></NavLink>
+              <NavLink to="/">
+                <img
+                  src={cat1}
+                  className=" h-6 sm:h-9"
+                  alt="Cat Logo"
+                  style={{ filter: 'invert(0.3)' }}
+                />
+                <span className="ml-1 text-1xl">RapidCats</span>
+              </NavLink>
             </div>
           </div>
+
           {/* Conditional rendering of Login/Logout */}
           {user ? (
             <div className="flex items-center lg:order-2">
-              <div className="text-primary-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none dark:focus:ring-gray-800">
+              {/* <Notificatio^nModal /> */}
+              <button>
+                <Bell />
+              </button>
+              <div className="text-primary-800 hover:text-primary-500 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none dark:focus:ring-gray-800">
                 <NavLink to="/dashboard">
-                <button>
-                  Welcome <br />
-                  {user.username}
+                  <button>
+                    Welcome <br />
+                    {user.username}
                   </button>
                 </NavLink>
               </div>
-              {/* <NotificationModal /> */}
-              <button>
-              <Bell />
-              </button>
-              
 
-              <div className="text-gray-800 dark:text-white bg-primary-100 hover:bg-primary-200 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 shadow-lg">
+              <div className="text-gray-800 dark:text-white bg-primary-200 hover:bg-primary-300 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 shadow-lg">
                 <button onClick={logout}>Logout</button>
               </div>
             </div>
@@ -61,10 +66,10 @@ const Header = () => {
               {/* hamburger menu */}
 
               <button
-                data-collapse-toggle="mobile-menu-2"
+                data-collapse-toggle="mobile-menu2"
                 type="button"
-                className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="mobile-menu-2"
+                className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 shadow-lg"
+                aria-controls="mobile-menu2"
                 aria-expanded="false"
               >
                 <span className="sr-only">Open main menu</span>

@@ -63,14 +63,17 @@ const SectionTeam = ({}) => {
                 At RapidCats, we've also mastered the coding game to relauch our
                 website. Our talented team of Full-Stack Web Developers has
                 created a seamless, user-friendly experience prioritizing
-                efficiency and an exceptional customer experience supported by{' '}
-                <b>React Simple Chatbot</b> library. We also implemented the{' '}
-                <b>Google Maps Matrix API</b> to show maps and delivery routes
-                and we used a sophisticated <b>Price Calculation Algorithm</b>{' '}
-                that takes various variables into account. Thanks to the{' '}
-                <b>Socket.io Library</b> we were even able to add{' '}
-                <b>Real-Time Notifications</b> for new customer orders. We take
-                pride in our collaboration and commitment to excellence,
+                efficiency and an exceptional customer experience supported by
+                the <b>Flowbite Tailwind Component Library</b> and the
+                interactive
+                <b>React Simple Chatbot</b>. We also implemented the{' '}
+                <b>Google Maps Matrix API</b> to show delivery routes on a map
+                and we used a sophisticated{' '}
+                <b>Uber Price Calculation Algorithm</b> that takes various
+                variables into account. Using the <b>Socket.io Library</b> we
+                were also able to add <b>Real-Time Notifications</b> for the
+                employees to see and claim new customer orders immediately. We
+                take pride in our collaboration and commitment to excellence,
                 continuously improving to deliver the best online experience for
                 our cat-loving customers.
               </p>

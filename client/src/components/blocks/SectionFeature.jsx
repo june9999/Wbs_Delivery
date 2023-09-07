@@ -1,5 +1,4 @@
 import React from 'react';
-import runningCat from '../../assets/runningCat.jpg';
 import { BiTimer } from 'react-icons/bi';
 import { MdOutlineNotificationsActive } from 'react-icons/md';
 import { AiFillSafetyCertificate } from 'react-icons/ai';

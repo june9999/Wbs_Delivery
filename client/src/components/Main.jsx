@@ -1,6 +1,6 @@
 // import Notfound from "../components/blocks/Notfound";
 import Comments from '../pages/Comments';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedPage from './AnimatedPage';
 import ProjMap from './ProjMap';
 import React from 'react';
@@ -26,34 +26,34 @@ const Main = () => {
     <main>
       <AnimatedPage>
         <AnimatePresence mode="wait">
-            <Routes key={location.pathname} location={location}>
-              <Route path="/" element={<Home />} />
+          <Routes key={location.pathname} location={location}>
+            <Route path="/" element={<Home />} />
 
-              <Route path="/" element={<ProtectedRoute />}>
-                <Route path="/" element={<Navigate to="/dashboard" />} />
-                {/* // Pages:  Checkout Rating  */}
+            <Route path="/" element={<ProtectedRoute />}>
+              <Route path="/" element={<Navigate to="/dashboard" />} />
+              {/* // Pages:  Checkout Rating  */}
 
-                {/* Dashboard */}
-                <Route path="/dashboard" element={<Dashboard />} />
+              {/* Dashboard */}
+              <Route path="/dashboard" element={<Dashboard />} />
 
-                {/* Order */}
-                <Route path="/orders/new" element={<NewOrder />} />
-                <Route path="/orders/:id" element={<OrderDetails />} />
-                <Route path="/orders/:id/comments" element={<Comments />} />
-                <Route path="/orders/:id/update" element={<UpdateOrder />} />
+              {/* Order */}
+              <Route path="/orders/new" element={<NewOrder />} />
+              <Route path="/orders/:id" element={<OrderDetails />} />
+              <Route path="/orders/:id/comments" element={<Comments />} />
+              <Route path="/orders/:id/update" element={<UpdateOrder />} />
 
-                {/* Payment */}
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/payment" element={<Payment />} />
-                <Route path="/comments" element={<Comments />} />
+              {/* Payment */}
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/comments" element={<Comments />} />
 
-                <Route path="/confirmation" element={<Confirmation />} />
-              </Route>
+              <Route path="/confirmation" element={<Confirmation />} />
+            </Route>
 
-              <Route path="/login" element={<LoginForm />} />
-              {/* <Route path="/register" element={<Register />} /> */}
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
+            <Route path="/login" element={<LoginForm />} />
+            {/* <Route path="/register" element={<Register />} /> */}
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
         </AnimatePresence>
       </AnimatedPage>
     </main>

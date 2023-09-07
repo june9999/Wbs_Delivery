@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { AuthContext } from '../context/Auth';
 import runningCat from '../assets/runningCat.jpg';
 import fastKitten from '../assets/fast-kitten.gif';
 import ChatbotStart from './ChatbotStart';
-// import catBox from '../assets/cat-box.jpg';
 import cat2 from '../assets/cat2.png';
 import HeroVideo from '../assets/heroVideo.mp4';
 import { useNavigate } from 'react-router-dom';
@@ -11,44 +10,49 @@ import { useNavigate } from 'react-router-dom';
 const Hero = () => {
   const navigate = useNavigate();
   const context = useContext(AuthContext);
+  const videoRef = useRef(null);
 
   const handleClick = () => {
     if (context.user) {
-      navigate('/orders/new');
+      navigate('/dashboard');
     } else {
       navigate('/login');
     }
   };
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.4;
+    }
+  }, []);
+
   return (
     <>
-      <section className="backdrop-blur dark:bg-gray-900 shadow-lg">
+      <section className="bg-white dark:bg-gray-900 shadow-lg">
         {/* Background image --- parent style: opacity 0.99 relative --- child: img opacity absolute z-index w h cover --- */}
         <div
-          className="grid max-w-screen-xxl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
+          className="grid max-w-screen-xxl px-0 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 shadow-lg"
           style={{ opacity: 0.99, position: 'relative' }}
         >
-          {/* <video
+          <video
             autoPlay
             loop
             muted
             style={{
-              opacity: 0.3,
+              opacity: 0.5,
               zIndex: -1,
               position: 'absolute',
               width: '100%',
               height: '100%',
               objectFit: 'cover',
             }}
-            ref={(video) => {
-              if (video) video.playbackRate = 0.2;
-            }}
-          > 
-            <source src={HeroVideo} type="video/mp4" />
+            ref={videoRef}
+          >
+            <source src={HeroVideo} type="video/mp4"/>
             Your browser does not support the video tag.
-          </video>*/}
+          </video>
 
-          <img
+          {/* <img
             src={runningCat}
             alt="Transparent Image"
             style={{
@@ -59,16 +63,16 @@ const Hero = () => {
               height: '100%',
               objectFit: 'cover',
             }}
-          />
+          /> */}
 
-          <div className="place-self-center lg:col-span-9 p-6">
+          <div className="backdrop-blur-lg rounded-2xl place-self-center lg:col-span-6 p-6">
             <h1 className="text-primary-800 max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
               Your Purrcel <br />
               is our Purriority
             </h1>
-            <p className="max-w-2xl mb-6 font-bold text-gray-800 lg:mb-8 md:text-lg lg:text-2xl dark:text-gray-400">
-              We are Berlin's express delivery service <br />
-              for package and document shipping
+            <p className="max-w-2xl mb-6 font-bold text-primary-700 lg:mb-8 md:text-lg lg:text-2xl dark:text-gray-400">
+              Berlin's Express Delivery Bike Couriers <br />
+              for Package and Document Shipping
               <br />
               at cat-speed. Meow!
             </p>
@@ -76,7 +80,7 @@ const Hero = () => {
             {/* CTA button 1 */}
             <button
               onClick={handleClick}
-              className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-black rounded-lg bg-primary-200 hover:bg-primary-300 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 shadow-2xl"
+              className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-primary-800 rounded-lg bg-primary-200 hover:bg-primary-300 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 shadow-2xl"
             >
               Create Order
               <svg
@@ -92,14 +96,6 @@ const Hero = () => {
                 ></path>
               </svg>
             </button>
-
-            {/* CTA button 2 */}
-            {/* <a
-              href="#"
-              className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-            >
-              Speak to Customer Support
-            </a> */}
             <img
               src={cat2}
               alt="cat image"

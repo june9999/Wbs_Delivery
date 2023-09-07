@@ -4,28 +4,22 @@ import ChatbotStart from '../ChatbotStart';
 
 const FormContact = () => {
   return (
-    <section className=" bg-primary-50/0 dark:bg-gray-900 py-4">
-      <img
-        className="mx-auto pt-10 w-60 h-70 rounded-lg "
-        src={CatInBox}
-        alt="cat in bike basket"
-      />
-
-      {/* <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900"> */}
-      <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-          Contact Us
+    <section className=" bg-primary-50/0 dark:bg-gray-900 ">
+       <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
+          Support
         </h2>
-
-        <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-          Got a technical issue? Want to send feedback about a beta feature?
-          Need details about our Business plan? Let us know.
-        </p>
+      <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
         <div className="flex justify-content mb-10">
           <ChatbotStart />
         </div>
-        <br/>
-        <form action="#" className="space-y-8">
+        <br />
+        <img
+          className="mx-auto w-60 h-70 rounded-lg"
+          src={CatInBox}
+          alt="cat in bike basket"
+        />
+        <br />
+        {/* <form action="#" className="space-y-8">
           <div>
             <label
               htmlFor="email"
@@ -76,7 +70,7 @@ const FormContact = () => {
           >
             Send message
           </button>
-        </form>
+        </form> */}
       </div>
     </section>
   );
