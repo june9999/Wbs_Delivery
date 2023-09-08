@@ -61,12 +61,13 @@ const SectionTeam = ({}) => {
             <div className="mx-auto mt-12 mb-8 max-w-screen-sm lg:mb-16">
               <p className="text-justify font-dark text-gray-500 sm:text-lg dark:text-gray-400">
                 At RapidCats, we've also mastered the coding game to relauch our
-                website. Our talented team of Full-Stack Web Developers has
-                created a seamless, user-friendly experience prioritizing
-                efficiency and an exceptional customer experience supported by
-                the <b>Flowbite Tailwind Component Library</b> and the
-                interactive
-                <b>React Simple Chatbot</b>. We also implemented the{' '}
+                website as a Single Page Application using{' '}
+                <b>React and Node/ExpressJS and MongoDB</b> (MERN-Stack). Our
+                talented team of Full-Stack Web Developers has created a
+                seamless, user-friendly experience using <b>Tailwind CSS</b>{' '}
+                with the <b>Flowbite Component Library</b> and{' '}
+                <b>React Simple Chatbot</b> for an interactive customer
+                experience. We also implemented the{' '}
                 <b>Google Maps Matrix API</b> to show delivery routes on a map
                 and we used a sophisticated{' '}
                 <b>Uber Price Calculation Algorithm</b> that takes various

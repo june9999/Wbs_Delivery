@@ -65,7 +65,7 @@ const Hero = () => {
             }}
           /> */}
 
-          <div className="backdrop-blur-lg rounded-2xl place-self-center lg:col-span-6 p-6">
+          <div className="backdrop-blur-lg rounded-2xl place-self-start lg:col-span-6 p-6">
             <h1 className="text-primary-800 max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
               Your Purrcel <br />
               is our Purriority

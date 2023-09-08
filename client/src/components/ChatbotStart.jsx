@@ -23,8 +23,22 @@ const theme = {
 };
 
 const bubbleStyle = {
-  fontSize: '22px',
+  fontSize: '18px',
 };
+const bubbleOptionStyle = {
+  fontSize: '18px',
+};
+// const avatarStyle = {
+//   height: '40px',
+//   width: '30px',
+// };
+
+// const customStyles = {
+//   height: '60px', // Adjust the height value as per your requirement
+//   backgroundColor: 'red',
+//   // Add more style properties as needed
+// };
+
 
 const ChatbotStart = () => (
   <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl ">
@@ -38,6 +52,7 @@ const ChatbotStart = () => (
         width="600px"
         height="600px"
         bubbleStyle={bubbleStyle}
+        bubbleOptionStyle={bubbleOptionStyle}
         hideUserAvatar
       />
     </ThemeProvider>
