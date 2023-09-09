@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import axios from "../axiosInstance";
+import axios from "../../axiosInstance";
 const Claimcards = ({ order }) => {
   const navigate = useNavigate();
   const id = order._id;

@@ -1,5 +1,5 @@
 import React from "react";
-import FormContact from "../components/blocks/FormContact";
+import FormContact from "../blocks/FormContact";
 import CatInBox from '../assets/cat-in-box.png';
 
 const Chat = () => {

@@ -1,8 +1,5 @@
 import React from 'react';
-import ChatbotStart from '../components/ChatbotStart';
 import FormContact from '../components/blocks/FormContact';
-import PayModal from '../components/PayModal';
-import Dashboard from './Dashboard';
 
 const Contact = () => {
   return (

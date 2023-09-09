@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import socket from '../../socket/socket';
+import socket from '../../../socket/socket';
 
 const Card = () => {
   const [notifications, setNotifications] = useState([]);
