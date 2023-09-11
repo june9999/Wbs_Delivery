@@ -14,17 +14,17 @@ This Single Page Application was created by Anusha, Wenjun and Jay as final proj
 
 playful, cat-inspired website design with cat illustrations
 
+### Google maps routes display and Uber price calculation:
+
+delivery route and price are shown to customers during ordering process
+
 ### Online tracking and notifications:
 
 real-time notifications about incoming orders for employees
 
-### Google maps routes and Uber price calculation:
-
-delivery route and price is shown to customers during ordering process
-
 ### Interactive chat bot:
 
-Customer Support via conversational 'Cat Bot'
+interactive Customer Support with FAQs and call-back request option
 
 ## Technologies used
 
@@ -58,14 +58,33 @@ git clone https://github.com/Anushamalligappa/Delivery_App.git
 
 cd Delivery_App/client
 npm i
+touch .env
 cd ..
 cd server
 npm i
+touch .env
 
+-> add your environment variables to the files /server/.env and /client/.env (see .env.example files)
+
+# Start commands
+
+cd server
 npm run dev
 cd ..
 cd client
 npm run dev
+
+# Deployment
+
+for deployment on render.com
+
+- choose "create Web Service"
+- add environment variables in "Environment"
+- add deployment settings:
+  Branch: dev
+  Root Directory: server
+  Build Command: npm i && cd ../client && npm i && npm run build
+  Start Command: npm start
 
 ## Example API calls
 
