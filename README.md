@@ -28,50 +28,37 @@ interactive Customer Support with FAQs and call-back request option
 
 ## Technologies used
 
-React.js
-Node.js
-Express.js
-Mongoose.js
-MongoDB Atlas
-Render.com
+React.js, Node.js, Express.js, MongoDB Atlas, Mongoose.js, Render.com
 
-vite
-react router dom
-axios
-uuidv4
-dotenv
-bcrypt
-jwt
+vite, react router dom, axios, uuidv4, dotenv, bcrypt, jwt
 
-Flowbite components
-Tailwind css
-framer motion
+Flowbite components, Tailwind css, Framer motion
 
-React simple chatbot
-React google maps
-Google Maps Matrix Api
+React simple chatbot  
+React google maps  
+Google Maps Matrix API  
 Socket.io
 
 ## Installation
 
 git clone https://github.com/Anushamalligappa/Delivery_App.git
 
-cd Delivery_App/client
-npm i
-touch .env
-cd ..
-cd server
-npm i
+cd Delivery_App/client  
+npm i  
+touch .env  
+cd ..  
+cd server  
+npm i  
 touch .env
 
 -> add your environment variables to the files /server/.env and /client/.env (see .env.example files)
 
 # Start commands
 
-cd server
-npm run dev
-cd ..
-cd client
+cd server  
+npm run dev  
+cd ..  
+cd client  
 npm run dev
 
 # Deployment
@@ -80,10 +67,10 @@ for deployment on render.com
 
 - choose "create Web Service"
 - add environment variables in "Environment"
-- add deployment settings:
-  Branch: dev
-  Root Directory: server
-  Build Command: npm i && cd ../client && npm i && npm run build
+- add deployment settings:  
+  Branch: dev  
+  Root Directory: server  
+  Build Command: npm i && cd ../client && npm i && npm run build  
   Start Command: npm start
 
 ## Example API calls
@@ -94,9 +81,9 @@ http://localhost:8000/auth/currentUser
 POST
 http://localhost:8000/auth/login
 
-{
-"email": "x@y.com",
-"password": "12345678"
+{  
+"email": "x@y.com",  
+"password": "12345678"  
 }
 
 GET
@@ -105,15 +92,15 @@ http://localhost:8000/api/orders
 POST
 http://localhost:8000/api/orders
 
-{
-"pickupLocation": "Berliner Strasse 1",
-"dropLocation": "Kölner Str. 3",
-"weight": "2",
-"height": "1",
-"length": "2",
-"width": "2",
-"customerId": "64df5af74ceccfc86a9ab4cb",
-"employeeId": "64df5af74ceccfc86a9ab4cb",
-"price": "20.00",
-"paid": "false"
+{  
+"pickupLocation": "Berliner Strasse 1",  
+"dropLocation": "Kölner Str. 3",  
+"weight": "2",  
+"height": "1",  
+"length": "2",  
+"width": "2",  
+"customerId": "64df5af74ceccfc86a9ab4cb",  
+"employeeId": "64df5af74ceccfc86a9ab4cb",  
+"price": "20.00",  
+"paid": "false"  
 }
