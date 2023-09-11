@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { AuthContext } from '../context/Auth';
 import runningCat from '../assets/runningCat.jpg';
-import fastKitten from '../assets/fast-kitten.gif';
 import ChatbotStart from './ChatbotStart';
 import cat2 from '../assets/cat2.png';
 import HeroVideo from '../assets/heroVideo.mp4';

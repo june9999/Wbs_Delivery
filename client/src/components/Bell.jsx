@@ -7,7 +7,6 @@ import socket from '../../socket/socket';
 import bell from '../assets/bell.png';
 import axios from '../axiosInstance';
 import ProfilePicture from '../assets/profile-picture.png';
-import NotificationModal from './NotificationModal';
 import { useContext } from 'react';
 import { AuthContext } from '../context/Auth';
 
@@ -59,7 +58,7 @@ const Bell = () => {
           className="absolute top-[100%]  right-[5px] z-50  w-[30rem] p-4 overflow-x-hidden  h-[20rem]"
         >
           {/* <!-- Modal content --> */}
-          <div className="relative rounded-lg shadow dark:bg-gray-700 bg-gradient-to-t from-primary-50 to-primary-100">
+          <div className="relative rounded-lg shadow dark:bg-gray-700 bg-gradient-to-t from-primary-50 to-primary-100 text-left">
             {/* flowbite card start */}
 
             <div

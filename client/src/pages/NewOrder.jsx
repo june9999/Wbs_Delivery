@@ -3,7 +3,6 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/Auth';
 import Checkout from './Checkout';
-// import Confirmation from '../components/Confirmation'
 import socket from '../../socket/socket';
 
 import axios from '../axiosInstance';

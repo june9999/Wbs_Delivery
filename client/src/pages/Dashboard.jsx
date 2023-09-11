@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedPage from '../components/AnimatedPage';
 import Orders from '../components/Orders';
-import Chat from '../components/Chat';
 import Userprofile from '../components/Userprofile';
 import NavbarSide from '../components/NavbarSide';
 import Ordertoclaim from '../components/Ordertoclaim';
