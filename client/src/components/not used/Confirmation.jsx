@@ -1,5 +1,5 @@
 import React from 'react'
-import ModalSuccess from './blocks/ModalSuccess'
+import ModalSuccess from '../blocks/ModalSuccess'
 
 const Confirmation = () => {
   return (

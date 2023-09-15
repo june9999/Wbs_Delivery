@@ -1,5 +1,5 @@
 import React from 'react';
-import SectionComment from '../components/blocks/SectionComment';
+// import SectionComment from '../components/blocks/SectionComment';
 
 const Comments = () => {
   return (

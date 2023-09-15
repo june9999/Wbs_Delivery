@@ -32,7 +32,7 @@ const FormCreate = () => {
                 htmlFor="item-weight"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Item Weight (kg)
+                Weight (kg)
               </label>
               <input
                 type="number"
@@ -50,7 +50,7 @@ const FormCreate = () => {
                 htmlFor="item-height"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Item Height (cm)
+                Height (m)
               </label>
               <input
                 type="number"
@@ -69,7 +69,7 @@ const FormCreate = () => {
                 htmlFor="item-length"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Item Length (cm)
+                Length (m)
               </label>
               <input
                 type="number"
@@ -88,7 +88,7 @@ const FormCreate = () => {
                 htmlFor="item-width"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Item Width (cm)
+                Width (m)
               </label>
               <input
                 type="number"

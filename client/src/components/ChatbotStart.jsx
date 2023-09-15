@@ -11,34 +11,37 @@ import botAvatar from '../assets/catbot.png';
 // all available props
 
 const theme = {
-  background: '#f9f8fb',
   fontFamily: 'Roboto, sans-serif',
-  headerBgColor: '#115e59',
-  headerFontColor: '#fff',
-  headerFontSize: '20px',
-  botBubbleColor: '#115e59',
-  botFontColor: '#fff',
-  userBubbleColor: '#fff',
-  userFontColor: '#4a4a4a',
+  background: '#F0FDFA',
+  headerBgColor: '#99F6E4',
+  headerFontColor: '#195E5A',
+  headerFontSize: '24px',
+  botBubbleColor: '#99F6E4',
+  botFontColor: '#195E5A',
+  userBubbleColor: '#99F6E4',
+  userFontColor: '#195E5A',
 };
 
-// const Main = styled.div`
-//   font-family: sans-serif;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-// `;
+const bubbleStyle = {
+  fontSize: '18px',
+};
+const bubbleOptionStyle = {
+  fontSize: '18px',
+};
+// const avatarStyle = {
+//   height: '40px',
+//   width: '30px',
+// };
 
-const steps = [
-  {
-    id: '1',
-    message: 'Hello World',
-    end: true,
-  },
-];
+// const customStyles = {
+//   height: '60px', // Adjust the height value as per your requirement
+//   backgroundColor: 'red',
+//   // Add more style properties as needed
+// };
+
 
 const ChatbotStart = () => (
-  <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+  <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl ">
     <ThemeProvider theme={theme}>
       <ChatBot
         headerTitle="Cat Bot"
@@ -46,6 +49,11 @@ const ChatbotStart = () => (
         // bubbleOptionStyle={{ backgroundColor: 'white', color: 'black' }}
         steps={chatbotStepifyScript(script)}
         botAvatar={botAvatar}
+        width="600px"
+        height="600px"
+        bubbleStyle={bubbleStyle}
+        bubbleOptionStyle={bubbleOptionStyle}
+        hideUserAvatar
       />
     </ThemeProvider>
   </div>

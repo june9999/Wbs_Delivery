@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import socket from '../../socket/socket';
+import socket from '../../../socket/socket';
 
 const Card = () => {
   const [notifications, setNotifications] = useState([]);
@@ -7,10 +7,10 @@ const Card = () => {
 
   useEffect(() => {
     socket.on('neworder', (data) => {
-      console.log('🚀 ~ file: Card.jsx:10 ~ socket.on ~ data:', data);
+      
       setNotifications((prev) => [...prev, data]);
     });
-    console.log(notifications);
+    
   }, [socket]);
 
   const displayNotification = () => {
@@ -43,8 +43,9 @@ const Card = () => {
       {open && (
         <div className="notifications">
           {notifications.map((n) => displayNotification(n))}
-          <button className="nButton" onClick={handleRead}>
+          <button className="nButton bg-gray-50 shadow-xl" onClick={handleRead}>
             Mark as read
+            {/* https://flowbite.com/docs/components/toast/#push-notification */}
             {/* <div className="flex items-center">
               <div className="ml-3 text-sm font-normal">
                 <div className="text-sm font-semibold text-gray-900 dark:text-white">

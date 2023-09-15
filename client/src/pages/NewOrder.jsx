@@ -1,31 +1,33 @@
-import React, { useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../context/Auth";
-import Checkout from "./Checkout";
-// import Confirmation from '../components/Confirmation'
-import socket from "../../socket/socket";
+import React, { useState } from 'react';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../context/Auth';
+import Checkout from './Checkout';
+import socket from '../../socket/socket';
 
-import axios from "../axiosInstance";
-import ProjMap from "../components/ProjMap";
-import PayModal from "../components/PayModal";
+import axios from '../axiosInstance';
+import ProjMap from '../components/ProjMap';
+import PayModal from '../components/PayModal';
+import CatMilk from '../assets/cat-milk.png';
 
 const NewOrder = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [pickupLocation, setPickupLocation] = useState("");
-  console.log("pickupLocation", pickupLocation);
-  const [dropLocation, setDropLocation] = useState("");
+  const [pickupLocation, setPickupLocation] = useState('');
+  console.log('pickupLocation', pickupLocation);
+  const [dropLocation, setDropLocation] = useState('');
   // console.log("dropLocation",dropLocation)
+  const [id, setId] = useState('');
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
   const [checkout, setCheckout] = useState(true);
-  const [distance, setDistance] = useState("");
+  const [distance, setDistance] = useState('');
   const [price, setPrice] = useState(0);
   const [paid, setPaid] = useState(false);
   const [customerId, setCustomerId] = useState(user._id);
+  const [orderData, setOrderData] = useState(user._id);
 
   // const [employeeId, setEmployeeId] = useState('');
 
@@ -67,15 +69,19 @@ const NewOrder = () => {
         customerId,
       })
       .then((res) => {
-        console.log(res.data);
-        socket.emit("message", res.data);
-        navigate("/");
+        setId(res.data._id);
+        setOrderData(res.data);
+        console.log(res.data._id);
+        // socket.emit("message", res.data);
+        // navigate("/");
       })
       .catch((e) => console.log(e));
   };
 
+  console.log('checking ordid', id);
+
   return (
-    <>
+    <div className="bg-primary-50/00">
       {checkout ? (
         <>
           <ProjMap
@@ -89,34 +95,17 @@ const NewOrder = () => {
             setDropLocation={setDropLocation}
           />
 
-          <section className="bg-white dark:bg-gray-900">
+          <section className="bg-primary-50/00 dark:bg-gray-900">
             <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-              <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-                Add Order
-              </h2>
+              {/* <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+                My Order
+              </h2> */}
               <form onSubmit={handleSubmit}>
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                  {/* <div className="w-full">
-              <label
-                htmlFor="price"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Price
-              </label>
-              <input
-                type="number"
-                name="price"
-                id="price"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="0"
-                required
-              />
-            </div>  */}
-
                   <div className=" ">
                     <label
                       htmlFor="origin"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-md font-medium text-gray-900 dark:text-white"
                     >
                       Origin
                     </label>
@@ -125,15 +114,15 @@ const NewOrder = () => {
                       name="brand"
                       id="brand"
                       value={pickupLocation}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-primary-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder="PickupLocation"
                     />
                   </div>
 
-                  <div className=" ">
+                  <div>
                     <label
                       htmlFor="destination"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-md font-medium text-gray-900 dark:text-white"
                     >
                       Destination
                     </label>
@@ -142,7 +131,7 @@ const NewOrder = () => {
                       name="brand"
                       id="brand"
                       value={dropLocation}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-primary-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder="DropLocation"
                     />
                   </div>
@@ -150,172 +139,103 @@ const NewOrder = () => {
                   <div>
                     <label
                       htmlFor="item-weight"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-md font-medium text-gray-900 dark:text-white"
                     >
-                      Item Weight (kg)
+                      Weight (kg)
                     </label>
                     <input
                       type="number"
                       name="item-weight"
                       id="item-weight"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       value={weight}
                       onChange={(e) => setWeight(e.target.value)}
-                      placeholder="12"
+                      placeholder=""
                       required
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="item-height"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-md font-medium text-gray-900 dark:text-white"
                     >
-                      Item Height (cm)
+                      Height (m)
                     </label>
                     <input
                       type="number"
                       name="item-height"
                       id="item-height"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       value={height}
                       onChange={(e) => setHeight(e.target.value)}
-                      placeholder="12"
+                      placeholder=""
                       required
                     />
                   </div>
-
-                  {/* <div>
-                <label
-                  htmlFor="item-weight"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Item Weight (kg)
-                </label>
-                <input
-                  type="number"
-                  name="item-weight"
-                  id="item-weight"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  value={weight}
-                  onChange={(e) => setWeight(e.target.value)}
-                  placeholder="12"
-                  required
-                />
-              </div> */}
-                  {/* <div>
-                <label
-                  htmlFor="item-height"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Item Height (cm)
-                </label>
-                <input
-                  type="number"
-                  name="item-height"
-                  id="item-height"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  value={height}
-                  onChange={(e) => setHeight(e.target.value)}
-                  placeholder="12"
-                  required
-                />
-              </div> */}
                   <div>
                     <label
                       htmlFor="item-length"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-md font-medium text-gray-900 dark:text-white"
                     >
-                      Item Length (cm)
+                      Length (m)
                     </label>
                     <input
                       type="number"
                       name="item-length"
                       id="item-length"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       value={length}
                       onChange={(e) => setLength(e.target.value)}
-                      placeholder="12"
+                      placeholder=""
                       required
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="item-width"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-md font-medium text-gray-900 dark:text-white"
                     >
-                      Item Width (cm)
+                      Width (m)
                     </label>
                     <input
                       type="number"
                       name="item-width"
                       id="item-width"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       value={width}
                       onChange={(e) => setWidth(e.target.value)}
-                      placeholder="12"
+                      placeholder=""
                       required
                     />
                   </div>
-                  {/* <div className="sm:col-span-2">
-                <label
-                  htmlFor="description"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Description
-                </label>
-                <textarea
-                  id="description"
-                  rows="8"
-                  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Your description here"
-                ></textarea>
-              </div>  */}
                 </div>
-                {/* <div>
-              <label
-                htmlFor="item-width"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Item Width (cm)
-              </label>
-              <input
-                type="number"
-                name="item-width"
-                id="item-width"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                value={width}
-                onChange={(e) => setWidth(e.target.value)}
 
-                placeholder="12"
-                required
-              />
-            </div> */}
-                <div className="sm:col-span-2">
+                <div className="sm:col-span-2 mt-10">
                   <label
                     htmlFor="description"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-md font-medium text-gray-900 dark:text-white"
                   >
                     Description
                   </label>
                   <textarea
                     id="description"
                     rows="8"
-                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="block p-2.5 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Your description here"
                   ></textarea>
-                  <p className="mt-8 font-bold text-lg">
-                    {" "}
-                    Price for Delivery:{price}
+
+                  <p className="flex justify-center align-items mt-8 font-bold text-lg">
+                    Total: € {price}
                   </p>
                 </div>
-
-                <button className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                  Add product
+                <div className="flex justify-center">
+                <button className="inline-flex items-center px-10 py-2.5 mt-4 sm:mt-6 text-md font-medium text-center text-white bg-primary-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 shadow-lg">
+                  Save Order
                 </button>
-
+                </div>
                 {/* <button
                   type="submit"
-                  className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+                  className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-md font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
                 >
                   Add product
                 </button> */}
@@ -324,64 +244,48 @@ const NewOrder = () => {
           </section>
         </>
       ) : (
-        <Checkout price={price} distance={distance} />
+        <Checkout
+          price={price}
+          distance={distance}
+          paid={paid}
+          setPaid={setPaid}
+          id={id}
+          orderData={orderData}
+        />
       )}
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mb-2">
         {checkout && (
           <button
             onClick={() => setCheckout(false)}
-            className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  "
+            className="inline-flex items-center px-20 py-2.5 text-md font-medium text-center text-white bg-primary-600 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 shadow-lg"
           >
             Checkout
           </button>
         )}
-        {!checkout && (
+        {/* {!checkout && (
           <button
-            // onClick={payment}
-            className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  "
+            onClick={'/orders'}
+          
+            className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-md font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  "
           >
-            Payment
+            My Orders
           </button>
-        )}
+        )} */}
       </div>
 
       {/* </section> */}
       {/* </> ) : (
 
     <Checkout price={price} distance={distance}/> 
-    
-    
-   
     )} */}
 
-      <div className="flex items-center justify-center mb-8">
-        {checkout && (
-          <button
-            onClick={() => setCheckout(false)}
-            className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  "
-          >
-            Checkout
-          </button>
-        )}
-        {!checkout && (
-          <button className="ml-4 mr-4 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  ">
-            Payment
-          </button>
-        )}
-
-        {!checkout && (
-          <button
-            onClick={
-              (() => setPaid(true)) && <NavLink to="/Confirmation"></NavLink>
-            }
-            className="flex item-center justify-center inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  "
-          >
-            Pay
-          </button>
-        )}
-      </div>
-    </>
+      <img
+        className="mx-auto mt-8 rounded-lg"
+        src={CatMilk}
+        alt="cat in bike basket"
+      />
+    </div>
   );
 };
 

@@ -1,29 +1,57 @@
 import React from 'react';
 import PayModal from '../components/PayModal';
+import axios from '../axiosInstance';
+import socket from '../../socket/socket';
+import { useNavigate, NavLink } from 'react-router-dom';
 
-const Checkout = ({ price, distance }) => {
+const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
+  
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    const newPaid = !paid;
+    
+    setPaid(newPaid);
+    console.log('🚀 ~ file: Checkout.jsx:16 ~ handleClick ~ paid:', {
+      setPaid,
+    });
+    axios
+      .put(`/api/Orders/${id}`, { paid: newPaid })
+      .then((res) => {
+        res.data 
+      })
+      .then((res) => {
+        socket.emit('message', orderData);
+        navigate('/');
+      })
+      .catch((e) => console.log(e));
+    navigate('/');
+  };
+
   const p = price;
-  console.log('🚀 ~ file: Checkout.jsx:7 ~ Checkout ~ price:', price);
+  
   return (
-    <div className="flex items-center justify-center mt-24">
+    <div className="flex items-center justify-center bg-primary-50">
       <div>
-        <h1 className="w-28 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 mb-8 ml-80">
+        <h2 className="m-10 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
           Checkout
-        </h1>
+        </h2>
+        <div className="w-45vw">
+          <p className="flex items-center justify-center w-[12rem] md:w-80 mx-auto block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-primary-100 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            Distance: {(distance / 1000).toFixed(1)} km
+          </p>
+          <p className="flex items-center justify-center w-[12rem] md:w-80 mx-auto block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-primary-100 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            Base fare: € 12
+          </p>
+          <p className="flex items-center justify-center w-[12rem] mx-auto md:w-80 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-primary-100 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-24">
+            Total: € {p}
+          </p>
+        </div>
 
-        <p className="flex items-center justify-center w-100 ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-          Distance : {distance / 1000}km
-        </p>
-        <p className="flex items-center justify-center w-100 ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-          Base fare : 12
-        </p>
-        <p className="flex items-center justify-center ml-60 block mb-2 text-lg font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-24">
-          Total : {p}
-        </p>
-
-        <div>
-          {/* <button
+        <div className="mb-4">
+          <button
             type="button"
+            onClick={handleClick}
             className="text-gray-900 bg-[#F7BE38] hover:bg-[#F7BE38]/90 focus:ring-4 focus:outline-none focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#F7BE38]/50 mr-2 mb-2"
           >
             <svg
@@ -41,17 +69,16 @@ const Checkout = ({ price, distance }) => {
                 d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4 .7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9 .7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"
               ></path>
             </svg>
-            Check out with PayPal
-          </button> */}
-          <PayModal />
-          
+            PayPal
+          </button>
+
           <button
             type="button"
-            className="text-white bg-[#050708] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2"
+            onClick={handleClick}
+            className=" text-white bg-[#050708] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 md:mr-2 mt-2"
           >
-            Pay with Apple Pay
             <svg
-              className="w-5 h-5 ml-2 -mr-1"
+              className="w-4 h-4 ml-2 -ml-2 mr-2"
               aria-hidden="true"
               focusable="false"
               data-prefix="fab"
@@ -65,15 +92,17 @@ const Checkout = ({ price, distance }) => {
                 d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
               ></path>
             </svg>
+            Apple Pay
           </button>
 
           <button
             type="button"
-            className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 mr-2 mb-2"
+            onClick={handleClick}
+            className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 mr-2 mb-4"
           >
             <svg
               aria-hidden="true"
-              className="w-10 h-3 mr-2 -ml-1"
+              className="w-10 h-4 mr-2 -ml-1"
               viewBox="0 0 660 203"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -87,11 +116,12 @@ const Checkout = ({ price, distance }) => {
                 fill="#F2AE14"
               />
             </svg>
-            Pay with Visa
+            Visa
           </button>
           <button
             type="button"
-            className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2"
+            onClick={handleClick}
+            className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 md:mr-2 mb-2"
           >
             <svg
               aria-hidden="true"
@@ -125,7 +155,7 @@ const Checkout = ({ price, distance }) => {
                 fill="white"
               />
             </svg>
-            Pay with MasterCard
+            MasterCard
           </button>
 
           {/* <button
@@ -161,14 +191,24 @@ const Checkout = ({ price, distance }) => {
         >
           <path
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             d="M1 5h12m0 0L9 1m4 4L9 9"
           />
         </svg>
       </button> */}
         </div>
+        {/* <div className="flex items-center justify-center">
+          {!paid && (
+            <button
+              onClick={handleClick}
+              className="flex item-center justify-center inline-flex items-center px-5 py-2.5  sm:mt-6 text-sm font-medium text-center text-white bg-primary-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 md:ml-24 "
+            >
+              Pay
+            </button>
+          )}
+        </div> */}
       </div>
     </div>
   );

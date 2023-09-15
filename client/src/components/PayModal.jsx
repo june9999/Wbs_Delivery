@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../context/Auth';
-import { Navigate, NavLink } from 'react-router-dom';
-import 'flowbite';
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/Auth";
+import { Navigate, NavLink } from "react-router-dom";
+import "flowbite";
 
 const PayModal = () => {
   const context = useContext(AuthContext);
   const [user, setUser] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const handleChange = (e) => {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('pay now button was clicked');
+    console.log("pay now button was clicked");
 
     // context.login(user);
   };
@@ -28,9 +28,9 @@ const PayModal = () => {
       {/* <!-- Modal toggle --> */}
       <button
         type="button"
-        data-modal-show="authentication-modal"
-        data-modal-target="authentication-modal" // id of target element
-        data-modal-toggle="authentication-modal"
+        data-modal-show="payment-modal"
+        data-modal-target="payment-modal" // id of target element
+        data-modal-toggle="payment-modal"
         className="text-gray-900 bg-[#F7BE38] hover:bg-[#F7BE38]/90 focus:ring-4 focus:outline-none focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#F7BE38]/50 mr-2 mb-2"
       >
         <svg
@@ -51,9 +51,9 @@ const PayModal = () => {
         Pay with PayPal
       </button>
       {/* <button
-        data-modal-show="authentication-modal"
-        data-modal-target="authentication-modal" // id of target element
-        data-modal-toggle="authentication-modal"
+        data-modal-show="payment-modal"
+        data-modal-target="payment-modal" // id of target element
+        data-modal-toggle="payment-modal"
         className="block mx-3  text-black bg-primary-100 hover:bg-primary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 shadow-lg"
         type="button"
       >
@@ -62,7 +62,7 @@ const PayModal = () => {
 
       {/* <!-- Main modal --> */}
       <div
-        id="authentication-modal"
+        id="payment-modal"
         tabIndex="-1"
         aria-hidden="false"
         className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
@@ -74,7 +74,7 @@ const PayModal = () => {
             <button
               type="button"
               className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-              data-modal-hide="authentication-modal"
+              data-modal-hide="payment-modal"
             >
               <svg
                 className="w-3 h-3"
@@ -140,7 +140,7 @@ const PayModal = () => {
                   type="submit"
                   className="w-full text-white bg-primary-200 hover:bg-primary-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
-                  <NavLink to="/dashboard">Pay now</NavLink>
+                  <NavLink to="/">Pay now</NavLink>
                 </button>
               </form>
 

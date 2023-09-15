@@ -1,21 +1,12 @@
 import React from 'react';
-import ChatbotStart from '../components/ChatbotStart';
 import FormContact from '../components/blocks/FormContact';
-import CatInBox from '../assets/cat-in-box.png';
-import PayModal from '../components/PayModal';
 
 const Contact = () => {
   return (
-    <div className=' bg-primary-100'>
-      <img
-        className="mx-auto pt-10 w-60 h-70 rounded-lg "
-        src={CatInBox}
-        alt="cat in bike basket"
-      />
+    <div className="flex flex-col items-center justify-center bg-primary-50">
       <FormContact />
-      <div className="" style={{ position: 'absolute', top: 600, right: 0 }}>
-        <ChatbotStart />
-      </div>
+      {/* <div className="mt-72 ">
+      </div> */}
     </div>
   );
 };

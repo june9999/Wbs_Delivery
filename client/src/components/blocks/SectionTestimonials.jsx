@@ -6,7 +6,7 @@ const SectionTestimonials = () => {
       <section className="bg-primary-50 dark:bg-gray-900">
         <div className="py-2 px-4 mx-auto max-w-screen-xl text-center lg:py-8 lg:px-6" />
         <div className="mx-auto max-w-screen-sm">
-          <h2 className="mb-4 text-4xl text-center tracking-tight font-extrabold text-gray-900 dark:text-white">
+          <h2 className="mb-4 text-4xl text-center tracking-tight font-extrabold text-primary-800 dark:text-white">
             Testimonials
           </h2>
           {/* <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
@@ -31,9 +31,7 @@ const SectionTestimonials = () => {
               </svg>
               <blockquote>
                 <p className="text-2xl font-medium text-gray-900 dark:text-white">
-                  "Flowbite is just awesome. It contains tons of predesigned
-                  components and pages starting from login screen to complex
-                  dashboard. Perfect choice for your next SaaS application."
+                  "abc"
                 </p>
               </blockquote>
               <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -60,8 +58,8 @@ const SectionTestimonials = () => {
           {/* quote */}
           <figure className="flex flex-col justify-center items-center p-8 text-center bg-primary-50">
             <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
-              <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900">
-                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg">
+              <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900 rounded-lg ">
+                <div className="rounded-lg max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg">
                   <figure className="text-left max-w-screen-md mx-auto">
                     {/* quotaion mark svg */}
                     <svg
@@ -78,14 +76,12 @@ const SectionTestimonials = () => {
                     {/* end quotaion mark svg */}
 
                     <blockquote>
-                      <p className="text-2xl font-medium text-gray-900 dark:text-white">
-                        "Flowbite is just awesome. It contains tons of
-                        predesigned components and pages starting from login
-                        screen to complex dashboard. Perfect choice for your
-                        next SaaS application."
+                      <p className="text-lg font-medium text-gray-500 dark:text-white">
+                        "I needed an urgent document delivered to a client on the other side of the country, and I was worried about meeting the deadline. Thankfully, I chose RapidCats for their express courier service. Not only did they deliver the document on time, but the real-time tracking feature kept me updated throughout the entire process. Their professionalism and commitment to timely delivery truly impressed me. I highly recommend their services to anyone in need of fast and reliable courier service."
                       </p>
                     </blockquote>
                     {/* profile picture */}
+                    
                     <figcaption className="flex items-center justify-center mt-6 space-x-3">
                       <img
                         className="object-cover w-10 h-10 rounded-full"
@@ -111,8 +107,8 @@ const SectionTestimonials = () => {
 
           <figure className="flex flex-col justify-center items-center p-8 text-center bg-primary-50">
             <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
-              <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900">
-                <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg">
+              <section className="bg-gradient-to-t from-primary-50 to-primary-100 dark:bg-gray-900 rounded-lg">
+                <div className="rounded-lg max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg">
                   <figure className="text-left max-w-screen-md mx-auto">
                     {/* quotaion mark svg */}
                     <svg
@@ -129,11 +125,8 @@ const SectionTestimonials = () => {
                     {/* end quotaion mark svg */}
 
                     <blockquote>
-                      <p className="text-2xl font-medium text-gray-900 dark:text-white">
-                        "Flowbite is just awesome. It contains tons of
-                        predesigned components and pages starting from login
-                        screen to complex dashboard. Perfect choice for your
-                        next SaaS application."
+                      <p className="text-lg font-medium text-gray-500 dark:text-white">
+                        "I used RapidCats' express courier service to send a fragile package. I was concerned about the safety of the item, but the team at RapidCats assured me that they would handle it with care. I was relieved to receive the package in perfect condition. Their attention to detail and secure handling exceeded my expectations. Their customer service was also exceptional, answering all my queries promptly. I am extremely satisfied with their service and will definitely use them for all my future courier needs."
                       </p>
                     </blockquote>
                     {/* profile picture */}
