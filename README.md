@@ -8,6 +8,7 @@ RapidCats is a fictional bike express delivery service for package and document 
 
 This Single Page Application was created by Anusha, Wenjun and Jay as final project in the last three weeks of our Web Development Bootcamp at WBS coding school Berlin in September 2023.
 
+
 ## Main Features
 
 ### Cat-themed branding:
@@ -71,8 +72,7 @@ for deployment on render.com
   Branch: dev  
   Root Directory: server  
   Build Command: npm i && cd ../client && npm i && npm run build  
-  Start Command: npm start
-
+  Start Command: npm star
 ## Example API calls
 
 GET

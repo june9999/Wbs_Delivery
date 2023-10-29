@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import AnimatedPage from '../components/AnimatedPage';
-import Orders from '../components/Orders';
-import Userprofile from '../components/Userprofile';
-import NavbarSide from '../components/NavbarSide';
-import Ordertoclaim from '../components/Ordertoclaim';
-import NewOrder from './NewOrder';
-import DashboardCom from '../components/DashboardCom';
-import Contact from './Contact';
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import AnimatedPage from "../components/Dashboard/AnimatedPage";
+import Orders from "../components/Dashboard/Orders";
+import Userprofile from "../components/Dashboard/Userprofile";
+import NavbarSide from "../components/Dashboard/NavbarSide";
+import Ordertoclaim from "../components/Dashboard/Ordertoclaim";
+import NewOrder from "../components/Dashboard/NewOrder";
+import DashboardCom from "../components/Dashboard/DashboardCom";
+import Contact from "../components/Dashboard/Contact";
 
 // import runningCat from "../assets/runningCat.jpg";
 
@@ -17,7 +17,7 @@ const Dashboard = () => {
   const [displayPage, setDisplayPage] = useState(5);
   return (
     // Background image --- parent style: opacity 0.99 relative --- child: img opacity absolute z-index w h cover ---
-<AnimatedPage>
+    <AnimatedPage>
       <section className="flex max-w-screen-xxl bg-gradient-to-t from-primary-50 to-primary-50">
         <div>
           <NavbarSide

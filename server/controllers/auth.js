@@ -5,6 +5,7 @@ const SECRET = process.env.JWT_SECRET;
 const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
 
 const register = async (req, res) => {
+  console.log("new request comes");
   try {
     const newUser = await User.create(req.body);
     console.log("🚀 ~ file: users.js:9 ~ register ~ newUser:", newUser);
@@ -44,12 +45,12 @@ const login = async (req, res) => {
       console.log(
         "🚀 ~ file: users.js:31 ~ login ~ currentUser:",
         currentUser.password,
-        password
+        password,
       );
       // IS THE PASSWORD MATCHING???
       const isPasswordValid = await bcrypt.compare(
         password,
-        currentUser.password
+        currentUser.password,
       );
       if (!isPasswordValid) {
         res.status(400).json({ message: "Invalid login attempt" });
@@ -85,7 +86,7 @@ const getLoggedinUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ _id: req.user._id }).select(
-      "_id email username userType firstName lastName address zipcode city phone"
+      "_id email username userType firstName lastName address zipcode city phone",
     );
     console.log("🚀 ~ file: users.js:71 ~ getLoggedinUser ~ user:", user);
     res.json({ user });
