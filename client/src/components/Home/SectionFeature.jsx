@@ -1,12 +1,10 @@
 import React from "react";
-import { BiTimer } from "react-icons/bi";
-import { MdOutlineNotificationsActive } from "react-icons/md";
-import { AiFillSafetyCertificate } from "react-icons/ai";
+import { motion } from "framer-motion"; // framer motion library
 import HomeLesstime from "./HomeLesstime";
 const SectionFeature = () => {
   return (
-    <section className="relative bg-white py-32">
-      <p className="text-primary-500 tracking-widest leading-[3.5rem] px-[4.5rem] mb-8 text-5xl tracking-tight   dark:text-white  ">
+    <section className="relative w-full bg-white py-16 md:py-48 ">
+      <p className="text-primary-500 tracking-widest px-[2rem] md:leading-[3.5rem] md:px-[4.5rem] md:mb-8 text-2xl md:text-6xl     ">
         We are <strong>Instant </strong>
         delivery across Berlin. Get urgent parcels delivered{" "}
         <strong>from door to door </strong>
@@ -14,9 +12,16 @@ const SectionFeature = () => {
         provides you with exceptional convenience, reliability, and peace of
         mind.
       </p>
-      <div className="absolute right-[2rem] bottom-[4rem] rotate-[-10deg]">
+      <motion.div
+        initial={{ rotate: 60 }}
+        whileInView={{ rotate: -10 }}
+        transition={{
+          type: "spring",
+        }}
+        className="hidden md:flex md:absolute md:right-10 md:bottom-20"
+      >
         <HomeLesstime />
-      </div>
+      </motion.div>
     </section>
   );
 };

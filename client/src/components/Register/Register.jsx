@@ -37,7 +37,7 @@ const Register = () => {
     <div>
       {/* register Button */}
       <button
-        className="block mx-3 text-primary-800 hover:text-primary-300 font-bold  text-xl px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="block mx-3 text-primary-800 hover:text-primary-300 font-bold  text-xl px-5 py-2.5 text-center "
         onClick={() => {
           setPopup(!Popup);
         }}

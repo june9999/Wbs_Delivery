@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="py-[2rem]">
-      <div className="grid grid-cols-6 sm:mx-20 sm:py-8 md:grid-cols-3 my-[5em]">
+    <footer className="py-[2rem] mx-[1rem]">
+      <div className="grid grid-cols-1 sm:mx-20 sm:py-8 md:grid-cols-3 my-[5em]">
         <div>
           <h2 className="grid-span-1 mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
             Office
@@ -24,7 +24,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="px-20 py-6  md:flex md:items-center md:justify-between">
+      <div className="flex flex-col md:px-20 py-6 md:flex-row md:items-center md:justify-between">
         <span className="text-lg text-black sm:text-center">
           © 2023 <a href="">RapidCats</a> All Rights Reserved.
         </span>

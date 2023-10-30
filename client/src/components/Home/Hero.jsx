@@ -52,17 +52,17 @@ const Hero = () => {
 
           {/* container for  */}
           <div className="backdrop-blur-lg rounded-2xl min-w-[50%] max-w-[70%] place-self-start lg:col-span-6 p-6 ml-10">
-            <h1 className="text-primary-100  mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+            <h1 className="text-gray-300  mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl ">
               Your Purrcel is our Purriority
             </h1>
-            <p className="max-w-2xl mb-6 font-bold text-primary-100 lg:mb-8 md:text-lg lg:text-2xl dark:text-gray-400">
+            <p className="max-w-2xl mb-6 font-bold text-gray-300 lg:mb-8 md:text-lg lg:text-2xl dark:text-gray-400">
               Berlin's Express Delivery Bike Couriers for Package and Document
               Shipping at cat-speed. Meow!
             </p>
 
             <button
               onClick={handleClick}
-              className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-primary-800 rounded-lg bg-primary-100 hover:bg-primary-100 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 shadow-2xl"
+              className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center  rounded-lg bg-primary-100 hover:bg-primary-100 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 shadow-2xl"
             >
               Create Order
             </button>

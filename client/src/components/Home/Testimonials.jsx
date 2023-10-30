@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Testimonials = () => {
+  const [showComment, setShowComment] = useState(1);
   return (
-    <div className="flex flex-col rounded-lg max-w-screen-xl mx-[10rem] py-8 mx-auto text-center lg:py-8 lg:px-6 shadow-lg items-center">
+    <div className="flex flex-col  max-w-screen-xl  mx-auto  lg:pr-[5rem]  ">
       {/* quote container */}
-      <div className="flex">
-        <article className=" hidden">
+      {showComment === 2 && (
+        <article className="flex flex-col items-start text-start">
           <svg
-            className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
+            className="h-12  mb-3 text-gray-400 dark:text-gray-600"
             viewBox="0 0 24 27"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -17,12 +18,12 @@ const Testimonials = () => {
               fill="currentColor"
             />
           </svg>
-          <p className="text-lg font-medium text-gray-500 dark:text-white">
-            "I needed an urgent document delivered to a client on the other side
-            of the country, and I was worried about meeting the deadline.
-            Thankfully, I chose RapidCats for their express courier service. Not
-            only did they deliver the document on time, but the real-time
-            tracking feature kept me updated throughout the entire process. "
+          <p className="text-lg tracking-wide leading-[2rem]">
+            The real-time tracking feature is a game-changer. It provided me
+            with real peace of mind, knowing exactly where my document was at
+            every moment. The professionalism of their team and their commitment
+            to customer service were truly impressive. I was even able to make
+            special requests, and they accommodated them without a hitch.
           </p>
 
           <div className="flex items-center justify-center mt-6 space-x-3 ">
@@ -41,9 +42,11 @@ const Testimonials = () => {
             </div>
           </div>
         </article>
-        <article>
+      )}
+      {showComment === 1 && (
+        <article className="flex flex-col items-start text-start">
           <svg
-            className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
+            className="h-12 mb-3 text-gray-400 dark:text-gray-600"
             viewBox="0 0 24 27"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -53,12 +56,12 @@ const Testimonials = () => {
               fill="currentColor"
             />
           </svg>
-          <p className="text-lg font-medium text-gray-500 dark:text-white">
-            "I needed an urgent document delivered to a client on the other side
+          <p className="text-lg tracking-wide leading-[2rem]">
+            I needed an urgent document delivered to a client on the other side
             of the country, and I was worried about meeting the deadline.
             Thankfully, I chose RapidCats for their express courier service. Not
             only did they deliver the document on time, but the real-time
-            tracking feature kept me updated throughout the entire process. "
+            tracking feature kept me updated throughout the entire process.
           </p>
 
           <div className="flex items-center justify-center mt-6 space-x-3">
@@ -77,6 +80,24 @@ const Testimonials = () => {
             </div>
           </div>
         </article>
+      )}
+      <div className="flex gap-[5px] justify-center mt-[4rem]">
+        <div
+          onClick={() => {
+            setShowComment(1);
+          }}
+          className={`${
+            showComment === 1 ? "bg-white" : "bg-gray-400"
+          } rounded-full    w-[1rem] h-[1rem]`}
+        ></div>
+        <div
+          onClick={() => {
+            setShowComment(2);
+          }}
+          className={`${
+            showComment === 2 ? "bg-white" : "bg-gray-400"
+          } rounded-full    w-[1rem] h-[1rem]`}
+        ></div>
       </div>
     </div>
   );

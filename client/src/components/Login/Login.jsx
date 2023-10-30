@@ -30,13 +30,7 @@ const Login = () => {
   return (
     <>
       {/* <!-- Modal toggle --> */}
-      <button
-        data-modal-show="authentication-modal"
-        data-modal-target="authentication-modal" // id of target element
-        data-modal-toggle="authentication-modal"
-        className="block mx-3 text-primary-800 hover:text-primary-300 font-bold  text-xl px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-        type="button"
-      >
+      <button className="block mx-3 text-primary-800 hover:text-primary-300 font-bold text-start  text-xl px-5 py-2.5 text-center ">
         Login
       </button>
 
