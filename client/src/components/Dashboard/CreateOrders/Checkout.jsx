@@ -1,35 +1,34 @@
-import React from 'react';
-import PayModal from '../components/PayModal';
-import axios from '../axiosInstance';
-import socket from '../../socket/socket';
-import { useNavigate, NavLink } from 'react-router-dom';
+import React from "react";
+import PayModal from "../../PayModal";
+import axios from "../../../axiosInstance";
+import socket from "../../../../socket/socket";
+import { useNavigate, NavLink } from "react-router-dom";
 
 const Checkout = ({ price, distance, paid, setPaid, id, orderData }) => {
-  
   const navigate = useNavigate();
 
   const handleClick = () => {
     const newPaid = !paid;
-    
+
     setPaid(newPaid);
-    console.log('🚀 ~ file: Checkout.jsx:16 ~ handleClick ~ paid:', {
+    console.log("🚀 ~ file: Checkout.jsx:16 ~ handleClick ~ paid:", {
       setPaid,
     });
     axios
       .put(`/api/Orders/${id}`, { paid: newPaid })
-      .then((res) => {
-        res.data 
+      .then(res => {
+        res.data;
       })
-      .then((res) => {
-        socket.emit('message', orderData);
-        navigate('/');
+      .then(res => {
+        socket.emit("message", orderData);
+        navigate("/");
       })
-      .catch((e) => console.log(e));
-    navigate('/');
+      .catch(e => console.log(e));
+    navigate("/");
   };
 
   const p = price;
-  
+
   return (
     <div className="flex items-center justify-center bg-primary-50">
       <div>

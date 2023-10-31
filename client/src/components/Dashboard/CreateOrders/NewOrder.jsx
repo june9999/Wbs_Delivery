@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../context/Auth";
-import Checkout from "../../pages/Checkout";
-import socket from "../../../socket/socket";
+import { AuthContext } from "../../../context/Auth";
+import Checkout from "./Checkout";
+import socket from "../../../../socket/socket";
 
-import axios from "../../axiosInstance";
-import ProjMap from "../ProjMap";
-import PayModal from "../PayModal";
-import CatMilk from "../../assets/cat-milk.png";
+import axios from "../../../axiosInstance";
+import ProjMap from "./ProjMap";
+import PayModal from "../../PayModal";
+import CatMilk from "../../../assets/cat-milk.png";
 
 const NewOrder = () => {
   const { user } = useContext(AuthContext);
@@ -211,12 +211,6 @@ const NewOrder = () => {
                     Save Order
                   </button>
                 </div>
-                {/* <button
-                  type="submit"
-                  className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-md font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-                >
-                  Add product
-                </button> */}
               </form>
             </div>
           </section>
@@ -241,28 +235,7 @@ const NewOrder = () => {
             Checkout
           </button>
         )}
-        {/* {!checkout && (
-          <button
-            onClick={'/orders'}
-          
-            className=" inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-md font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800  "
-          >
-            My Orders
-          </button>
-        )} */}
       </div>
-
-      {/* </section> */}
-      {/* </> ) : (
-
-    <Checkout price={price} distance={distance}/> 
-    )} */}
-
-      <img
-        className="mx-auto mt-8 rounded-lg"
-        src={CatMilk}
-        alt="cat in bike basket"
-      />
     </div>
   );
 };

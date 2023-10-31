@@ -16,11 +16,8 @@ const NavbarSide = ({ displayPage, setDisplayPage }) => {
         onClick={() => {
           setSideDisplay(!sidedisplay);
         }}
-        data-drawer-target="default-sidebar"
-        data-drawer-toggle="default-sidebar"
-        aria-controls="default-sidebar"
         type="button"
-        className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        className="absolute items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-gray-200 "
       >
         <span className="sr-only">Open sidebar</span>
         <svg
@@ -37,11 +34,7 @@ const NavbarSide = ({ displayPage, setDisplayPage }) => {
           ></path>
         </svg>
       </button>
-      {/* <aside
-        id="default-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-100% transition-transform -translate-x-full sm:translate-x-0"
-        aria-label="Sidenav"
-      > */}
+
       {sidedisplay && (
         <div className="overflow-y-auto py-5 px-3 h-full bg-gradient-to-t from-primary-50 to-primary-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700">
           <ul className="space-y-2">
@@ -126,30 +119,6 @@ const NavbarSide = ({ displayPage, setDisplayPage }) => {
               </li>
             )}
 
-            {/* <li>
-              <button
-                onClick={() => {
-                  setDisplayPage(0);
-                }}
-                type="button"
-                className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                aria-controls="dropdown-sales"
-                data-collapse-toggle="dropdown-sales"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <CiClock2 />
-                </svg>
-                <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                  History
-                </span>
-              </button>
-            </li> */}
             <li>
               <button
                 onClick={() => {
@@ -201,7 +170,6 @@ const NavbarSide = ({ displayPage, setDisplayPage }) => {
           </ul>
         </div>
       )}
-      {/* </aside> */}
     </>
   );
 };

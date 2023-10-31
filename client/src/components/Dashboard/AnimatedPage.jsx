@@ -9,16 +9,6 @@ const animations = {
 
 const AnimatedPage = ({ children }) => {
   return (
-    // different page transition animations
-
-    // <motion.div
-    //   variants={animations}
-    //   initial="initial"
-    //   animate="animate"
-    //   exit="exit"
-    //   transition={{ duration: 1 }}
-    // >
-
     <motion.div
       initial={{ opacity: 0.5, x: 0 }}
       animate={{

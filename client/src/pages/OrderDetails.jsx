@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import axios from '../axiosInstance';
+import React, { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import axios from "../axiosInstance";
 
 const OrderDetails = () => {
   const { id } = useParams();
@@ -11,20 +11,20 @@ const OrderDetails = () => {
   useEffect(() => {
     axios
       .get(`/api/Orders/${id}`)
-      .then((res) => setOrder(res.data))
-      .catch((e) => setError(e.response?.data?.message));
+      .then(res => setOrder(res.data))
+      .catch(e => setError(e.response?.data?.message));
   }, []);
 
   const handleDelete = () => {
     axios
       .delete(`/api/Orders/${id}`)
-      .then((res) => navigate('/'))
-      .catch((e) => console.log(e));
+      .then(res => navigate("/"))
+      .catch(e => console.log(e));
   };
 
   return (
     <>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
       {order && (
         <section className=" bg-primary-50 dark:bg-gray-900 pt-8 pb-28">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
@@ -33,7 +33,7 @@ const OrderDetails = () => {
           <div className="py-2 px-10 mx-auto max-w-2xl">
             <div className="flex flex-col items-left bg-gray-50 border border-gray-200 rounded-lg shadow md:flex-col md:max-w-xl dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 p-8">
               <h2 className="mb-2 text-xl font-semibold leading-none text-gray-900 md:text-2xl dark:text-white"></h2>
-              <div className=''>
+              <div className="">
                 <p className="mb-4 text-xl font-semibold leading-none text-gray-900 md:text-lg dark:text-white">
                   from
                   <br />
@@ -47,16 +47,7 @@ const OrderDetails = () => {
               </div>
               <div>
                 <dl>
-                  {/* <dt className="mb-2 font-semibold leading-none text-gray-900 dark:text-white">
-                Order Details
-              </dt> */}
-                  <dd className="mb-4 mt-12 font-light text-gray-500 sm:mb-5 dark:text-gray-400">
-                    {/* <p>{order.customerId}</p>
-                <p>{order.employeeId}</p>
-                <p>{order.claimed}</p>
-                <p>{order.paid}</p> */}
-                    {/* <p>{order.timestamps}</p> */}
-                  </dd>
+                  <dd className="mb-4 mt-12 font-light text-gray-500 sm:mb-5 dark:text-gray-400"></dd>
                 </dl>
                 <dl className="flex items-center space-x-8 mb-6">
                   <div>
@@ -89,9 +80,9 @@ const OrderDetails = () => {
                     </dt>
                     <dd className="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">
                       <p>
-                        {' '}
+                        {" "}
                         {order.height}m x {order.length}m x {order.width}m
-                      </p>{' '}
+                      </p>{" "}
                     </dd>
                   </div>
                   <div>
@@ -99,7 +90,7 @@ const OrderDetails = () => {
                       Created
                     </dt>
                     <dd className="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">
-                      {order.updatedAt.slice(0, -8).replace('T', ' ')}{' '}
+                      {order.updatedAt.slice(0, -8).replace("T", " ")}{" "}
                     </dd>
                   </div>
                 </dl>

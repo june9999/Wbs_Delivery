@@ -1,6 +1,3 @@
-import React from "react";
-import { render } from "react-dom";
-import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
 import { script } from "./chatbot";
@@ -9,11 +6,11 @@ import botAvatar from "../../../assets/catbot.png";
 
 const theme = {
   fontFamily: "Roboto, sans-serif",
-  background: "#F0FDFA",
-  headerBgColor: "#99F6E4",
+  background: "#C8B6A6",
+  headerBgColor: "#C8B6A6",
   headerFontColor: "#195E5A",
   headerFontSize: "24px",
-  botBubbleColor: "#99F6E4",
+  botBubbleColor: "#F1DEC9",
   botFontColor: "#195E5A",
   userBubbleColor: "#99F6E4",
   userFontColor: "#195E5A",
@@ -27,7 +24,7 @@ const bubbleOptionStyle = {
 };
 
 const ChatbotStart = () => (
-  <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl ">
+  <div className="flex z-10 justify-between items-center mx-auto max-w-screen-xl ">
     <ThemeProvider theme={theme}>
       <ChatBot
         headerTitle="Cat Bot"

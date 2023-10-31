@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import AnimatedPage from "../components/Dashboard/AnimatedPage";
 import Orders from "../components/Dashboard/Orders";
-import Userprofile from "../components/Dashboard/Userprofile";
+import Userprofile from "../components/Dashboard/UserProfile/Userprofile";
 import NavbarSide from "../components/Dashboard/NavbarSide";
 import Ordertoclaim from "../components/Dashboard/Ordertoclaim";
-import NewOrder from "../components/Dashboard/NewOrder";
+import NewOrder from "../components/Dashboard/CreateOrders/NewOrder";
 import DashboardCom from "../components/Dashboard/DashboardCom";
-import Contact from "../components/Dashboard/Contact";
+import FormContact from "../components/Dashboard/Support/FormContact";
 
 const Dashboard = () => {
   const [displayPage, setDisplayPage] = useState(5);
@@ -69,7 +69,7 @@ const Dashboard = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <Contact />
+                <FormContact />
               </motion.div>
             )}
             {displayPage === 4 && (
