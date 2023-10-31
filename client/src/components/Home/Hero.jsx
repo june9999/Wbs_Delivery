@@ -1,9 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../context/Auth";
-import runningCat from "../../assets/runningCat.jpg";
-// import ChatbotStart from "../../ChatbotStart";
-import cat2 from "../../assets/cat2.png";
-import HeroVideo from "../../../public/HeroVideo.mp4";
+import HeroVideo from "../../assets/HeroVideo.mp4";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
