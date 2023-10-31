@@ -9,14 +9,9 @@ import NewOrder from "../components/Dashboard/NewOrder";
 import DashboardCom from "../components/Dashboard/DashboardCom";
 import Contact from "../components/Dashboard/Contact";
 
-// import runningCat from "../assets/runningCat.jpg";
-
-// Based on wireframe, we need to create button to change the display the content to be shown
-
 const Dashboard = () => {
   const [displayPage, setDisplayPage] = useState(5);
   return (
-    // Background image --- parent style: opacity 0.99 relative --- child: img opacity absolute z-index w h cover ---
     <AnimatedPage>
       <section className="flex max-w-screen-xxl bg-gradient-to-t from-primary-50 to-primary-50">
         <div>

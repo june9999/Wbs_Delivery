@@ -13,6 +13,7 @@ import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 import Contact from "./Dashboard/Contact";
+import { BiLogIn } from "react-icons/bi";
 // import Payment from '../pages/Payment';
 // import Checkout from '../pages/Checkout';
 
