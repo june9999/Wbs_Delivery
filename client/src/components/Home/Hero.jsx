@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../context/Auth";
-import HeroVideo from "../../assets/HeroVideo.mp4";
+import heroVideo from "../../assets/heroVideo.mp4";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
@@ -43,7 +43,7 @@ const Hero = () => {
             }}
             ref={videoRef}
           >
-            <source src={HeroVideo} type="video/mp4" />
+            <source src={heroVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
