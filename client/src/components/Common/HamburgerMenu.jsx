@@ -1,15 +1,15 @@
 import { useState } from "react";
-import Login from "../Login/Login";
-import Register from "../Register/Register";
+
+import Menu from "./Menu";
 const HamburgerMenu = () => {
-  const [showLogin, setShowLogin] = useState(false);
+  const [showMenu, setshowMenu] = useState(false);
 
   return (
     <>
       <button
         className="md:hidden"
         onClick={() => {
-          setShowLogin(!showLogin);
+          setshowMenu(!showMenu);
         }}
       >
         <svg
@@ -25,16 +25,7 @@ const HamburgerMenu = () => {
           ></path>
         </svg>
       </button>
-      <div
-        className={`${
-          showLogin === true
-            ? "flex flex-col justify-start  absolute left-[0] top-[100%] w-full"
-            : "hidden"
-        }  bg-white  md:flex-row md:static md:w-auto md:flex`}
-      >
-        <Login />
-        <Register />
-      </div>
+      <Menu showMenu={showMenu} />
     </>
   );
 };

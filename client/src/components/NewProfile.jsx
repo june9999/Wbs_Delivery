@@ -1,12 +1,12 @@
 import React from "react";
 import { useState, useContext, useEffect } from "react";
-import { AuthContext } from "../../context/Auth";
+import { AuthContext } from "../context/Auth";
 import { NavLink } from "react-router-dom";
-import InputThing from "./InputThing";
+import InputThing from "./Register/InputThing";
 
 function NewProfile({ user, errors, handleChange, handleProfileSubmit }) {
   return (
-    <section className="dark:bg-gray-900 rounded-lg">
+    <section className="bg-primary-400 rounded-lg">
       <div className="flex flex-col items-center justify-center mx-auto lg:py-0 ">
         <div className="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 bg-gradient-to-t from-primary-50 to-primary-10">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8  mx-16">

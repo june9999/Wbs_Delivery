@@ -24,11 +24,12 @@ const Main = () => {
       <Header />
       <Routes key={location.pathname} location={location}>
         <Route path="/" element={<Home />} />
-        <Route path="/orders/new" element={<NewOrder />} />
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/" element={<Navigate to="/dashboard" />} />
 
           {/* Dashboard */}
+          <Route path="/orders/new" element={<NewOrder />} />
+
           <Route path="/dashboard" element={<Dashboard />} />
 
           {/* Order */}

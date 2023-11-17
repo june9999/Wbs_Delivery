@@ -1,4 +1,4 @@
-const LoginInput = ({ field, handleChange, placeholder, user }) => {
+const LoginInput = ({ field, errors, handleChange, placeholder, user }) => {
   return (
     <div>
       <label
@@ -7,6 +7,7 @@ const LoginInput = ({ field, handleChange, placeholder, user }) => {
       >
         {field.toLowerCase()}
       </label>
+
       <input
         type={field}
         name={field}

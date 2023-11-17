@@ -4,10 +4,8 @@ import { Navigate } from "react-router-dom";
 import "flowbite";
 import LoginForm from "./LoginForm";
 
-const Login = () => {
-  const [showLoginForm, setShowLoginForm] = useState(false);
+const Login = ({ showLoginForm, setShowLoginForm, setPopup }) => {
   const context = useContext(AuthContext);
-  console.log(showLoginForm);
 
   if (!context.loading && context.user) {
     return <Navigate to="/dashboard" />;
@@ -18,11 +16,13 @@ const Login = () => {
         onClick={() => {
           setShowLoginForm(!showLoginForm);
         }}
-        className="block mx-3 text-primary-800 hover:text-primary-300 font-bold text-start  text-xl px-5 py-2.5  "
+        className="block mx-3 text-primary-800 hover:text-primary-300 font-bold text-start  text-xl px-5 py-2.5 bg-primary-400 "
       >
         Login
       </button>
-      {showLoginForm && <LoginForm setShowLoginForm={setShowLoginForm} />}
+      {showLoginForm && (
+        <LoginForm setShowLoginForm={setShowLoginForm} setPopup={setPopup} />
+      )}
     </>
   );
 };

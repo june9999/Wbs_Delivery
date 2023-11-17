@@ -12,7 +12,7 @@ const register = async (req, res) => {
     // JWT Creation
     const user = {
       _id: newUser._id,
-      username: newUser.username,
+      userName: newUser.userName,
       email: newUser.email,
       userType: newUser.userType,
     };

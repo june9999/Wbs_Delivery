@@ -2,7 +2,7 @@ import LoginInput from "./LoginInput";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/Auth";
 import { Navigate, NavLink } from "react-router-dom";
-const LoginForm = ({ setShowLoginForm }) => {
+const LoginForm = ({ setShowLoginForm, setPopup }) => {
   const context = useContext(AuthContext);
   const [user, setUser] = useState({
     email: "",
@@ -21,7 +21,7 @@ const LoginForm = ({ setShowLoginForm }) => {
   };
 
   return (
-    <div className="absolute left-[50%] translate-x-[-50%] rounded-lg  translate-y-[50%] z-50 w-auto p-4  max-h-auto bg-primary-200 shadow ">
+    <div className=" absolute left-[50%] translate-x-[-50%] rounded-lg  translate-y-[30%] z-50 w-auto p-4  max-h-auto bg-primary-400 shadow ">
       <button
         onClick={() => {
           setShowLoginForm(false);
@@ -45,7 +45,7 @@ const LoginForm = ({ setShowLoginForm }) => {
         </svg>
       </button>
       <div className="px-6 py-6 lg:px-8 ">
-        <h3 className="mb-4 text-xl font-medium text-gray-900 ">Log in</h3>
+        <h3 className="mb-4 text-2xl font-medium text-gray-900 ">Log in</h3>
         <form className="space-y-6" action="/dashboard" onSubmit={handleSubmit}>
           <LoginInput
             field="email"
@@ -60,7 +60,7 @@ const LoginForm = ({ setShowLoginForm }) => {
             placeholder="••••••••"
           />
 
-          <div className="flex gap-[2rem] justify-between">
+          <div className="flex gap-[5rem] justify-between">
             <div className="flex items-start">
               <input
                 id="remember"
@@ -81,15 +81,24 @@ const LoginForm = ({ setShowLoginForm }) => {
           </div>
           <button
             type="submit"
-            className="w-full text-white bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 shadow-lg"
+            className="w-full text-black bg-primary-100 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600  dark:focus:ring-blue-800 shadow-lg"
           >
             Log in
           </button>
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
             Don't have an account?{" "}
-            <div className="text-primary-600 hover:underline dark:text-primary-500">
+            <div
+              onClick={() => {
+                setPopup(true);
+              }}
+              className="text-primary-600 hover:underline dark:text-primary-500"
+            >
               Sign up
             </div>
+          </div>
+          <div>
+            {context.errors &&
+              "Please check if the Email or Password is current."}
           </div>
         </form>
       </div>
