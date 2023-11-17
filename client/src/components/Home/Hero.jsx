@@ -12,7 +12,7 @@ const Hero = () => {
     if (context.user) {
       navigate("/dashboard");
     } else {
-      navigate("/login");
+      navigate("/orders/new");
     }
   };
 

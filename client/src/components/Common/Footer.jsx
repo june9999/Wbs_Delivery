@@ -1,9 +1,7 @@
-import React from "react";
-
 const Footer = () => {
   return (
-    <footer className="py-[2rem] mx-[1rem]">
-      <div className="grid grid-cols-1 sm:mx-20 sm:py-8 md:grid-cols-3 my-[5em]">
+    <footer className="absolute bottom-0 py-8 w-[100%]">
+      <div className="grid grid-cols-3 gap-[5rem] sm:mx-20 sm:py-8 md:grid-cols-3 my-[2em]">
         <div>
           <h2 className="grid-span-1 mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
             Office
@@ -12,7 +10,7 @@ const Footer = () => {
           <p>Weiskopffstraße 16, 12459 Berlin</p>
         </div>
         <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+          <h2 className="grid-span-1 mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
             Contact
           </h2>
           <p>We are nice and friendly :） </p>
@@ -24,13 +22,11 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="flex flex-col md:px-20 py-6 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col md:px-20 py-6 md:flex-row md:items-between md:justify-between w-[100%]">
         <span className="text-lg text-black sm:text-center">
           © 2023 <a href="">RapidCats</a> All Rights Reserved.
         </span>
-
         <div className="flex mt-4 space-x-5 sm:justify-center md:mt-0">
-          {/* github */}
           <a
             target="_blank"
             rel="noreferrer"
@@ -38,7 +34,7 @@ const Footer = () => {
             className="text-gray-900 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
-              className="w-10 h-10"
+              className="w-7 h-7"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -57,15 +53,14 @@ const Footer = () => {
             href="www.linkedin.com/in/wenjunxue"
           >
             <svg
+              className="w-7 h-7"
               fill="#000000"
               height="40px"
               width="40px"
               version="1"
               id="Layer_1"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
               viewBox="0 0 310 310"
-              xml:space="preserve"
             >
               <g id="XMLID_801_">
                 <path

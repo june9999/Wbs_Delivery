@@ -1,5 +1,3 @@
-import React from "react";
-
 const LoginInput = ({ field, handleChange, placeholder, user }) => {
   return (
     <div>
@@ -9,7 +7,6 @@ const LoginInput = ({ field, handleChange, placeholder, user }) => {
       >
         {field.toLowerCase()}
       </label>
-
       <input
         type={field}
         name={field}

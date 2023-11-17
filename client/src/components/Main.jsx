@@ -14,36 +14,32 @@ import NotFound from "../pages/NotFound";
 import { BiLogIn } from "react-icons/bi";
 // import Payment from '../pages/Payment';
 // import Checkout from '../pages/Checkout';
-
+import Footer from "../components/Common/Footer";
+import Header from "../components/Common/Header";
 const Main = () => {
   const location = useLocation();
 
   return (
-    <main>
-      <AnimatedPage>
-        <AnimatePresence mode="wait">
-          <Routes key={location.pathname} location={location}>
-            <Route path="/" element={<Home />} />
+    <main className="relative  pb-[23rem]">
+      <Header />
+      <Routes key={location.pathname} location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/orders/new" element={<NewOrder />} />
+        <Route path="/" element={<ProtectedRoute />}>
+          <Route path="/" element={<Navigate to="/dashboard" />} />
 
-            <Route path="/" element={<ProtectedRoute />}>
-              <Route path="/" element={<Navigate to="/dashboard" />} />
-              {/* // Pages:  Checkout Rating  */}
+          {/* Dashboard */}
+          <Route path="/dashboard" element={<Dashboard />} />
 
-              {/* Dashboard */}
-              <Route path="/dashboard" element={<Dashboard />} />
+          {/* Order */}
+          <Route path="/orders/:id" element={<OrderDetails />} />
+          <Route path="/orders/:id/update" element={<UpdateOrder />} />
+        </Route>
 
-              {/* Order */}
-              <Route path="/orders/new" element={<NewOrder />} />
-              <Route path="/orders/:id" element={<OrderDetails />} />
-              <Route path="/orders/:id/update" element={<UpdateOrder />} />
-            </Route>
-
-            <Route path="/login" element={<LoginForm />} />
-            {/* <Route path="/register" element={<Register />} /> */}
-            <Route path="/*" element={<NotFound />} />
-          </Routes>
-        </AnimatePresence>
-      </AnimatedPage>
+        {/* <Route path="/register" element={<Register />} /> */}
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
+      <Footer />
     </main>
   );
 };
