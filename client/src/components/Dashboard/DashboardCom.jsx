@@ -11,9 +11,6 @@ const DashboardCom = () => {
           <Ordercurrent />
           <Dashtable />
         </section>
-        {/* <section>
-          <Orders />
-        </section> */}
       </div>
     </>
   );

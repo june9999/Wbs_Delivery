@@ -135,6 +135,7 @@ const Bell = () => {
       <div className="navbar">
         <div className="icons">
           <div className="icon" onClick={() => setOpen(!open)}>
+            {/* <img src={Notification} alt="Notification" /> */}
             {notifications.length > 0 && (
               <div className="counter">{notifications.length}</div>
             )}
@@ -142,14 +143,20 @@ const Bell = () => {
           <div className="icon" onClick={() => setOpen(!open)}>
             <img src={bell} className="mr-3 h-3 sm:h-5" alt="notification" />
           </div>
+          {/* <div className="icon" onClick={() => setOpen(!open)}>
+          <img alt="icon2" />
+        </div> */}
         </div>
         {open && (
           <div className="notifications">
             {notifications.map(n => displayNotification(n))}
+
             <p className="nButton" onClick={handleRead}></p>
           </div>
         )}
       </div>
+
+      {/* flowbite bell */}
     </>
   );
 };

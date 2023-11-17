@@ -2,7 +2,6 @@ import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
 import { script } from "./chatbot";
 import { chatbotStepifyScript } from "./chatbotStepifyScript";
-import botAvatar from "../../../assets/catbot.png";
 
 const theme = {
   fontFamily: "Roboto, sans-serif",
@@ -29,7 +28,6 @@ const ChatbotStart = () => (
       <ChatBot
         headerTitle="Cat Bot"
         steps={chatbotStepifyScript(script)}
-        botAvatar={botAvatar}
         width="600px"
         height="600px"
         bubbleStyle={bubbleStyle}

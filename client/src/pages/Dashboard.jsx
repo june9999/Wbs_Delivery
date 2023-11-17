@@ -5,9 +5,9 @@ import Orders from "../components/Dashboard/Orders";
 import Userprofile from "../components/Dashboard/UserProfile/Userprofile";
 import NavbarSide from "../components/Dashboard/NavbarSide";
 import Ordertoclaim from "../components/Dashboard/Ordertoclaim";
-import NewOrder from "../components/Dashboard/CreateOrders/NewOrder";
 import DashboardCom from "../components/Dashboard/DashboardCom";
 import FormContact from "../components/Dashboard/Support/FormContact";
+import ProjMap from "../components/Dashboard/CreateOrders/ProjMap";
 
 const Dashboard = () => {
   const [displayPage, setDisplayPage] = useState(5);
@@ -79,7 +79,7 @@ const Dashboard = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <NewOrder />
+                <ProjMap />
               </motion.div>
             )}
           </AnimatePresence>
