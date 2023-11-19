@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/Auth";
 import WarnToLogin from "./WarnToLogin";
+import axios from "../../../axiosInstance";
 
 const TestInformation = ({ order, setOrder }) => {
   const orders = order;
@@ -29,12 +30,17 @@ const TestInformation = ({ order, setOrder }) => {
   }, [duration, distance]);
 
   console.log(showWarn);
-  const Clickhandler = () => {
+  const Clickhandler = async () => {
     console.log(user);
     if (!user) {
       setShoWarn(true);
     }
-    // post
+    try {
+      const res = await axios.post("/api/Orders", order);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

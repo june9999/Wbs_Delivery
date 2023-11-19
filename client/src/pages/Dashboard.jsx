@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import AnimatedPage from "../components/Dashboard/AnimatedPage";
-import Orders from "../components/Dashboard/Orders";
 import Userprofile from "../components/Dashboard/UserProfile/Userprofile";
 import NavbarSide from "../components/Dashboard/NavbarSide";
-import Ordertoclaim from "../components/Dashboard/Ordertoclaim";
-import DashboardCom from "../components/Dashboard/DashboardCom";
+import Ordertoclaim from "../components/Dashboard/Index/Ordertoclaim";
+import DashboardCom from "../components/Dashboard/Index/DashboardCom";
 import FormContact from "../components/Dashboard/Support/FormContact";
 import ProjMap from "../components/Dashboard/CreateOrders/ProjMap";
 
@@ -42,16 +41,8 @@ const Dashboard = () => {
                 <Ordertoclaim />
               </motion.div>
             )}
-            {displayPage === 0 && (
-              <motion.div
-                key="orders"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <Orders />
-              </motion.div>
-            )}
+
+            {/*userprofile  */}
             {displayPage === 1 && (
               <motion.div
                 key="userprofile"
@@ -62,6 +53,7 @@ const Dashboard = () => {
                 <Userprofile />
               </motion.div>
             )}
+            {/* Robot */}
             {displayPage === 2 && (
               <motion.div
                 key="contact"
@@ -72,6 +64,7 @@ const Dashboard = () => {
                 <FormContact />
               </motion.div>
             )}
+            {/* new order creation */}
             {displayPage === 4 && (
               <motion.div
                 key="neworder"

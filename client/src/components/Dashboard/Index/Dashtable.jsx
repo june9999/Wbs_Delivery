@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import TableItems from './TableItems';
-import axios from '../axiosInstance';
-import { v4 as uuidv4 } from 'uuid';
-import CatHide from '../assets/cat-hide.png';
+import React, { useEffect, useState } from "react";
+import TableItems from "./TableItems";
+import axios from "../../../axiosInstance";
+import { v4 as uuidv4 } from "uuid";
 
 const Dashtable = () => {
   const [Orders, setOrders] = useState(null); // Orders array from backend
   useEffect(() => {
     axios
       .get(`/api/orders`)
-      .then((res) => {
+      .then(res => {
         setOrders(res.data);
       })
-      .catch((e) => console.log(e));
+      .catch(e => console.log(e));
   }, []);
-  console.log('🚀 ~ file: Dashtable.jsx:17 ~ Dashtable ~ Orders:', Orders);
+  console.log("🚀 ~ file: Dashtable.jsx:17 ~ Dashtable ~ Orders:", Orders);
 
   return (
     <>
@@ -28,21 +27,6 @@ const Dashtable = () => {
               <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-primary-100 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
-                    {/* <th scope="col" className="px-4 py-3">
-                      Order id
-                    </th> */}
-                    {/* <th scope="col" className="px-4 py-3">
-                      Pickup location
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Drop location
-                    </th> */}
-                    {/* <th scope="col" className="px-4 py-3">
-                      type
-                    </th> */}
-                    {/* <th scope="col" className="px-4 py-3">
-                      Employee Id
-                    </th> */}
                     <th scope="col" className="px-4 py-3">
                       Status
                     </th>
@@ -59,15 +43,15 @@ const Dashtable = () => {
                 </thead>
                 <tbody>
                   {Orders &&
-                    Orders.map((order) => {
+                    Orders.map(order => {
                       console.log(
-                        '🚀 ~ file: Dashtable.jsx:77 ~ Dashtable ~ order:',
-                        order
+                        "🚀 ~ file: Dashtable.jsx:77 ~ Dashtable ~ order:",
+                        order,
                       );
 
                       console.log(
-                        '🚀 ~ file: Dashtable.jsx:87 ~ Dashtable ~ Orders:',
-                        Orders
+                        "🚀 ~ file: Dashtable.jsx:87 ~ Dashtable ~ Orders:",
+                        Orders,
                       );
                       return (
                         <TableItems
@@ -93,11 +77,6 @@ const Dashtable = () => {
           </div>
         </div>
       </section>
-      <img
-        className="mx-auto mt-8 rounded-lg"
-        src={CatHide}
-        alt="cat in bike basket"
-      />
     </>
   );
 };

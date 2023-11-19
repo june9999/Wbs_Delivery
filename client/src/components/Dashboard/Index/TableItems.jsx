@@ -1,7 +1,7 @@
 import React from "react";
-import { AuthContext } from "../context/Auth";
+import { AuthContext } from "../../../context/Auth";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import axios from "../axiosInstance";
+import axios from "../../../axiosInstance";
 import { useContext } from "react";
 import { SlMagnifier } from "react-icons/sl";
 

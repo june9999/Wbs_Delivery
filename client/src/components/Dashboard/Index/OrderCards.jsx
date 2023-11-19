@@ -1,6 +1,6 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import axios from "../axiosInstance";
-import { AuthContext } from "../context/Auth";
+import axios from "../../../axiosInstance";
+import { AuthContext } from "../../../context/Auth";
 import React, { useContext } from "react";
 
 const OrderCards = ({ order, Orders, setOrders }) => {
@@ -12,26 +12,26 @@ const OrderCards = ({ order, Orders, setOrders }) => {
   const handleDelete = () => {
     axios
       .delete(`/api/Orders/${id}`)
-      .then((res) => {
-        const newOrders = Orders.filter((e) => e._id !== order._id);
+      .then(res => {
+        const newOrders = Orders.filter(e => e._id !== order._id);
         setOrders(newOrders);
       })
-      .catch((e) => console.log(e));
+      .catch(e => console.log(e));
   };
 
   const handleClaim = () => {
     order.claimed = true;
     order.employeeId = user._id;
-    axios.put(`/api/Orders/${id}`, order).then((res) => {
-      const newOrders = Orders.filter((e) => e._id !== order._id);
+    axios.put(`/api/Orders/${id}`, order).then(res => {
+      const newOrders = Orders.filter(e => e._id !== order._id);
       setOrders(newOrders);
     });
   };
 
   const handleFinishedOrder = () => {
     order.delivered = true;
-    axios.put(`/api/Orders/${id}`, order).then((res) => {
-      const newOrders = Orders.filter((e) => e._id !== order._id);
+    axios.put(`/api/Orders/${id}`, order).then(res => {
+      const newOrders = Orders.filter(e => e._id !== order._id);
       setOrders(newOrders);
     });
   };

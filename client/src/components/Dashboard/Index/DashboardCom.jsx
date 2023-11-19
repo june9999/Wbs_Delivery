@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Orders from "./Orders";
-import Ordercurrent from "../Ordercurrent";
-import Dashtable from "../Dashtable";
+import Ordercurrent from "./Ordercurrent";
+import Dashtable from "./Dashtable";
 
 const DashboardCom = () => {
   return (

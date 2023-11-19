@@ -53,5 +53,6 @@ io.on("connection", (socket) => {
 
 connectDB().then(() => {
   httpServer.listen(PORT);
+  console.log(PORT);
   // app.listen(PORT, () => console.log("🚀 ~ file: index.js:11 ~ PORT:", PORT));
 });

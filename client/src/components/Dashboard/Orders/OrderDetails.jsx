@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import axios from "../axiosInstance";
+import axios from "../../../axiosInstance";
 
 const OrderDetails = () => {
   const { id } = useParams();
@@ -80,7 +80,6 @@ const OrderDetails = () => {
                     </dt>
                     <dd className="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">
                       <p>
-                        {" "}
                         {order.height}m x {order.length}m x {order.width}m
                       </p>{" "}
                     </dd>
