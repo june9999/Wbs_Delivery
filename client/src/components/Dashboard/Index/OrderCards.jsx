@@ -67,7 +67,7 @@ const OrderCards = ({ order, Orders, setOrders }) => {
               navigate(`/orders/${order._id}`);
             }}
             type="submit"
-            className="text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-[1rem]"
+            className="text-white bg-primary-100 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-[1rem]"
           >
             Details
           </button>
@@ -76,7 +76,7 @@ const OrderCards = ({ order, Orders, setOrders }) => {
             <button
               onClick={handleClaim}
               type="submit"
-              className="text-white bg-primary-400 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 shadow-lg mr-2"
+              className="text-white bg-primary-100 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 shadow-lg mr-2"
             >
               Claim
             </button>
@@ -86,7 +86,7 @@ const OrderCards = ({ order, Orders, setOrders }) => {
             <button
               onClick={handleDelete}
               type="submit"
-              className="text-white bg-primary-500 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 shadow-lg mr-2"
+              className="text-white bg-primary-100 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 shadow-lg mr-2"
             >
               Cancel
             </button>

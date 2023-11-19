@@ -11,6 +11,7 @@ const Ordercurrent = () => {
       .get(`/api/Orders/currentOrder`)
       .then(res => {
         setOrders(res.data);
+        console.log(res.data);
       })
       .catch(e => console.log(e));
   }, []);

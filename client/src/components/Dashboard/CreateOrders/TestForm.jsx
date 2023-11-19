@@ -80,10 +80,25 @@ const TestForm = ({ setOrder, order, setShowOrder, setDirectionsResponse }) => {
           </Autocomplete>
         </div>
         <div className="flex gap-[1rem]">
-          <FormItem field="weight" setOrder={setOrder} order={order} />
-          <FormItem field="length" setOrder={setOrder} order={order} />
-          <FormItem field="width" setOrder={setOrder} order={order} />
-          <FormItem field="height" setOrder={setOrder} order={order} />
+          <FormItem
+            field="weight"
+            setOrder={setOrder}
+            order={order}
+            unit={"kg"}
+          />
+          <FormItem
+            field="length"
+            setOrder={setOrder}
+            order={order}
+            unit={"m"}
+          />
+          <FormItem
+            field="width"
+            setOrder={setOrder}
+            order={order}
+            unit={"m"}
+          />
+          <FormItem field="height" setOrder={setOrder} order={order} unit="m" />
         </div>
         {error && "This is out of our service range."}
       </div>

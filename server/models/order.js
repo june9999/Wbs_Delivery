@@ -10,11 +10,31 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: [true, "droplocation is required"],
     },
-    weight: { type: Number,min:0, max: 10, required: [true, "weight is required"] },
-    height: { type: Number,min:0, max: 20, required: [true, "height is required"] },
-    
-    length: { type: Number, min:0,max: 20, required: [true, "length is required"] },
-    width: { type: Number,min:0, max: 20, required: [true, "width is required"] },
+    weight: {
+      type: Number,
+      min: 0,
+      max: 10,
+      required: [true, "weight is required"],
+    },
+    height: {
+      type: Number,
+      min: 0,
+      max: 20,
+      required: [true, "height is required"],
+    },
+
+    length: {
+      type: Number,
+      min: 0,
+      max: 20,
+      required: [true, "length is required"],
+    },
+    width: {
+      type: Number,
+      min: 0,
+      max: 20,
+      required: [true, "width is required"],
+    },
     customerId: {
       type: mongoose.Schema.Types.ObjectId,
       required: [true, "customerId is required"],
@@ -26,11 +46,13 @@ const orderSchema = new mongoose.Schema(
       default: "false",
       required: [true, "claimed is required"],
     },
+    duration: { type: Number, required: [true, "duration is required"] },
+    distance: { type: Number, required: [true, "distance is required"] },
     price: { type: Number, required: [true, "price is required"] },
     paid: {
       type: Boolean,
       default: "false",
-      required: [ "paid is required"],
+      required: ["paid is required"],
     },
     delivered: {
       type: Boolean,
@@ -40,7 +62,7 @@ const orderSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const model = mongoose.model("Order", orderSchema);

@@ -35,13 +35,13 @@ const OrderDetails = () => {
               <h2 className="mb-2 text-xl font-semibold leading-none text-gray-900 md:text-2xl dark:text-white"></h2>
               <div className="">
                 <p className="mb-4 text-xl font-semibold leading-none text-gray-900 md:text-lg dark:text-white">
-                  from
+                  From
                   <br />
                 </p>
                 {order.pickupLocation} <br />
                 <br />
                 <p className="mb-4 text-xl font-semibold leading-none text-gray-900 md:text-lg dark:text-white">
-                  to <br />
+                  To <br />
                 </p>
                 {order.dropLocation}
               </div>

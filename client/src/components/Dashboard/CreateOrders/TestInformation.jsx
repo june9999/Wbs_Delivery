@@ -27,7 +27,7 @@ const TestInformation = ({ order, setOrder }) => {
     ).toFixed(2);
     setPrice(rideFare < minPrice ? minPrice : rideFare);
     setOrder({ ...order, ["price"]: price });
-  }, [duration, distance]);
+  }, [duration, distance, price]);
 
   console.log(showWarn);
   const Clickhandler = async () => {

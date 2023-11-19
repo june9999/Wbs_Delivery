@@ -1,13 +1,13 @@
 import React from "react";
 
-const FormItem = ({ field, setOrder, order }) => {
+const FormItem = ({ field, setOrder, order, unit }) => {
   return (
     <div>
       <label
         htmlFor={field}
         className="block mb-2 text-md capitalize font-medium text-gray-900"
       >
-        {field}
+        {`${field} (${unit})`}
       </label>
       <input
         type="number"
