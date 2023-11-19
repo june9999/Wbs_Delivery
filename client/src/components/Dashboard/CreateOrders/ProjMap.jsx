@@ -21,44 +21,12 @@ const ProjMap = () => {
   const [map, setMap] = useState(null);
   const [directionsResponse, setDirectionsResponse] = useState(null);
 
-  /** @type React.MutableRefObject<HTMLInputElement> */
-  const originRef = useRef();
-  const destinationRef = useRef();
   const [order, setOrder] = useState("");
+  const [showOrder, setShowOrder] = useState(false);
 
   /** @type React.MutableRefObject<HTMLInputElement> */
   if (!isLoaded) {
     return <div>Loading...</div>;
-  }
-
-  async function calculateRoute(e) {
-    e.preventDefault();
-    if (originRef.current.value === "" || destinationRef.current.value === "") {
-      return;
-    }
-    try {
-      const directionsService = new google.maps.DirectionsService();
-      const results = await directionsService
-        .route({
-          origin: originRef.current.value,
-          destination: destinationRef.current.value,
-          travelMode: google.maps.TravelMode.DRIVING,
-        })
-        .then(res => {
-          console.log("🚀 ~ file: ProjMap.jsx:68 ~ .then ~ res:", res);
-          setDirectionsResponse(res);
-          setOrder({
-            ...order,
-            ["distance"]: res.routes[0].legs[0].distance.value,
-            ["duration"]: res.routes[0].legs[0].duration.value,
-            ["pickupLocation"]: originRef.current.value,
-            ["dropLocation"]: destinationRef.current.value,
-          });
-          console.log(order);
-        });
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   return (
@@ -82,17 +50,16 @@ const ProjMap = () => {
             )}
           </GoogleMap>
         </div>
-        <div className="">
+        <div>
           <TestForm
-            originRef={originRef}
-            destinationRef={destinationRef}
-            calculateRoute={calculateRoute}
             setOrder={setOrder}
             order={order}
+            setShowOrder={setShowOrder}
+            setDirectionsResponse={setDirectionsResponse}
           />
         </div>
         <div>
-          <TestInformation setOrder={setOrder} order={order} />
+          {showOrder && <TestInformation setOrder={setOrder} order={order} />}
         </div>
       </div>
     </>

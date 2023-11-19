@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/Auth";
 import axios from "../../../axiosInstance";
-import CatBox from "../../../assets/cat-box.png";
 import ProfileInpit from "./ProfileInpit";
 
 const Userprofile = () => {
   // Where user could change information in user dashboard
   const { user } = useContext(AuthContext);
-  const [userProfile, SetUserProfile] = useState(user);
+  const [userProfile, setUserProfile] = useState(user);
 
   const handlerUpdate = e => {
     e.preventDefault();
@@ -23,12 +22,20 @@ const Userprofile = () => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    SetUserProfile({ ...userProfile, [name]: value });
+    setUserProfile({ ...userProfile, [name]: value });
     console.log(
       "🚀 ~ file: Userprofile.jsx:21 ~ handleChange ~ userProfile:",
       userProfile,
     );
   };
+
+  useEffect(() => {
+    const getUser = async () => {
+      const res = await axios.get("/auth/currentUser");
+      setUserProfile(res.data.user);
+    };
+    getUser();
+  }, []);
 
   return (
     <>
@@ -40,41 +47,49 @@ const Userprofile = () => {
           <form action="#">
             <div className="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
               <ProfileInpit
+                userProfile={userProfile}
                 field="userName"
                 className="sm:col-span-2"
                 handleChange={handleChange}
               />
               <ProfileInpit
+                userProfile={userProfile}
                 field="email"
                 className="sm:col-span-2"
                 handleChange={handleChange}
               />
               <ProfileInpit
+                userProfile={userProfile}
                 field="firstName"
                 className="w-full"
                 handleChange={handleChange}
               />
               <ProfileInpit
+                userProfile={userProfile}
                 field="lastName"
                 className="w-full"
                 handleChange={handleChange}
               />
               <ProfileInpit
+                userProfile={userProfile}
                 field="address"
                 className="w-full"
                 handleChange={handleChange}
               />
               <ProfileInpit
+                userProfile={userProfile}
                 field="city"
                 className="w-full"
                 handleChange={handleChange}
               />
               <ProfileInpit
+                userProfile={userProfile}
                 field="phone"
                 className="w-full"
                 handleChange={handleChange}
               />
               <ProfileInpit
+                userProfile={userProfile}
                 field="zipcode"
                 className="w-full"
                 handleChange={handleChange}

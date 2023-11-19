@@ -10,6 +10,7 @@ import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 import Footer from "../components/Common/Footer";
 import Header from "../components/Common/Header";
+import ProjMap from "./Dashboard/CreateOrders/ProjMap";
 const Main = () => {
   const location = useLocation();
 
@@ -18,6 +19,8 @@ const Main = () => {
       <Header />
       <Routes key={location.pathname} location={location}>
         <Route path="/" element={<Home />} />
+        <Route path="/newOrder" element={<ProjMap />} />
+
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/" element={<Navigate to="/dashboard" />} />
 

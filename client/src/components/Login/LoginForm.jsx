@@ -4,10 +4,7 @@ import { AuthContext } from "../../context/Auth";
 import { Navigate, NavLink } from "react-router-dom";
 const LoginForm = ({ setShowLoginForm, setPopup }) => {
   const context = useContext(AuthContext);
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+  const [user, setUser] = useState({});
 
   const handleChange = e => {
     const { name, value } = e.target;

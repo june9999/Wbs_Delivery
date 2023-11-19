@@ -41,12 +41,6 @@ const login = async (req, res) => {
     if (!currentUser) {
       res.status(400).json({ message: "Invalid login attempt" });
     } else {
-      // WE HAVE A USER!!
-      console.log(
-        "🚀 ~ file: users.js:31 ~ login ~ currentUser:",
-        currentUser.password,
-        password,
-      );
       // IS THE PASSWORD MATCHING???
       const isPasswordValid = await bcrypt.compare(
         password,
@@ -86,7 +80,7 @@ const getLoggedinUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ _id: req.user._id }).select(
-      "_id email username userType firstName lastName address zipcode city phone",
+      "_id email userName userType firstName lastName address zipcode city phone",
     );
     console.log("🚀 ~ file: users.js:71 ~ getLoggedinUser ~ user:", user);
     res.json({ user });

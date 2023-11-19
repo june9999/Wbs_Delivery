@@ -1,16 +1,49 @@
 import { Autocomplete } from "@react-google-maps/api";
 import FormItem from "./FormItem";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-const TestForm = ({
-  originRef,
-  destinationRef,
-  calculateRoute,
-  setOrder,
-  order,
-}) => {
+const TestForm = ({ setOrder, order, setShowOrder, setDirectionsResponse }) => {
+  /** @type React.MutableRefObject<HTMLInputElement> */
+  const originRef = useRef();
+  const destinationRef = useRef();
+  const [error, setError] = useState(false);
+
+  async function calculateRoute(e) {
+    if (originRef.current.value === "" || destinationRef.current.value === "") {
+      return;
+    }
+    try {
+      const directionsService = new google.maps.DirectionsService();
+      const results = await directionsService
+        .route({
+          origin: originRef.current.value,
+          destination: destinationRef.current.value,
+          travelMode: google.maps.TravelMode.DRIVING,
+        })
+        .then(res => {
+          console.log("🚀 ~ file: ProjMap.jsx:68 ~ .then ~ res:", res);
+          setDirectionsResponse(res);
+          setOrder({
+            ...order,
+            ["distance"]: res.routes[0].legs[0].distance.value,
+            ["duration"]: res.routes[0].legs[0].duration.value,
+            ["pickupLocation"]: originRef.current.value,
+            ["dropLocation"]: destinationRef.current.value,
+          });
+          console.log(order);
+          setShowOrder(true);
+        });
+    } catch (error) {
+      setError(true);
+      setShowOrder(false);
+    }
+  }
+  console.log(order);
   return (
-    <form className="m-32 flex gap-4 w-full  ">
+    <form
+      onSubmit={e => e.preventDefault()}
+      className="m-32 flex gap-4 w-full  "
+    >
       <div>
         <div className="flex gap-[1rem] justify-between">
           <Autocomplete>
@@ -52,12 +85,15 @@ const TestForm = ({
           <FormItem field="width" setOrder={setOrder} order={order} />
           <FormItem field="height" setOrder={setOrder} order={order} />
         </div>
+        {error && "This is out of our service range."}
       </div>
 
       <button
         type="submit"
         className="inline-flex items-center px-5 py-2.5 mt-10 text-md font-medium text-center text-black bg-primary-100 rounded-lg focus:ring-4 focus:ring-primary-300 shadow-lg"
-        onClick={calculateRoute}
+        onClick={e => {
+          calculateRoute();
+        }}
       >
         Try it out
       </button>
